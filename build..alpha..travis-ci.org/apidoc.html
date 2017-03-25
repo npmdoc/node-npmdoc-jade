@@ -46,11 +46,11 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="http://jade-lang.com"
-        
+
     >jade (v1.11.0)</a>
 </h1>
 <h4>A clean, whitespace-sensitive template language for writing HTML</h4>
@@ -58,2188 +58,2188 @@
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade">module jade</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler">
             function <span class="apidocSignatureSpan">jade.</span>Compiler
             <span class="apidocSignatureSpan">(node, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer">
             function <span class="apidocSignatureSpan">jade.</span>Lexer
             <span class="apidocSignatureSpan">(str, filename)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser">
             function <span class="apidocSignatureSpan">jade.</span>Parser
             <span class="apidocSignatureSpan">(str, filename, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.__express">
             function <span class="apidocSignatureSpan">jade.</span>__express
             <span class="apidocSignatureSpan">(path, options, fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.compile">
             function <span class="apidocSignatureSpan">jade.</span>compile
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.compileClient">
             function <span class="apidocSignatureSpan">jade.</span>compileClient
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.compileClientWithDependenciesTracked">
             function <span class="apidocSignatureSpan">jade.</span>compileClientWithDependenciesTracked
             <span class="apidocSignatureSpan">(str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.compileFile">
             function <span class="apidocSignatureSpan">jade.</span>compileFile
             <span class="apidocSignatureSpan">(path, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.compileFileClient">
             function <span class="apidocSignatureSpan">jade.</span>compileFileClient
             <span class="apidocSignatureSpan">(path, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.filters">
             function <span class="apidocSignatureSpan">jade.</span>filters
             <span class="apidocSignatureSpan">(name, str, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Block
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.BlockComment">
             function <span class="apidocSignatureSpan">jade.</span>nodes.BlockComment
             <span class="apidocSignatureSpan">(val, block, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Case
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Code">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Code
             <span class="apidocSignatureSpan">(val, buffer, escape)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Comment">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Comment
             <span class="apidocSignatureSpan">(val, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Doctype">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Doctype
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Each">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Each
             <span class="apidocSignatureSpan">(obj, val, key, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Filter">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Filter
             <span class="apidocSignatureSpan">(name, block, attrs)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Literal">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Literal
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Mixin">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Mixin
             <span class="apidocSignatureSpan">(name, args, block, call)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.MixinBlock">
             function <span class="apidocSignatureSpan">jade.</span>nodes.MixinBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Node">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Node
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Tag
             <span class="apidocSignatureSpan">(name, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Text">
             function <span class="apidocSignatureSpan">jade.</span>nodes.Text
             <span class="apidocSignatureSpan">(line)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.render">
             function <span class="apidocSignatureSpan">jade.</span>render
             <span class="apidocSignatureSpan">(str, options, fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.renderFile">
             function <span class="apidocSignatureSpan">jade.</span>renderFile
             <span class="apidocSignatureSpan">(path, options, fn)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>Compiler.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>Lexer.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>Parser.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>cache</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>doctypes</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Block.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.BlockComment.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Case.When.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Case.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Code.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Comment.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Doctype.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Each.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Filter.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Literal.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Mixin.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.MixinBlock.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Node.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Tag.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>nodes.Text.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>runtime</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>selfClosing</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>utils</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Compiler">module jade.Compiler</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.Compiler">
             function <span class="apidocSignatureSpan">jade.</span>Compiler
             <span class="apidocSignatureSpan">(node, options)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Compiler.prototype">module jade.Compiler.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.attrs">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>attrs
             <span class="apidocSignatureSpan">(attrs, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.buffer">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>buffer
             <span class="apidocSignatureSpan">(str, interpolate)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.bufferExpression">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>bufferExpression
             <span class="apidocSignatureSpan">(src)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.compile">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>compile
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.prettyIndent">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>prettyIndent
             <span class="apidocSignatureSpan">(offset, newline)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.setDoctype">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>setDoctype
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visit">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visit
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitAttributes">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitAttributes
             <span class="apidocSignatureSpan">(attrs, attributeBlocks)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitBlock">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitBlock
             <span class="apidocSignatureSpan">(block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitBlockComment">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitBlockComment
             <span class="apidocSignatureSpan">(comment)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitCase">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitCase
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitCode">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitCode
             <span class="apidocSignatureSpan">(code)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitComment">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitComment
             <span class="apidocSignatureSpan">(comment)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitDoctype">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitDoctype
             <span class="apidocSignatureSpan">(doctype)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitEach">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitEach
             <span class="apidocSignatureSpan">(each)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitFilter">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitFilter
             <span class="apidocSignatureSpan">(filter)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitLiteral">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitLiteral
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitMixin">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitMixin
             <span class="apidocSignatureSpan">(mixin)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitMixinBlock">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitMixinBlock
             <span class="apidocSignatureSpan">(block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitNode">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitNode
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitTag">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitTag
             <span class="apidocSignatureSpan">(tag)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitText">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitText
             <span class="apidocSignatureSpan">(text)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Compiler.prototype.visitWhen">
             function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitWhen
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Lexer">module jade.Lexer</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.Lexer">
             function <span class="apidocSignatureSpan">jade.</span>Lexer
             <span class="apidocSignatureSpan">(str, filename)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Lexer.prototype">module jade.Lexer.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.advance">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>advance
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.append">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>append
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.attributesBlock">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>attributesBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.attrs">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>attrs
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.blank">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>blank
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.block">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>block
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.blockCode">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>blockCode
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.bracketExpression">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>bracketExpression
             <span class="apidocSignatureSpan">(skip)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.call">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>call
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.case">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>case
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.className">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>className
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.code">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>code
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.colon">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>colon
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.comment">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>comment
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.conditional">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>conditional
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.consume">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>consume
             <span class="apidocSignatureSpan">(len)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.default">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>default
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.defer">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>defer
             <span class="apidocSignatureSpan">(tok)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.deferred">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>deferred
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.doctype">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>doctype
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.dot">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>dot
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.each">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>each
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.eos">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>eos
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.extends">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>extends
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.fail">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>fail
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.filter">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>filter
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.id">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>id
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.include">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>include
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.includeFiltered">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>includeFiltered
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.indent">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>indent
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.interpolation">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>interpolation
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.lookahead">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>lookahead
             <span class="apidocSignatureSpan">(n)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.mixin">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>mixin
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.mixinBlock">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>mixinBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.next">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>next
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.pipelessText">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>pipelessText
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.prepend">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>prepend
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.scan">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>scan
             <span class="apidocSignatureSpan">(regexp, type)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.stashed">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>stashed
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.tag">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>tag
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.text">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>text
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.textFail">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>textFail
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.tok">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>tok
             <span class="apidocSignatureSpan">(type, val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.when">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>when
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.while">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>while
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Lexer.prototype.yield">
             function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>yield
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Parser">module jade.Parser</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.Parser">
             function <span class="apidocSignatureSpan">jade.</span>Parser
             <span class="apidocSignatureSpan">(str, filename, options)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.Parser.prototype">module jade.Parser.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.accept">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>accept
             <span class="apidocSignatureSpan">(type)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.advance">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>advance
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.block">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>block
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>constructor
             <span class="apidocSignatureSpan">(str, filename, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.context">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>context
             <span class="apidocSignatureSpan">(parser)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.expect">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>expect
             <span class="apidocSignatureSpan">(type)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.line">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>line
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.lookahead">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>lookahead
             <span class="apidocSignatureSpan">(n)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parse">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parse
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseBlock">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseBlockCode">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlockCode
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseBlockExpansion">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlockExpansion
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseCall">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCall
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseCase">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCase
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseCode">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCode
             <span class="apidocSignatureSpan">(afterIf)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseComment">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseComment
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseDefault">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseDefault
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseDoctype">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseDoctype
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseEach">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseEach
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseExpr">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseExpr
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseExtends">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseExtends
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseFilter">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseFilter
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseInclude">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInclude
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseInlineTagsInText">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInlineTagsInText
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseInterpolation">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInterpolation
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseMixin">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseMixin
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseMixinBlock">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseMixinBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseTag">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseTag
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseText">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseText
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseTextBlock">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseTextBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.parseWhen">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseWhen
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.peek">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>peek
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.resolvePath">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>resolvePath
             <span class="apidocSignatureSpan">(path, purpose)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.Parser.prototype.tag">
             function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>tag
             <span class="apidocSignatureSpan">(tag)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes">module jade.nodes</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Block
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.BlockComment">
             function <span class="apidocSignatureSpan">jade.nodes.</span>BlockComment
             <span class="apidocSignatureSpan">(val, block, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Case
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Code">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Code
             <span class="apidocSignatureSpan">(val, buffer, escape)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Comment">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Comment
             <span class="apidocSignatureSpan">(val, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Doctype">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Doctype
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Each">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Each
             <span class="apidocSignatureSpan">(obj, val, key, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Filter">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Filter
             <span class="apidocSignatureSpan">(name, block, attrs)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Literal">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Literal
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Mixin">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Mixin
             <span class="apidocSignatureSpan">(name, args, block, call)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.MixinBlock">
             function <span class="apidocSignatureSpan">jade.nodes.</span>MixinBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Node">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Node
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Tag
             <span class="apidocSignatureSpan">(name, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Text">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Text
             <span class="apidocSignatureSpan">(line)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Block">module jade.nodes.Block</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.Block">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Block
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Block.prototype">module jade.nodes.Block.prototype</a><ol>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>isBlock</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.clone">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>clone
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>constructor
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.includeBlock">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>includeBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.isEmpty">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>isEmpty
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.push">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>push
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.replace">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>replace
             <span class="apidocSignatureSpan">(other)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Block.prototype.unshift">
             function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>unshift
             <span class="apidocSignatureSpan">(node)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.BlockComment">module jade.nodes.BlockComment</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.BlockComment.BlockComment">
             function <span class="apidocSignatureSpan">jade.nodes.</span>BlockComment
             <span class="apidocSignatureSpan">(val, block, buffer)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.BlockComment.prototype">module jade.nodes.BlockComment.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.BlockComment.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.BlockComment.prototype.</span>constructor
             <span class="apidocSignatureSpan">(val, block, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.BlockComment.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Case">module jade.nodes.Case</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case.Case">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Case
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case.When">
             function <span class="apidocSignatureSpan">jade.nodes.Case.</span>When
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Case.When.prototype">module jade.nodes.Case.When.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case.When.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Case.When.prototype.</span>constructor
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Case.When.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Case.prototype">module jade.nodes.Case.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Case.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Case.prototype.</span>constructor
             <span class="apidocSignatureSpan">(expr, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Case.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Code">module jade.nodes.Code</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Code.Code">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Code
             <span class="apidocSignatureSpan">(val, buffer, escape)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Code.prototype">module jade.nodes.Code.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Code.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Code.prototype.</span>constructor
             <span class="apidocSignatureSpan">(val, buffer, escape)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Code.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Comment">module jade.nodes.Comment</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Comment.Comment">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Comment
             <span class="apidocSignatureSpan">(val, buffer)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Comment.prototype">module jade.nodes.Comment.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Comment.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Comment.prototype.</span>constructor
             <span class="apidocSignatureSpan">(val, buffer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Comment.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Doctype">module jade.nodes.Doctype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Doctype.Doctype">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Doctype
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Doctype.prototype">module jade.nodes.Doctype.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Doctype.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Doctype.prototype.</span>constructor
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Doctype.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Each">module jade.nodes.Each</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Each.Each">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Each
             <span class="apidocSignatureSpan">(obj, val, key, block)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Each.prototype">module jade.nodes.Each.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Each.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Each.prototype.</span>constructor
             <span class="apidocSignatureSpan">(obj, val, key, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Each.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Filter">module jade.nodes.Filter</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Filter.Filter">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Filter
             <span class="apidocSignatureSpan">(name, block, attrs)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Filter.prototype">module jade.nodes.Filter.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Filter.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Filter.prototype.</span>constructor
             <span class="apidocSignatureSpan">(name, block, attrs)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Filter.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Literal">module jade.nodes.Literal</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Literal.Literal">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Literal
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Literal.prototype">module jade.nodes.Literal.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Literal.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Literal.prototype.</span>constructor
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Literal.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Mixin">module jade.nodes.Mixin</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Mixin.Mixin">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Mixin
             <span class="apidocSignatureSpan">(name, args, block, call)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Mixin.prototype">module jade.nodes.Mixin.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Mixin.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Mixin.prototype.</span>constructor
             <span class="apidocSignatureSpan">(name, args, block, call)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Mixin.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.MixinBlock">module jade.nodes.MixinBlock</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.MixinBlock.MixinBlock">
             function <span class="apidocSignatureSpan">jade.nodes.</span>MixinBlock
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.MixinBlock.prototype">module jade.nodes.MixinBlock.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.MixinBlock.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.MixinBlock.prototype.</span>constructor
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.MixinBlock.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Node">module jade.nodes.Node</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Node.Node">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Node
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Node.prototype">module jade.nodes.Node.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Node.prototype.clone">
             function <span class="apidocSignatureSpan">jade.nodes.Node.prototype.</span>clone
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Node.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Tag">module jade.nodes.Tag</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag.Tag">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Tag
             <span class="apidocSignatureSpan">(name, block)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Tag.prototype">module jade.nodes.Tag.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag.prototype.canInline">
             function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>canInline
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag.prototype.clone">
             function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>clone
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>constructor
             <span class="apidocSignatureSpan">(name, block)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Tag.prototype.isInline">
             function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>isInline
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Text">module jade.nodes.Text</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Text.Text">
             function <span class="apidocSignatureSpan">jade.nodes.</span>Text
             <span class="apidocSignatureSpan">(line)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes.Text.prototype">module jade.nodes.Text.prototype</a><ol>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">jade.nodes.Text.prototype.</span>isText</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.nodes.Text.prototype.constructor">
             function <span class="apidocSignatureSpan">jade.nodes.Text.prototype.</span>constructor
             <span class="apidocSignatureSpan">(line)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">jade.nodes.Text.prototype.</span>type</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.runtime">module jade.runtime</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.DebugItem">
             function <span class="apidocSignatureSpan">jade.runtime.</span>DebugItem
             <span class="apidocSignatureSpan">(lineno, filename)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.attr">
             function <span class="apidocSignatureSpan">jade.runtime.</span>attr
             <span class="apidocSignatureSpan">(key, val, escaped, terse)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.attrs">
             function <span class="apidocSignatureSpan">jade.runtime.</span>attrs
             <span class="apidocSignatureSpan">(obj, terse)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.cls">
             function <span class="apidocSignatureSpan">jade.runtime.</span>cls
             <span class="apidocSignatureSpan">(classes, escaped)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.escape">
             function <span class="apidocSignatureSpan">jade.runtime.</span>escape
             <span class="apidocSignatureSpan">(html)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.joinClasses">
             function <span class="apidocSignatureSpan">jade.runtime.</span>joinClasses
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.merge">
             function <span class="apidocSignatureSpan">jade.runtime.</span>merge
             <span class="apidocSignatureSpan">(a, b)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.rethrow">
             function <span class="apidocSignatureSpan">jade.runtime.</span>rethrow
             <span class="apidocSignatureSpan">(err, filename, lineno, str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.runtime.style">
             function <span class="apidocSignatureSpan">jade.runtime.</span>style
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.utils">module jade.utils</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.utils.merge">
             function <span class="apidocSignatureSpan">jade.utils.</span>merge
             <span class="apidocSignatureSpan">(a, b)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.utils.stringify">
             function <span class="apidocSignatureSpan">jade.utils.</span>stringify
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.jade.utils.walkAST">
             function <span class="apidocSignatureSpan">jade.utils.</span>walkAST
             <span class="apidocSignatureSpan">(ast, before, after)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade" id="apidoc.module.jade">module jade</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler" id="apidoc.element.jade.Compiler">
         function <span class="apidocSignatureSpan">jade.</span>Compiler
@@ -2266,9 +2266,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer" id="apidoc.element.jade.Lexer">
         function <span class="apidocSignatureSpan">jade.</span>Lexer
@@ -2289,9 +2289,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser" id="apidoc.element.jade.Parser">
         function <span class="apidocSignatureSpan">jade.</span>Parser
@@ -2314,9 +2314,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.__express" id="apidoc.element.jade.__express">
         function <span class="apidocSignatureSpan">jade.</span>__express
@@ -2332,9 +2332,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.compile" id="apidoc.element.jade.compile">
         function <span class="apidocSignatureSpan">jade.</span>compile
@@ -2358,8 +2358,8 @@
       , &#x27;try {&#x27;
       , parsed.body
       , &#x27;} catch (err) {&#x27;
-      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27; + utils.string\
-ify(str) : &#x27;&#x27;) + &#x27;);&#x27;
+      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27; + utils.stringify
+(str) : &#x27;&#x27;) + &#x27;);&#x27;
       , &#x27;}&#x27;
     ].join(&#x27;\n&#x27;);
   } else {
@@ -2396,9 +2396,9 @@ var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
 var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.compileClient" id="apidoc.element.jade.compileClient">
         function <span class="apidocSignatureSpan">jade.</span>compileClient
@@ -2411,9 +2411,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.compileClientWithDependenciesTracked" id="apidoc.element.jade.compileClientWithDependenciesTracked">
         function <span class="apidocSignatureSpan">jade.</span>compileClientWithDependenciesTracked
@@ -2447,9 +2447,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.compileFile" id="apidoc.element.jade.compileFile">
         function <span class="apidocSignatureSpan">jade.</span>compileFile
@@ -2464,9 +2464,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.compileFileClient" id="apidoc.element.jade.compileFileClient">
         function <span class="apidocSignatureSpan">jade.</span>compileFileClient
@@ -2491,9 +2491,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.filters" id="apidoc.element.jade.filters">
         function <span class="apidocSignatureSpan">jade.</span>filters
@@ -2555,9 +2555,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block" id="apidoc.element.jade.nodes.Block">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Block
@@ -2571,9 +2571,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.BlockComment" id="apidoc.element.jade.nodes.BlockComment">
         function <span class="apidocSignatureSpan">jade.</span>nodes.BlockComment
@@ -2588,9 +2588,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case" id="apidoc.element.jade.nodes.Case">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Case
@@ -2604,9 +2604,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Code" id="apidoc.element.jade.nodes.Code">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Code
@@ -2622,9 +2622,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Comment" id="apidoc.element.jade.nodes.Comment">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Comment
@@ -2638,9 +2638,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Doctype" id="apidoc.element.jade.nodes.Doctype">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Doctype
@@ -2653,9 +2653,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Each" id="apidoc.element.jade.nodes.Each">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Each
@@ -2671,9 +2671,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Filter" id="apidoc.element.jade.nodes.Filter">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Filter
@@ -2688,9 +2688,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Literal" id="apidoc.element.jade.nodes.Literal">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Literal
@@ -2703,9 +2703,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Mixin" id="apidoc.element.jade.nodes.Mixin">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Mixin
@@ -2722,9 +2722,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.MixinBlock" id="apidoc.element.jade.nodes.MixinBlock">
         function <span class="apidocSignatureSpan">jade.</span>nodes.MixinBlock
@@ -2735,9 +2735,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Node" id="apidoc.element.jade.nodes.Node">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Node
@@ -2748,9 +2748,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <li>description and source-code<pre class="apidocCodePre">function Node(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag" id="apidoc.element.jade.nodes.Tag">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Tag
@@ -2765,9 +2765,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Text" id="apidoc.element.jade.nodes.Text">
         function <span class="apidocSignatureSpan">jade.</span>nodes.Text
@@ -2780,9 +2780,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.render" id="apidoc.element.jade.render">
         function <span class="apidocSignatureSpan">jade.</span>render
@@ -2831,9 +2831,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 ### Options
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.renderFile" id="apidoc.element.jade.renderFile">
         function <span class="apidocSignatureSpan">jade.</span>renderFile
@@ -2879,62 +2879,62 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
 - `pretty`    Add pretty-indentation whitespace to output _(false by default)_
 ...</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Compiler" id="apidoc.module.jade.Compiler">module jade.Compiler</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.Compiler" id="apidoc.element.jade.Compiler.Compiler">
         function <span class="apidocSignatureSpan">jade.</span>Compiler
@@ -2961,14 +2961,14 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Compiler.prototype" id="apidoc.module.jade.Compiler.prototype">module jade.Compiler.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.attrs" id="apidoc.element.jade.Compiler.prototype.attrs">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>attrs
@@ -3001,7 +3001,7 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
       }
     } else {
       if (buffer) {
-        this.bufferExpression(&#x27;jade.attr(&#x22;&#x27; + key + &#x27;&#x22;, &#x27; + attr.val + &#x27;, &#x27; + utils.stringify(escaped) + &#x27;, &#x27; + utils.stringify(\
+        this.bufferExpression(&#x27;jade.attr(&#x22;&#x27; + key + &#x27;&#x22;, &#x27; + attr.val + &#x27;, &#x27; + utils.stringify(escaped) + &#x27;, &#x27; + utils.stringify(
 this.terse) + &#x27;)&#x27;);
       } else {
         var val = attr.val;
@@ -3042,9 +3042,9 @@ this.terse) + &#x27;)&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.buffer" id="apidoc.element.jade.Compiler.prototype.buffer">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>buffer
@@ -3091,9 +3091,9 @@ this.terse) + &#x27;)&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.bufferExpression" id="apidoc.element.jade.Compiler.prototype.bufferExpression">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>bufferExpression
@@ -3120,9 +3120,9 @@ this.terse) + &#x27;)&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.compile" id="apidoc.element.jade.Compiler.prototype.compile">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>compile
@@ -3169,9 +3169,9 @@ var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
 var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.prettyIndent" id="apidoc.element.jade.Compiler.prototype.prettyIndent">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>prettyIndent
@@ -3188,9 +3188,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.setDoctype" id="apidoc.element.jade.Compiler.prototype.setDoctype">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>setDoctype
@@ -3205,9 +3205,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visit" id="apidoc.element.jade.Compiler.prototype.visit">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visit
@@ -3239,9 +3239,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitAttributes" id="apidoc.element.jade.Compiler.prototype.visitAttributes">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitAttributes
@@ -3262,9 +3262,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitBlock" id="apidoc.element.jade.Compiler.prototype.visitBlock">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitBlock
@@ -3294,9 +3294,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitBlockComment" id="apidoc.element.jade.Compiler.prototype.visitBlockComment">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitBlockComment
@@ -3314,9 +3314,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitCase" id="apidoc.element.jade.Compiler.prototype.visitCase">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitCase
@@ -3334,9 +3334,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitCode" id="apidoc.element.jade.Compiler.prototype.visitCode">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitCode
@@ -3368,9 +3368,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitComment" id="apidoc.element.jade.Compiler.prototype.visitComment">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitComment
@@ -3385,9 +3385,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitDoctype" id="apidoc.element.jade.Compiler.prototype.visitDoctype">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitDoctype
@@ -3405,9 +3405,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitEach" id="apidoc.element.jade.Compiler.prototype.visitEach">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitEach
@@ -3459,9 +3459,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitFilter" id="apidoc.element.jade.Compiler.prototype.visitFilter">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitFilter
@@ -3482,9 +3482,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitLiteral" id="apidoc.element.jade.Compiler.prototype.visitLiteral">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitLiteral
@@ -3497,9 +3497,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitMixin" id="apidoc.element.jade.Compiler.prototype.visitMixin">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitMixin
@@ -3593,9 +3593,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitMixinBlock" id="apidoc.element.jade.Compiler.prototype.visitMixinBlock">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitMixinBlock
@@ -3610,9 +3610,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitNode" id="apidoc.element.jade.Compiler.prototype.visitNode">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitNode
@@ -3625,9 +3625,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitTag" id="apidoc.element.jade.Compiler.prototype.visitTag">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitTag
@@ -3698,9 +3698,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitText" id="apidoc.element.jade.Compiler.prototype.visitText">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitText
@@ -3713,9 +3713,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Compiler.prototype.visitWhen" id="apidoc.element.jade.Compiler.prototype.visitWhen">
         function <span class="apidocSignatureSpan">jade.Compiler.prototype.</span>visitWhen
@@ -3736,14 +3736,14 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Lexer" id="apidoc.module.jade.Lexer">module jade.Lexer</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.Lexer" id="apidoc.element.jade.Lexer.Lexer">
         function <span class="apidocSignatureSpan">jade.</span>Lexer
@@ -3764,14 +3764,14 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Lexer.prototype" id="apidoc.module.jade.Lexer.prototype">module jade.Lexer.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.advance" id="apidoc.element.jade.Lexer.prototype.advance">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>advance
@@ -3785,9 +3785,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.append" id="apidoc.element.jade.Lexer.prototype.append">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>append
@@ -3808,9 +3808,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.attributesBlock" id="apidoc.element.jade.Lexer.prototype.attributesBlock">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>attributesBlock
@@ -3829,9 +3829,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.attrs" id="apidoc.element.jade.Lexer.prototype.attrs">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>attrs
@@ -3968,9 +3968,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     if (&#x27;/&#x27; == this.input.char ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.blank" id="apidoc.element.jade.Lexer.prototype.blank">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>blank
@@ -3989,9 +3989,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.block" id="apidoc.element.jade.Lexer.prototype.block">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>block
@@ -4013,9 +4013,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.blockCode" id="apidoc.element.jade.Lexer.prototype.blockCode">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>blockCode
@@ -4034,9 +4034,9 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.bracketExpression" id="apidoc.element.jade.Lexer.prototype.bracketExpression">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>bracketExpression
@@ -4050,15 +4050,15 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   if (start != &#x27;(&#x27; &#x26;&#x26; start != &#x27;{&#x27; &#x26;&#x26; start != &#x27;[&#x27;) throw new Error(&#x27;unrecognized start character&#x27;);
   var end = ({&#x27;(&#x27;: &#x27;)&#x27;, &#x27;{&#x27;: &#x27;}&#x27;, &#x27;[&#x27;: &#x27;]&#x27;})[start];
   var range = characterParser.parseMax(this.input, {start: skip + 1});
-  if (this.input[range.end] !== end) throw new Error(&#x27;start character &#x27; + start + &#x27; does not match end character &#x27; + this.input[\
+  if (this.input[range.end] !== end) throw new Error(&#x27;start character &#x27; + start + &#x27; does not match end character &#x27; + this.input[
 range.end]);
   return range;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.call" id="apidoc.element.jade.Lexer.prototype.call">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>call
@@ -4100,9 +4100,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.case" id="apidoc.element.jade.Lexer.prototype.case">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>case
@@ -4115,9 +4115,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.className" id="apidoc.element.jade.Lexer.prototype.className">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>className
@@ -4130,9 +4130,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.code" id="apidoc.element.jade.Lexer.prototype.code">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>code
@@ -4155,9 +4155,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.colon" id="apidoc.element.jade.Lexer.prototype.colon">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>colon
@@ -4176,9 +4176,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.comment" id="apidoc.element.jade.Lexer.prototype.comment">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>comment
@@ -4198,9 +4198,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.conditional" id="apidoc.element.jade.Lexer.prototype.conditional">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>conditional
@@ -4251,9 +4251,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.consume" id="apidoc.element.jade.Lexer.prototype.consume">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>consume
@@ -4266,9 +4266,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.default" id="apidoc.element.jade.Lexer.prototype.default">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>default
@@ -4281,9 +4281,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.defer" id="apidoc.element.jade.Lexer.prototype.defer">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>defer
@@ -4296,9 +4296,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.deferred" id="apidoc.element.jade.Lexer.prototype.deferred">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>deferred
@@ -4312,9 +4312,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.doctype" id="apidoc.element.jade.Lexer.prototype.doctype">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>doctype
@@ -4334,9 +4334,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.dot" id="apidoc.element.jade.Lexer.prototype.dot">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>dot
@@ -4353,9 +4353,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.each" id="apidoc.element.jade.Lexer.prototype.each">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>each
@@ -4376,9 +4376,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.eos" id="apidoc.element.jade.Lexer.prototype.eos">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>eos
@@ -4397,9 +4397,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.extends" id="apidoc.element.jade.Lexer.prototype.extends">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>extends
@@ -4412,9 +4412,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.fail" id="apidoc.element.jade.Lexer.prototype.fail">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>fail
@@ -4427,9 +4427,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.filter" id="apidoc.element.jade.Lexer.prototype.filter">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>filter
@@ -4446,9 +4446,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.id" id="apidoc.element.jade.Lexer.prototype.id">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>id
@@ -4461,9 +4461,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.include" id="apidoc.element.jade.Lexer.prototype.include">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>include
@@ -4476,9 +4476,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.includeFiltered" id="apidoc.element.jade.Lexer.prototype.includeFiltered">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>includeFiltered
@@ -4509,9 +4509,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.indent" id="apidoc.element.jade.Lexer.prototype.indent">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>indent
@@ -4580,9 +4580,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.interpolation" id="apidoc.element.jade.Lexer.prototype.interpolation">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>interpolation
@@ -4600,9 +4600,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.lookahead" id="apidoc.element.jade.Lexer.prototype.lookahead">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>lookahead
@@ -4617,9 +4617,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.mixin" id="apidoc.element.jade.Lexer.prototype.mixin">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>mixin
@@ -4638,9 +4638,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.mixinBlock" id="apidoc.element.jade.Lexer.prototype.mixinBlock">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>mixinBlock
@@ -4657,9 +4657,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.next" id="apidoc.element.jade.Lexer.prototype.next">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>next
@@ -4708,9 +4708,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.pipelessText" id="apidoc.element.jade.Lexer.prototype.pipelessText">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>pipelessText
@@ -4766,9 +4766,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.prepend" id="apidoc.element.jade.Lexer.prototype.prepend">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>prepend
@@ -4789,9 +4789,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.scan" id="apidoc.element.jade.Lexer.prototype.scan">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>scan
@@ -4808,9 +4808,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.stashed" id="apidoc.element.jade.Lexer.prototype.stashed">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>stashed
@@ -4824,9 +4824,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.tag" id="apidoc.element.jade.Lexer.prototype.tag">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>tag
@@ -4857,9 +4857,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.text" id="apidoc.element.jade.Lexer.prototype.text">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>text
@@ -4874,9 +4874,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.textFail" id="apidoc.element.jade.Lexer.prototype.textFail">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>textFail
@@ -4894,9 +4894,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.tok" id="apidoc.element.jade.Lexer.prototype.tok">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>tok
@@ -4913,9 +4913,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.when" id="apidoc.element.jade.Lexer.prototype.when">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>when
@@ -4928,9 +4928,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.while" id="apidoc.element.jade.Lexer.prototype.while">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>while
@@ -4950,9 +4950,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Lexer.prototype.yield" id="apidoc.element.jade.Lexer.prototype.yield">
         function <span class="apidocSignatureSpan">jade.Lexer.prototype.</span>yield
@@ -4965,14 +4965,14 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Parser" id="apidoc.module.jade.Parser">module jade.Parser</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.Parser" id="apidoc.element.jade.Parser.Parser">
         function <span class="apidocSignatureSpan">jade.</span>Parser
@@ -4995,14 +4995,14 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.Parser.prototype" id="apidoc.module.jade.Parser.prototype">module jade.Parser.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.accept" id="apidoc.element.jade.Parser.prototype.accept">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>accept
@@ -5017,9 +5017,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.advance" id="apidoc.element.jade.Parser.prototype.advance">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>advance
@@ -5032,9 +5032,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.block" id="apidoc.element.jade.Parser.prototype.block">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>block
@@ -5061,9 +5061,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.constructor" id="apidoc.element.jade.Parser.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>constructor
@@ -5086,9 +5086,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.context" id="apidoc.element.jade.Parser.prototype.context">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>context
@@ -5105,9 +5105,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.expect" id="apidoc.element.jade.Parser.prototype.expect">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>expect
@@ -5124,9 +5124,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.line" id="apidoc.element.jade.Parser.prototype.line">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>line
@@ -5139,9 +5139,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.lookahead" id="apidoc.element.jade.Parser.prototype.lookahead">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>lookahead
@@ -5154,9 +5154,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parse" id="apidoc.element.jade.Parser.prototype.parse">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parse
@@ -5217,9 +5217,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseBlock" id="apidoc.element.jade.Parser.prototype.parseBlock">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlock
@@ -5271,9 +5271,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseBlockCode" id="apidoc.element.jade.Parser.prototype.parseBlockCode">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlockCode
@@ -5297,9 +5297,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseBlockExpansion" id="apidoc.element.jade.Parser.prototype.parseBlockExpansion">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseBlockExpansion
@@ -5317,9 +5317,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseCall" id="apidoc.element.jade.Parser.prototype.parseCall">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCall
@@ -5343,9 +5343,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseCase" id="apidoc.element.jade.Parser.prototype.parseCase">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCase
@@ -5387,9 +5387,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseCode" id="apidoc.element.jade.Parser.prototype.parseCode">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseCode
@@ -5430,9 +5430,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseComment" id="apidoc.element.jade.Parser.prototype.parseComment">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseComment
@@ -5456,9 +5456,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseDefault" id="apidoc.element.jade.Parser.prototype.parseDefault">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseDefault
@@ -5472,9 +5472,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseDoctype" id="apidoc.element.jade.Parser.prototype.parseDoctype">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseDoctype
@@ -5490,9 +5490,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseEach" id="apidoc.element.jade.Parser.prototype.parseEach">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseEach
@@ -5513,9 +5513,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseExpr" id="apidoc.element.jade.Parser.prototype.parseExpr">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseExpr
@@ -5574,9 +5574,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseExtends" id="apidoc.element.jade.Parser.prototype.parseExtends">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseExtends
@@ -5605,9 +5605,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseFilter" id="apidoc.element.jade.Parser.prototype.parseFilter">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseFilter
@@ -5635,9 +5635,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseInclude" id="apidoc.element.jade.Parser.prototype.parseInclude">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInclude
@@ -5692,9 +5692,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseInlineTagsInText" id="apidoc.element.jade.Parser.prototype.parseInlineTagsInText">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInlineTagsInText
@@ -5734,9 +5734,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseInterpolation" id="apidoc.element.jade.Parser.prototype.parseInterpolation">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseInterpolation
@@ -5752,9 +5752,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseMixin" id="apidoc.element.jade.Parser.prototype.parseMixin">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseMixin
@@ -5782,9 +5782,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseMixinBlock" id="apidoc.element.jade.Parser.prototype.parseMixinBlock">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseMixinBlock
@@ -5801,9 +5801,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseTag" id="apidoc.element.jade.Parser.prototype.parseTag">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseTag
@@ -5821,9 +5821,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseText" id="apidoc.element.jade.Parser.prototype.parseText">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseText
@@ -5843,9 +5843,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseTextBlock" id="apidoc.element.jade.Parser.prototype.parseTextBlock">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseTextBlock
@@ -5866,9 +5866,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.parseWhen" id="apidoc.element.jade.Parser.prototype.parseWhen">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>parseWhen
@@ -5885,9 +5885,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.peek" id="apidoc.element.jade.Parser.prototype.peek">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>peek
@@ -5900,9 +5900,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.resolvePath" id="apidoc.element.jade.Parser.prototype.resolvePath">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>resolvePath
@@ -5930,9 +5930,9 @@ range.end]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.Parser.prototype.tag" id="apidoc.element.jade.Parser.prototype.tag">
         function <span class="apidocSignatureSpan">jade.Parser.prototype.</span>tag
@@ -5955,8 +5955,8 @@ range.end]);
           continue;
         case &#x27;attrs&#x27;:
           if (seenAttrs) {
-            console.warn(this.filename + &#x27;, line &#x27; + this.peek().line + &#x27;:\nYou should not have jade tags with multiple attribut\
-es.&#x27;);
+            console.warn(this.filename + &#x27;, line &#x27; + this.peek().line + &#x27;:\nYou should not have jade tags with multiple attributes
+.&#x27;);
           }
           seenAttrs = true;
           var tok = this.advance();
@@ -6023,14 +6023,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes" id="apidoc.module.jade.nodes">module jade.nodes</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block" id="apidoc.element.jade.nodes.Block">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Block
@@ -6044,9 +6044,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.BlockComment" id="apidoc.element.jade.nodes.BlockComment">
         function <span class="apidocSignatureSpan">jade.nodes.</span>BlockComment
@@ -6061,9 +6061,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case" id="apidoc.element.jade.nodes.Case">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Case
@@ -6077,9 +6077,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Code" id="apidoc.element.jade.nodes.Code">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Code
@@ -6095,9 +6095,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Comment" id="apidoc.element.jade.nodes.Comment">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Comment
@@ -6111,9 +6111,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Doctype" id="apidoc.element.jade.nodes.Doctype">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Doctype
@@ -6126,9 +6126,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Each" id="apidoc.element.jade.nodes.Each">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Each
@@ -6144,9 +6144,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Filter" id="apidoc.element.jade.nodes.Filter">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Filter
@@ -6161,9 +6161,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Literal" id="apidoc.element.jade.nodes.Literal">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Literal
@@ -6176,9 +6176,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Mixin" id="apidoc.element.jade.nodes.Mixin">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Mixin
@@ -6195,9 +6195,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.MixinBlock" id="apidoc.element.jade.nodes.MixinBlock">
         function <span class="apidocSignatureSpan">jade.nodes.</span>MixinBlock
@@ -6208,9 +6208,9 @@ es.&#x27;);
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Node" id="apidoc.element.jade.nodes.Node">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Node
@@ -6221,9 +6221,9 @@ es.&#x27;);
     <li>description and source-code<pre class="apidocCodePre">function Node(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag" id="apidoc.element.jade.nodes.Tag">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Tag
@@ -6238,9 +6238,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Text" id="apidoc.element.jade.nodes.Text">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Text
@@ -6253,14 +6253,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Block" id="apidoc.module.jade.nodes.Block">module jade.nodes.Block</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.Block" id="apidoc.element.jade.nodes.Block.Block">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Block
@@ -6274,16 +6274,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Block.prototype" id="apidoc.module.jade.nodes.Block.prototype">module jade.nodes.Block.prototype</a></h1>
-    
-    
-    
-    
+
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.clone" id="apidoc.element.jade.nodes.Block.prototype.clone">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>clone
@@ -6303,9 +6303,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.constructor" id="apidoc.element.jade.nodes.Block.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>constructor
@@ -6319,9 +6319,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.includeBlock" id="apidoc.element.jade.nodes.Block.prototype.includeBlock">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>includeBlock
@@ -6346,9 +6346,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.isEmpty" id="apidoc.element.jade.nodes.Block.prototype.isEmpty">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>isEmpty
@@ -6361,9 +6361,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.push" id="apidoc.element.jade.nodes.Block.prototype.push">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>push
@@ -6376,9 +6376,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.replace" id="apidoc.element.jade.nodes.Block.prototype.replace">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>replace
@@ -6394,9 +6394,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Block.prototype.unshift" id="apidoc.element.jade.nodes.Block.prototype.unshift">
         function <span class="apidocSignatureSpan">jade.nodes.Block.prototype.</span>unshift
@@ -6409,16 +6409,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.BlockComment" id="apidoc.module.jade.nodes.BlockComment">module jade.nodes.BlockComment</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.BlockComment.BlockComment" id="apidoc.element.jade.nodes.BlockComment.BlockComment">
         function <span class="apidocSignatureSpan">jade.nodes.</span>BlockComment
@@ -6433,14 +6433,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.BlockComment.prototype" id="apidoc.module.jade.nodes.BlockComment.prototype">module jade.nodes.BlockComment.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.BlockComment.prototype.constructor" id="apidoc.element.jade.nodes.BlockComment.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.BlockComment.prototype.</span>constructor
@@ -6455,16 +6455,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Case" id="apidoc.module.jade.nodes.Case">module jade.nodes.Case</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case.Case" id="apidoc.element.jade.nodes.Case.Case">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Case
@@ -6478,9 +6478,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case.When" id="apidoc.element.jade.nodes.Case.When">
         function <span class="apidocSignatureSpan">jade.nodes.Case.</span>When
@@ -6495,14 +6495,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Case.When.prototype" id="apidoc.module.jade.nodes.Case.When.prototype">module jade.nodes.Case.When.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case.When.prototype.constructor" id="apidoc.element.jade.nodes.Case.When.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Case.When.prototype.</span>constructor
@@ -6517,16 +6517,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Case.prototype" id="apidoc.module.jade.nodes.Case.prototype">module jade.nodes.Case.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Case.prototype.constructor" id="apidoc.element.jade.nodes.Case.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Case.prototype.</span>constructor
@@ -6540,16 +6540,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Code" id="apidoc.module.jade.nodes.Code">module jade.nodes.Code</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Code.Code" id="apidoc.element.jade.nodes.Code.Code">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Code
@@ -6565,14 +6565,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Code.prototype" id="apidoc.module.jade.nodes.Code.prototype">module jade.nodes.Code.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Code.prototype.constructor" id="apidoc.element.jade.nodes.Code.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Code.prototype.</span>constructor
@@ -6588,16 +6588,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Comment" id="apidoc.module.jade.nodes.Comment">module jade.nodes.Comment</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Comment.Comment" id="apidoc.element.jade.nodes.Comment.Comment">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Comment
@@ -6611,14 +6611,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Comment.prototype" id="apidoc.module.jade.nodes.Comment.prototype">module jade.nodes.Comment.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Comment.prototype.constructor" id="apidoc.element.jade.nodes.Comment.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Comment.prototype.</span>constructor
@@ -6632,16 +6632,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Doctype" id="apidoc.module.jade.nodes.Doctype">module jade.nodes.Doctype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Doctype.Doctype" id="apidoc.element.jade.nodes.Doctype.Doctype">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Doctype
@@ -6654,14 +6654,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Doctype.prototype" id="apidoc.module.jade.nodes.Doctype.prototype">module jade.nodes.Doctype.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Doctype.prototype.constructor" id="apidoc.element.jade.nodes.Doctype.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Doctype.prototype.</span>constructor
@@ -6674,16 +6674,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Each" id="apidoc.module.jade.nodes.Each">module jade.nodes.Each</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Each.Each" id="apidoc.element.jade.nodes.Each.Each">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Each
@@ -6699,14 +6699,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Each.prototype" id="apidoc.module.jade.nodes.Each.prototype">module jade.nodes.Each.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Each.prototype.constructor" id="apidoc.element.jade.nodes.Each.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Each.prototype.</span>constructor
@@ -6722,16 +6722,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Filter" id="apidoc.module.jade.nodes.Filter">module jade.nodes.Filter</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Filter.Filter" id="apidoc.element.jade.nodes.Filter.Filter">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Filter
@@ -6746,14 +6746,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Filter.prototype" id="apidoc.module.jade.nodes.Filter.prototype">module jade.nodes.Filter.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Filter.prototype.constructor" id="apidoc.element.jade.nodes.Filter.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Filter.prototype.</span>constructor
@@ -6768,16 +6768,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Literal" id="apidoc.module.jade.nodes.Literal">module jade.nodes.Literal</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Literal.Literal" id="apidoc.element.jade.nodes.Literal.Literal">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Literal
@@ -6790,14 +6790,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Literal.prototype" id="apidoc.module.jade.nodes.Literal.prototype">module jade.nodes.Literal.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Literal.prototype.constructor" id="apidoc.element.jade.nodes.Literal.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Literal.prototype.</span>constructor
@@ -6810,16 +6810,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Mixin" id="apidoc.module.jade.nodes.Mixin">module jade.nodes.Mixin</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Mixin.Mixin" id="apidoc.element.jade.nodes.Mixin.Mixin">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Mixin
@@ -6836,14 +6836,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Mixin.prototype" id="apidoc.module.jade.nodes.Mixin.prototype">module jade.nodes.Mixin.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Mixin.prototype.constructor" id="apidoc.element.jade.nodes.Mixin.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Mixin.prototype.</span>constructor
@@ -6860,16 +6860,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.MixinBlock" id="apidoc.module.jade.nodes.MixinBlock">module jade.nodes.MixinBlock</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.MixinBlock.MixinBlock" id="apidoc.element.jade.nodes.MixinBlock.MixinBlock">
         function <span class="apidocSignatureSpan">jade.nodes.</span>MixinBlock
@@ -6880,14 +6880,14 @@ es.&#x27;);
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.MixinBlock.prototype" id="apidoc.module.jade.nodes.MixinBlock.prototype">module jade.nodes.MixinBlock.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.MixinBlock.prototype.constructor" id="apidoc.element.jade.nodes.MixinBlock.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.MixinBlock.prototype.</span>constructor
@@ -6898,16 +6898,16 @@ es.&#x27;);
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Node" id="apidoc.module.jade.nodes.Node">module jade.nodes.Node</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Node.Node" id="apidoc.element.jade.nodes.Node.Node">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Node
@@ -6918,14 +6918,14 @@ es.&#x27;);
     <li>description and source-code<pre class="apidocCodePre">function Node(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Node.prototype" id="apidoc.module.jade.nodes.Node.prototype">module jade.nodes.Node.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Node.prototype.clone" id="apidoc.element.jade.nodes.Node.prototype.clone">
         function <span class="apidocSignatureSpan">jade.nodes.Node.prototype.</span>clone
@@ -6940,16 +6940,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Tag" id="apidoc.module.jade.nodes.Tag">module jade.nodes.Tag</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag.Tag" id="apidoc.element.jade.nodes.Tag.Tag">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Tag
@@ -6964,14 +6964,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Tag.prototype" id="apidoc.module.jade.nodes.Tag.prototype">module jade.nodes.Tag.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag.prototype.canInline" id="apidoc.element.jade.nodes.Tag.prototype.canInline">
         function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>canInline
@@ -7008,9 +7008,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag.prototype.clone" id="apidoc.element.jade.nodes.Tag.prototype.clone">
         function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>clone
@@ -7030,9 +7030,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag.prototype.constructor" id="apidoc.element.jade.nodes.Tag.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>constructor
@@ -7047,9 +7047,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Tag.prototype.isInline" id="apidoc.element.jade.nodes.Tag.prototype.isInline">
         function <span class="apidocSignatureSpan">jade.nodes.Tag.prototype.</span>isInline
@@ -7062,16 +7062,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Text" id="apidoc.module.jade.nodes.Text">module jade.nodes.Text</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Text.Text" id="apidoc.element.jade.nodes.Text.Text">
         function <span class="apidocSignatureSpan">jade.nodes.</span>Text
@@ -7084,16 +7084,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.nodes.Text.prototype" id="apidoc.module.jade.nodes.Text.prototype">module jade.nodes.Text.prototype</a></h1>
-    
-    
-    
-    
+
+
+
+
     <h2>
         <a href="#apidoc.element.jade.nodes.Text.prototype.constructor" id="apidoc.element.jade.nodes.Text.prototype.constructor">
         function <span class="apidocSignatureSpan">jade.nodes.Text.prototype.</span>constructor
@@ -7106,16 +7106,16 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.runtime" id="apidoc.module.jade.runtime">module jade.runtime</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.DebugItem" id="apidoc.element.jade.runtime.DebugItem">
         function <span class="apidocSignatureSpan">jade.runtime.</span>DebugItem
@@ -7129,9 +7129,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.attr" id="apidoc.element.jade.runtime.attr">
         function <span class="apidocSignatureSpan">jade.runtime.</span>attr
@@ -7173,9 +7173,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.attrs" id="apidoc.element.jade.runtime.attrs">
         function <span class="apidocSignatureSpan">jade.runtime.</span>attrs
@@ -7207,9 +7207,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.cls" id="apidoc.element.jade.runtime.cls">
         function <span class="apidocSignatureSpan">jade.runtime.</span>cls
@@ -7235,9 +7235,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.escape" id="apidoc.element.jade.runtime.escape">
         function <span class="apidocSignatureSpan">jade.runtime.</span>escape
@@ -7252,9 +7252,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.joinClasses" id="apidoc.element.jade.runtime.joinClasses">
         function <span class="apidocSignatureSpan">jade.runtime.</span>joinClasses
@@ -7269,9 +7269,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.merge" id="apidoc.element.jade.runtime.merge">
         function <span class="apidocSignatureSpan">jade.runtime.</span>merge
@@ -7308,9 +7308,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.rethrow" id="apidoc.element.jade.runtime.rethrow">
         function <span class="apidocSignatureSpan">jade.runtime.</span>rethrow
@@ -7351,9 +7351,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.runtime.style" id="apidoc.element.jade.runtime.style">
         function <span class="apidocSignatureSpan">jade.runtime.</span>style
@@ -7372,14 +7372,14 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.jade.utils" id="apidoc.module.jade.utils">module jade.utils</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.jade.utils.merge" id="apidoc.element.jade.utils.merge">
         function <span class="apidocSignatureSpan">jade.utils.</span>merge
@@ -7393,9 +7393,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.utils.stringify" id="apidoc.element.jade.utils.stringify">
         function <span class="apidocSignatureSpan">jade.utils.</span>stringify
@@ -7410,9 +7410,9 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.jade.utils.walkAST" id="apidoc.element.jade.utils.walkAST">
         function <span class="apidocSignatureSpan">jade.utils.</span>walkAST
@@ -7453,8 +7453,8 @@ es.&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocFooterDiv">
