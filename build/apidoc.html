@@ -297,6 +297,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>jade</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.</span>Compiler.prototype</span>
 
         </li>
@@ -1419,6 +1425,154 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.jade.jade">module jade.jade</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.Compiler">
+            function <span class="apidocSignatureSpan">jade.jade.</span>Compiler
+            <span class="apidocSignatureSpan">(node, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.Lexer">
+            function <span class="apidocSignatureSpan">jade.jade.</span>Lexer
+            <span class="apidocSignatureSpan">(str, filename)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.Parser">
+            function <span class="apidocSignatureSpan">jade.jade.</span>Parser
+            <span class="apidocSignatureSpan">(str, filename, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.__express">
+            function <span class="apidocSignatureSpan">jade.jade.</span>__express
+            <span class="apidocSignatureSpan">(path, options, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.compile">
+            function <span class="apidocSignatureSpan">jade.jade.</span>compile
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.compileClient">
+            function <span class="apidocSignatureSpan">jade.jade.</span>compileClient
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.compileClientWithDependenciesTracked">
+            function <span class="apidocSignatureSpan">jade.jade.</span>compileClientWithDependenciesTracked
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.compileFile">
+            function <span class="apidocSignatureSpan">jade.jade.</span>compileFile
+            <span class="apidocSignatureSpan">(path, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.compileFileClient">
+            function <span class="apidocSignatureSpan">jade.jade.</span>compileFileClient
+            <span class="apidocSignatureSpan">(path, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.filters">
+            function <span class="apidocSignatureSpan">jade.jade.</span>filters
+            <span class="apidocSignatureSpan">(name, str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.render">
+            function <span class="apidocSignatureSpan">jade.jade.</span>render
+            <span class="apidocSignatureSpan">(str, options, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jade.jade.renderFile">
+            function <span class="apidocSignatureSpan">jade.jade.</span>renderFile
+            <span class="apidocSignatureSpan">(path, options, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>cache</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>doctypes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>nodes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>runtime</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>selfClosing</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jade.jade.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.jade.nodes">module jade.nodes</a><ol>
 
         <li>
@@ -2409,7 +2563,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <li>description and source-code<pre class="apidocCodePre">compileClient = function (str, options) {
   return exports.compileClientWithDependenciesTracked(str, options).body;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  var res = function(locals){ return fn(locals, Object.create(runtime)) };
+  if (options.client) {
+    res.toString = function () {
+      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
+      err.name = &#x27;Warning&#x27;;
+      console.error(err.stack || /* istanbul ignore next */ err.message);
+      return exports.<span class="apidocCodeKeywordSpan">compileClient</span>(str, options);
+    };
+  }
+  res.dependencies = parsed.dependencies;
+  return res;
+};
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -2445,7 +2615,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 
   return {body: &#x27;function &#x27; + name + &#x27;(locals) {\n&#x27; + fn + &#x27;\n}&#x27;, dependencies: parsed.dependencies};
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {String} str
+* @param {Options} options
+* @return {String}
+* @api public
+*/
+exports.compileClient = function (str, options) {
+ return exports.<span class="apidocCodeKeywordSpan">compileClientWithDependenciesTracked</span>(str, options).body;
+};
+
+/**
+* Compile a `Function` representation of the given jade file.
+*
+* Options:
+*
+...</pre></li>
     </ul>
 
 
@@ -2929,6 +3115,8 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
 
 
 
+
+
 </div>
 
 <div class="apidocSectionDiv">
@@ -3040,7 +3228,23 @@ this.terse) + &#x27;)&#x27;);
   }
   return &#x27;{&#x27; + buf.join(&#x27;,&#x27;) + &#x27;}&#x27;;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  } else {
+    this.buf.push(&#x27;}&#x27;);
+  }
+}
+
+if (attrsBlocks.length) {
+  if (attrs.length) {
+    var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
+    attrsBlocks.unshift(val);
+  }
+  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+} else if (attrs.length) {
+  var val = this.attrs(attrs);
+  this.buf.push(&#x27;attributes: &#x27; + val);
+}
+...</pre></li>
     </ul>
 
 
@@ -3089,7 +3293,23 @@ this.terse) + &#x27;)&#x27;);
     this.lastBufferedIdx = this.buf.length;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+buffer: function (str, interpolate) {
+  var self = this;
+  if (interpolate) {
+    var match = /(\\)?([#!]){((?:.|\n)*)$/.exec(str);
+    if (match) {
+      this.<span class="apidocCodeKeywordSpan">buffer</span>(str.substr(0, match.index), false);
+      if (match[1]) { // escape
+        this.buffer(match[2] + &#x27;{&#x27;, false);
+        this.buffer(match[3], true);
+        return;
+      } else {
+        var rest = match[3];
+        var range = parseJSExpression(rest);
+...</pre></li>
     </ul>
 
 
@@ -3118,7 +3338,24 @@ this.terse) + &#x27;)&#x27;);
     this.lastBufferedIdx = this.buf.length;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      this.buffer(match[2] + &#x27;{&#x27;, false);
+      this.buffer(match[3], true);
+      return;
+    } else {
+      var rest = match[3];
+      var range = parseJSExpression(rest);
+      var code = (&#x27;!&#x27; == match[2] ? &#x27;&#x27; : &#x27;jade.escape&#x27;) + &#x22;((jade_interp = &#x22; + range.src
+ + &#x22;) == null ? &#x27;&#x27; : jade_interp)&#x22;;
+      this.<span class="apidocCodeKeywordSpan">bufferExpression</span>(code);
+      this.buffer(rest.substr(range.end + 1), true);
+      return;
+    }
+  }
+}
+
+str = utils.stringify(str);
+...</pre></li>
     </ul>
 
 
@@ -3186,7 +3423,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   if (this.parentIndents)
     this.buf.push(&#x22;buf.push.apply(buf, jade_indent);&#x22;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  visitBlock: function(block){
+    var len = block.nodes.length
+, escape = this.escape
+, pp = this.pp
+
+    // Pretty print multi-line text
+    if (pp &#x26;&#x26; len &#x3e; 1 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[0].isText &#x26;&#x26; block.nodes[1].isText)
+this.<span class="apidocCodeKeywordSpan">prettyIndent</span>(1, true);
+
+    for (var i = 0; i &#x3c; len; ++i) {
+// Pretty print text
+if (pp &#x26;&#x26; i &#x3e; 0 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[i].isText &#x26;&#x26; block.nodes[i-1].isText)
+  this.prettyIndent(1, false);
+
+this.visit(block.nodes[i]);
+...</pre></li>
     </ul>
 
 
@@ -3203,7 +3456,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   this.terse = this.doctype.toLowerCase() == &#x27;&#x3c;!doctype html&#x3e;&#x27;;
   this.xml = 0 == this.doctype.indexOf(&#x27;&#x3c;?xml&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  this.debug = false !== options.compileDebug;
+  this.indents = 0;
+  this.parentIndents = 0;
+  this.terse = false;
+  this.mixins = {};
+  this.dynamicMixins = false;
+  if (options.doctype) this.<span class="apidocCodeKeywordSpan">setDoctype</span>(options.doctype);
+};
+
+/**
+ * Compiler prototype.
+ */
+
+Compiler.prototype = {
+...</pre></li>
     </ul>
 
 
@@ -3237,7 +3506,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 
   if (debug) this.buf.push(&#x27;jade_debug.shift();&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api public
+ */
+
+compile: function(){
+  this.buf = [];
+  if (this.pp) this.buf.push(&#x22;var jade_indent = [];&#x22;);
+  this.lastBufferedIdx = -1;
+  this.<span class="apidocCodeKeywordSpan">visit</span>(this.node);
+  if (!this.dynamicMixins) {
+    // if there are no dynamic mixins we can remove any un-used mixins
+    var mixinNames = Object.keys(this.mixins);
+    for (var i = 0; i &#x3c; mixinNames.length; i++) {
+      var mixin = this.mixins[mixinNames[i]];
+      if (!mixin.used) {
+        for (var x = 0; x &#x3c; mixin.instances.length; x++) {
+...</pre></li>
     </ul>
 
 
@@ -3260,7 +3545,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     this.attrs(attrs, true);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// pretty print
+if (pp &#x26;&#x26; !tag.isInline())
+  this.prettyIndent(0, true);
+
+if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
+  this.buffer(&#x27;&#x3c;&#x27;);
+  bufferName();
+  this.<span class="apidocCodeKeywordSpan">visitAttributes</span>(tag.attrs, tag.attributeBlocks.slice());
+  this.terse
+    ? this.buffer(&#x27;&#x3e;&#x27;)
+    : this.buffer(&#x27;/&#x3e;&#x27;);
+  // if it is non-empty throw an error
+  if (tag.block &#x26;&#x26;
+      !(tag.block.type === &#x27;Block&#x27; &#x26;&#x26; tag.block.nodes.length === 0) &#x26;&#x26;
+      tag.block.nodes.some(function (tag) {
+...</pre></li>
     </ul>
 
 
@@ -3366,7 +3667,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     if (!code.buffer) this.buf.push(&#x27;}&#x27;);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+    } else {
+// Optimize attributes buffering
+this.buffer(&#x27;&#x3c;&#x27;);
+bufferName();
+this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
+this.buffer(&#x27;&#x3e;&#x27;);
+if (tag.code) this.<span class="apidocCodeKeywordSpan">visitCode</span>(tag.code);
+this.visit(tag.block);
+
+// pretty print
+if (pp &#x26;&#x26; !tag.isInline() &#x26;&#x26; &#x27;pre&#x27; != tag.name &#x26;&#x26; !tag.canInline())
+  this.prettyIndent(0, true);
+
+this.buffer(&#x27;&#x3c;/&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -3403,7 +3720,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   if (this.doctype) this.buffer(this.doctype);
   this.hasCompiledDoctype = true;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  else self.buffer(name);
+}
+
+if (&#x27;pre&#x27; == tag.name) this.escape = true;
+
+if (!this.hasCompiledTag) {
+  if (!this.hasCompiledDoctype &#x26;&#x26; &#x27;html&#x27; == name) {
+    this.<span class="apidocCodeKeywordSpan">visitDoctype</span>();
+  }
+  this.hasCompiledTag = true;
+}
+
+// pretty print
+if (pp &#x26;&#x26; !tag.isInline())
+  this.prettyIndent(0, true);
+...</pre></li>
     </ul>
 
 
@@ -3623,7 +3956,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <li>description and source-code<pre class="apidocCodePre">visitNode = function (node){
   return this[&#x27;visit&#x27; + node.type](node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Massive hack to fix our context
+  // stack for - else[ if] etc
+  if (false === node.debug &#x26;&#x26; this.debug) {
+    this.buf.pop();
+    this.buf.pop();
+  }
+
+  this.<span class="apidocCodeKeywordSpan">visitNode</span>(node);
+
+  if (debug) this.buf.push(&#x27;jade_debug.shift();&#x27;);
+},
+
+/**
+ * Visit `node`.
+ *
+...</pre></li>
     </ul>
 
 
@@ -3783,7 +4132,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   return this.stashed()
     || this.next();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Return the next token object.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+advance: function(){
+  return this.lexer.<span class="apidocCodeKeywordSpan">advance</span>();
+},
+
+/**
+ * Single token lookahead.
+ *
+ * @return {Object}
+ * @api private
+...</pre></li>
     </ul>
 
 
@@ -3806,7 +4171,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.yield()
+|| this.doctype()
+|| this.interpolation()
+|| this[&#x22;case&#x22;]()
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.<span class="apidocCodeKeywordSpan">append</span>()
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+...</pre></li>
     </ul>
 
 
@@ -3827,7 +4208,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     return this.tok(&#x27;&#x26;attributes&#x27;, args.src);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.<span class="apidocCodeKeywordSpan">attributesBlock</span>()
+|| this.indent()
+|| this.text()
+|| this.comment()
+|| this.colon()
+|| this.dot()
+|| this.textFail()
+|| this.fail();
+...</pre></li>
     </ul>
 
 
@@ -3966,7 +4363,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     }
 
     if (&#x27;/&#x27; == this.input.char ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  } else {
+    this.buf.push(&#x27;}&#x27;);
+  }
+}
+
+if (attrsBlocks.length) {
+  if (attrs.length) {
+    var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
+    attrsBlocks.unshift(val);
+  }
+  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+} else if (attrs.length) {
+  var val = this.attrs(attrs);
+  this.buf.push(&#x27;attributes: &#x27; + val);
+}
+...</pre></li>
     </ul>
 
 
@@ -3987,7 +4400,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     return this.next();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @return {Object}
+ * @api private
+ */
+
+next: function() {
+  return this.deferred()
+    || this.<span class="apidocCodeKeywordSpan">blank</span>()
+    || this.eos()
+    || this.pipelessText()
+    || this.yield()
+    || this.doctype()
+    || this.interpolation()
+    || this[&#x22;case&#x22;]()
+    || this.when()
+...</pre></li>
     </ul>
 
 
@@ -4011,7 +4440,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.interpolation()
+|| this[&#x22;case&#x22;]()
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.<span class="apidocCodeKeywordSpan">block</span>()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+...</pre></li>
     </ul>
 
 
@@ -4032,7 +4477,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.<span class="apidocCodeKeywordSpan">blockCode</span>()
+|| this.code()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+|| this.indent()
+|| this.text()
+...</pre></li>
     </ul>
 
 
@@ -4054,7 +4515,23 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 range.end]);
   return range;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Interpolated tag.
+ */
+
+interpolation: function() {
+  if (/^#\{/.test(this.input)) {
+    var match = this.<span class="apidocCodeKeywordSpan">bracketExpression</span>(1);
+
+    this.consume(match.end + 1);
+    return this.tok(&#x27;interpolation&#x27;, match.src);
+  }
+},
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -4098,7 +4575,31 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+
+
+
+(function(f){if(typeof exports===&#x22;object&#x22;&#x26;&#x26;typeof module!==&#x22;undefined&#x22;){module.exports=f()}else if
+(typeof define===&#x22;function&#x22;&#x26;&#x26;define.amd){define([],f)}else{var g;if(typeof window!==&#x22;undefined&#x22;){g
+=window}else if(typeof global!==&#x22;undefined&#x22;){g=global}else if(typeof self!==&#x22;undefined&#x22;){g=self}else{g=this}
+g.jade = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof
+require==&#x22;function&#x22;&#x26;&#x26;require;if(!u&#x26;&#x26;a)return a(o,!0);if(i)return i(o,!0);var f=new Error(&#x22;Cannot
+ find module &#x27;&#x22;+o+&#x22;&#x27;&#x22;);throw f.code=&#x22;MODULE_NOT_FOUND&#x22;,f}var l=n[o]={exports:{}};t[o][0].<span
+ class="apidocCodeKeywordSpan">call</span>(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n
+[o].exports}var i=typeof require==&#x22;function&#x22;&#x26;&#x26;require;for(var o=0;o&#x3c;r.length;o++)s(r[o]);return s})({1:[
+function(require,module,exports){
+(function (process){
+&#x27;use strict&#x27;;
+
+/*!
+* Jade
+* Copyright(c) 2010 TJ Holowaychuk &#x3c;tj@vision-media.ca&#x3e;
+* MIT Licensed
+...</pre></li>
     </ul>
 
 
@@ -4128,7 +4629,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">className = function () {
   return this.scan(/^\.([\w-]+)/, &#x27;class&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.<span class="apidocCodeKeywordSpan">className</span>()
+|| this.attrs()
+|| this.attributesBlock()
+|| this.indent()
+|| this.text()
+|| this.comment()
+|| this.colon()
+|| this.dot()
+...</pre></li>
     </ul>
 
 
@@ -4153,7 +4670,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.<span class="apidocCodeKeywordSpan">code</span>()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+|| this.indent()
+|| this.text()
+|| this.comment()
+...</pre></li>
     </ul>
 
 
@@ -4174,7 +4707,23 @@ range.end]);
   }
   return res;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.id()
+      || this.className()
+      || this.attrs()
+      || this.attributesBlock()
+      || this.indent()
+      || this.text()
+      || this.comment()
+      || this.<span class="apidocCodeKeywordSpan">colon</span>()
+      || this.dot()
+      || this.textFail()
+      || this.fail();
+  }
+};
+
+},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
+...</pre></li>
     </ul>
 
 
@@ -4196,7 +4745,22 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.code()
+      || this.id()
+      || this.className()
+      || this.attrs()
+      || this.attributesBlock()
+      || this.indent()
+      || this.text()
+      || this.<span class="apidocCodeKeywordSpan">comment</span>()
+      || this.colon()
+      || this.dot()
+      || this.textFail()
+      || this.fail();
+  }
+};
+...</pre></li>
     </ul>
 
 
@@ -4249,7 +4813,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.<span class="apidocCodeKeywordSpan">conditional</span>()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+...</pre></li>
     </ul>
 
 
@@ -4264,7 +4844,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">consume = function (len){
   this.input = this.input.substr(len);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @return {Object}
+ * @api private
+ */
+
+scan: function(regexp, type){
+  var captures;
+  if (captures = regexp.exec(this.input)) {
+    this.<span class="apidocCodeKeywordSpan">consume</span>(captures[0].length);
+    return this.tok(type, captures[1]);
+  }
+},
+
+/**
+ * Defer the given `tok`.
+ *
+...</pre></li>
     </ul>
 
 
@@ -4294,7 +4890,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">defer = function (tok){
   this.deferredTokens.push(tok);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var captures;
+if (captures = /^(\w[-:\w]*)(\/?)/.exec(this.input)) {
+  this.consume(captures[0].length);
+  var tok, name = captures[1];
+  if (&#x27;:&#x27; == name[name.length - 1]) {
+    name = name.slice(0, -1);
+    tok = this.tok(&#x27;tag&#x27;, name);
+    this.<span class="apidocCodeKeywordSpan">defer</span>(this.tok(&#x27;:&#x27;));
+    if (this.input[0] !== &#x27; &#x27;) {
+      console.warn(&#x27;Warning: space required after `:` on line &#x27; + this.lineno +
+          &#x27; of jade file &#x22;&#x27; + this.filename + &#x27;&#x22;&#x27;);
+    }
+    while (&#x27; &#x27; == this.input[0]) this.input = this.input.substr(1);
+  } else {
+    tok = this.tok(&#x27;tag&#x27;, name);
+...</pre></li>
     </ul>
 
 
@@ -4310,7 +4922,23 @@ range.end]);
   return this.deferredTokens.length
     &#x26;&#x26; this.deferredTokens.shift();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Return the next token object.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+next: function() {
+  return this.<span class="apidocCodeKeywordSpan">deferred</span>()
+    || this.blank()
+    || this.eos()
+    || this.pipelessText()
+    || this.yield()
+    || this.doctype()
+    || this.interpolation()
+    || this[&#x22;case&#x22;]()
+...</pre></li>
     </ul>
 
 
@@ -4332,7 +4960,23 @@ range.end]);
   }
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  next: function() {
+return this.deferred()
+  || this.blank()
+  || this.eos()
+  || this.pipelessText()
+  || this.yield()
+  || this.<span class="apidocCodeKeywordSpan">doctype</span>()
+  || this.interpolation()
+  || this[&#x22;case&#x22;]()
+  || this.when()
+  || this[&#x22;default&#x22;]()
+  || this[&#x22;extends&#x22;]()
+  || this.append()
+  || this.prepend()
+...</pre></li>
     </ul>
 
 
@@ -4351,7 +4995,23 @@ range.end]);
     return match;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.className()
+      || this.attrs()
+      || this.attributesBlock()
+      || this.indent()
+      || this.text()
+      || this.comment()
+      || this.colon()
+      || this.<span class="apidocCodeKeywordSpan">dot</span>()
+      || this.textFail()
+      || this.fail();
+  }
+};
+
+},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
+&#x27;use strict&#x27;;
+...</pre></li>
     </ul>
 
 
@@ -4374,7 +5034,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.<span class="apidocCodeKeywordSpan">each</span>()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.className()
+...</pre></li>
     </ul>
 
 
@@ -4395,7 +5071,23 @@ range.end]);
     return this.tok(&#x27;eos&#x27;);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @return {Object}
+ * @api private
+ */
+
+next: function() {
+  return this.deferred()
+    || this.blank()
+    || this.<span class="apidocCodeKeywordSpan">eos</span>()
+    || this.pipelessText()
+    || this.yield()
+    || this.doctype()
+    || this.interpolation()
+    || this[&#x22;case&#x22;]()
+    || this.when()
+    || this[&#x22;default&#x22;]()
+...</pre></li>
     </ul>
 
 
@@ -4425,7 +5117,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">fail = function () {
   throw new Error(&#x27;unexpected text &#x27; + this.input.substr(0, 5));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.attributesBlock()
+      || this.indent()
+      || this.text()
+      || this.comment()
+      || this.colon()
+      || this.dot()
+      || this.textFail()
+      || this.<span class="apidocCodeKeywordSpan">fail</span>();
+  }
+};
+
+},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
+&#x27;use strict&#x27;;
+
+var Node = require(&#x27;./node&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -4444,7 +5152,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.<span class="apidocCodeKeywordSpan">filter</span>()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+|| this.indent()
+...</pre></li>
     </ul>
 
 
@@ -4459,7 +5183,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">id = function () {
   return this.scan(/^#([\w-]+)/, &#x27;id&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.<span class="apidocCodeKeywordSpan">id</span>()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+|| this.indent()
+|| this.text()
+|| this.comment()
+|| this.colon()
+...</pre></li>
     </ul>
 
 
@@ -4474,7 +5214,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">include = function () {
   return this.scan(/^include +([^\n]+)/, &#x27;include&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.<span class="apidocCodeKeywordSpan">include</span>()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+...</pre></li>
     </ul>
 
 
@@ -4507,7 +5263,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.<span class="apidocCodeKeywordSpan">includeFiltered</span>()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+...</pre></li>
     </ul>
 
 
@@ -4578,7 +5350,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    || this.filter()
+    || this.blockCode()
+    || this.code()
+    || this.id()
+    || this.className()
+    || this.attrs()
+    || this.attributesBlock()
+    || this.<span class="apidocCodeKeywordSpan">indent</span>()
+    || this.text()
+    || this.comment()
+    || this.colon()
+    || this.dot()
+    || this.textFail()
+    || this.fail();
+}
+...</pre></li>
     </ul>
 
 
@@ -4598,7 +5386,23 @@ range.end]);
     return this.tok(&#x27;interpolation&#x27;, match.src);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  next: function() {
+return this.deferred()
+  || this.blank()
+  || this.eos()
+  || this.pipelessText()
+  || this.yield()
+  || this.doctype()
+  || this.<span class="apidocCodeKeywordSpan">interpolation</span>()
+  || this[&#x22;case&#x22;]()
+  || this.when()
+  || this[&#x22;default&#x22;]()
+  || this[&#x22;extends&#x22;]()
+  || this.append()
+  || this.prepend()
+  || this.block()
+...</pre></li>
     </ul>
 
 
@@ -4615,7 +5419,23 @@ range.end]);
   while (fetch-- &#x3e; 0) this.stash.push(this.next());
   return this.stash[--n];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Single token lookahead.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+peek: function() {
+  return this.<span class="apidocCodeKeywordSpan">lookahead</span>(1);
+},
+
+/**
+ * Return lexer lineno.
+ *
+ * @return {Number}
+ * @api private
+...</pre></li>
     </ul>
 
 
@@ -4636,7 +5456,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.<span class="apidocCodeKeywordSpan">mixin</span>()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.tag()
+|| this.filter()
+|| this.blockCode()
+...</pre></li>
     </ul>
 
 
@@ -4655,7 +5491,23 @@ range.end]);
     return this.tok(&#x27;mixin-block&#x27;);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this[&#x22;case&#x22;]()
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.block()
+|| this.<span class="apidocCodeKeywordSpan">mixinBlock</span>()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+...</pre></li>
     </ul>
 
 
@@ -4706,7 +5558,23 @@ range.end]);
     || this.textFail()
     || this.fail();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Number} n
+ * @return {Object}
+ * @api private
+ */
+
+lookahead: function(n){
+  var fetch = n - this.stash.length;
+  while (fetch-- &#x3e; 0) this.stash.push(this.<span class="apidocCodeKeywordSpan">next</span>());
+  return this.stash[--n];
+},
+
+/**
+ * Return the indexOf `(` or `{` or `[` / `)` or `}` or `]` delimiters.
+ *
+ * @return {Number}
+...</pre></li>
     </ul>
 
 
@@ -4764,7 +5632,23 @@ range.end]);
     return this.tok(&#x27;pipeless-text&#x27;, tokens);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api private
+ */
+
+next: function() {
+  return this.deferred()
+    || this.blank()
+    || this.eos()
+    || this.<span class="apidocCodeKeywordSpan">pipelessText</span>()
+    || this.yield()
+    || this.doctype()
+    || this.interpolation()
+    || this[&#x22;case&#x22;]()
+    || this.when()
+    || this[&#x22;default&#x22;]()
+    || this[&#x22;extends&#x22;]()
+...</pre></li>
     </ul>
 
 
@@ -4787,7 +5671,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.doctype()
+|| this.interpolation()
+|| this[&#x22;case&#x22;]()
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.<span class="apidocCodeKeywordSpan">prepend</span>()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+...</pre></li>
     </ul>
 
 
@@ -4806,7 +5706,23 @@ range.end]);
     return this.tok(type, captures[1]);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+/**
+ * Filter.
+ */
+
+filter: function() {
+  var tok = this.<span class="apidocCodeKeywordSpan">scan</span>(/^:([\w\-]+)/, &#x27;filter&#x27;);
+  if (tok) {
+    this.pipeless = true;
+    return tok;
+  }
+},
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -4822,7 +5738,23 @@ range.end]);
   return this.stash.length
     &#x26;&#x26; this.stash.shift();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * previously stashed by lookahead.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+advance: function(){
+  return this.<span class="apidocCodeKeywordSpan">stashed</span>()
+    || this.next();
+},
+
+/**
+ * Return the next token object.
+ *
+ * @return {Object}
+...</pre></li>
     </ul>
 
 
@@ -4855,7 +5787,23 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.<span class="apidocCodeKeywordSpan">tag</span>()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+...</pre></li>
     </ul>
 
 
@@ -4872,7 +5820,23 @@ range.end]);
     this.scan(/^\|?( )/, &#x27;text&#x27;) ||
     this.scan(/^(&#x3c;[^\n]*)/, &#x27;text&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.blockCode()
+      || this.code()
+      || this.id()
+      || this.className()
+      || this.attrs()
+      || this.attributesBlock()
+      || this.indent()
+      || this.<span class="apidocCodeKeywordSpan">text</span>()
+      || this.comment()
+      || this.colon()
+      || this.dot()
+      || this.textFail()
+      || this.fail();
+  }
+};
+...</pre></li>
     </ul>
 
 
@@ -4892,7 +5856,22 @@ range.end]);
     return tok;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      || this.attrs()
+      || this.attributesBlock()
+      || this.indent()
+      || this.text()
+      || this.comment()
+      || this.colon()
+      || this.dot()
+      || this.<span class="apidocCodeKeywordSpan">textFail</span>()
+      || this.fail();
+  }
+};
+
+},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
+&#x27;use strict&#x27;;
+...</pre></li>
     </ul>
 
 
@@ -4911,7 +5890,23 @@ range.end]);
     , val: val
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api private
+ */
+
+scan: function(regexp, type){
+  var captures;
+  if (captures = regexp.exec(this.input)) {
+    this.consume(captures[0].length);
+    return this.<span class="apidocCodeKeywordSpan">tok</span>(type, captures[1]);
+  }
+},
+
+/**
+ * Defer the given `tok`.
+ *
+ * @param {Object} tok
+...</pre></li>
     </ul>
 
 
@@ -4926,7 +5921,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">when = function () {
   return this.scan(/^when +([^:\n]+)/, &#x27;when&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.blank()
+|| this.eos()
+|| this.pipelessText()
+|| this.yield()
+|| this.doctype()
+|| this.interpolation()
+|| this[&#x22;case&#x22;]()
+|| this.<span class="apidocCodeKeywordSpan">when</span>()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.block()
+|| this.mixinBlock()
+|| this.include()
+...</pre></li>
     </ul>
 
 
@@ -4963,7 +5974,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">yield = function () {
   return this.scan(/^yield */, &#x27;yield&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+next: function() {
+  return this.deferred()
+    || this.blank()
+    || this.eos()
+    || this.pipelessText()
+    || this.<span class="apidocCodeKeywordSpan">yield</span>()
+    || this.doctype()
+    || this.interpolation()
+    || this[&#x22;case&#x22;]()
+    || this.when()
+    || this[&#x22;default&#x22;]()
+    || this[&#x22;extends&#x22;]()
+    || this.append()
+...</pre></li>
     </ul>
 
 
@@ -5015,7 +6042,23 @@ range.end]);
     return this.advance();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * filter attrs? text-block
+   */
+
+  parseFilter: function(){
+var tok = this.expect(&#x27;filter&#x27;);
+var attrs = this.<span class="apidocCodeKeywordSpan">accept</span>(&#x27;attrs&#x27;);
+var block;
+
+block = this.parseTextBlock() || new nodes.Block();
+
+var options = {};
+if (attrs) {
+  attrs.attrs.forEach(function (attribute) {
+...</pre></li>
     </ul>
 
 
@@ -5030,7 +6073,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">advance = function (){
   return this.lexer.advance();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Return the next token object.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+advance: function(){
+  return this.lexer.<span class="apidocCodeKeywordSpan">advance</span>();
+},
+
+/**
+ * Single token lookahead.
+ *
+ * @return {Object}
+ * @api private
+...</pre></li>
     </ul>
 
 
@@ -5059,7 +6118,23 @@ range.end]);
   this.expect(&#x27;outdent&#x27;);
   return block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.interpolation()
+|| this[&#x22;case&#x22;]()
+|| this.when()
+|| this[&#x22;default&#x22;]()
+|| this[&#x22;extends&#x22;]()
+|| this.append()
+|| this.prepend()
+|| this.<span class="apidocCodeKeywordSpan">block</span>()
+|| this.mixinBlock()
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+...</pre></li>
     </ul>
 
 
@@ -5084,7 +6159,22 @@ range.end]);
   this.dependencies = [];
   this.inBlock = 0;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -5103,7 +6193,23 @@ range.end]);
     return this.contexts.pop();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Parse
+var parser = new (options.parser || Parser)(str, options.filename, options);
+var tokens;
+try {
+  // Parse
+  tokens = parser.parse();
+} catch (err) {
+  parser = parser.<span class="apidocCodeKeywordSpan">context</span>();
+  runtime.rethrow(err, parser.filename, parser.lexer.lineno, parser.input);
+}
+
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+var js;
+try {
+...</pre></li>
     </ul>
 
 
@@ -5122,7 +6228,23 @@ range.end]);
     throw new Error(&#x27;expected &#x22;&#x27; + type + &#x27;&#x22;, but got &#x22;&#x27; + this.peek().type + &#x27;&#x22;&#x27;);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+/**
+ * Text
+ */
+
+parseText: function(){
+  var tok = this.<span class="apidocCodeKeywordSpan">expect</span>(&#x27;text&#x27;);
+  var tokens = this.parseInlineTagsInText(tok.val);
+  if (tokens.length === 1) return tokens[0];
+  var node = new nodes.Block;
+  for (var i = 0; i &#x3c; tokens.length; i++) {
+    node.push(tokens[i]);
+  };
+  return node;
+...</pre></li>
     </ul>
 
 
@@ -5137,7 +6259,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">line = function () {
   return this.lexer.lineno;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  /**
+   * case
+   */
+
+  parseCase: function(){
+var val = this.expect(&#x27;case&#x27;).val;
+var node = new nodes.Case(val);
+node.line = this.<span class="apidocCodeKeywordSpan">line</span>();
+
+var block = new nodes.Block;
+block.line = this.line();
+block.filename = this.filename;
+this.expect(&#x27;indent&#x27;);
+while (&#x27;outdent&#x27; != this.peek().type) {
+  switch (this.peek().type) {
+...</pre></li>
     </ul>
 
 
@@ -5152,7 +6290,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">lookahead = function (n){
   return this.lexer.lookahead(n);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Single token lookahead.
+ *
+ * @return {Object}
+ * @api private
+ */
+
+peek: function() {
+  return this.<span class="apidocCodeKeywordSpan">lookahead</span>(1);
+},
+
+/**
+ * Return lexer lineno.
+ *
+ * @return {Number}
+ * @api private
+...</pre></li>
     </ul>
 
 
@@ -5215,7 +6369,23 @@ range.end]);
 
   return block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+// Parse
+var parser = new (options.parser || Parser)(str, options.filename, options);
+var tokens;
+try {
+  // Parse
+  tokens = parser.<span class="apidocCodeKeywordSpan">parse</span>();
+} catch (err) {
+  parser = parser.context();
+  runtime.rethrow(err, parser.filename, parser.lexer.lineno, parser.input);
+}
+
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+...</pre></li>
     </ul>
 
 
@@ -5269,7 +6439,23 @@ range.end]);
 
   return this.blocks[name] = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  parseExpr: function(){
+switch (this.peek().type) {
+  case &#x27;tag&#x27;:
+    return this.parseTag();
+  case &#x27;mixin&#x27;:
+    return this.parseMixin();
+  case &#x27;block&#x27;:
+    return this.<span class="apidocCodeKeywordSpan">parseBlock</span>();
+  case &#x27;mixin-block&#x27;:
+    return this.parseMixinBlock();
+  case &#x27;case&#x27;:
+    return this.parseCase();
+  case &#x27;extends&#x27;:
+    return this.parseExtends();
+  case &#x27;include&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5295,7 +6481,23 @@ range.end]);
     node = new nodes.Code(text, false, false);
     return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseBlockCode</span>();
+case &#x27;call&#x27;:
+  return this.parseCall();
+case &#x27;interpolation&#x27;:
+  return this.parseInterpolation();
+case &#x27;yield&#x27;:
+  this.advance();
+  var block = new nodes.Block;
+...</pre></li>
     </ul>
 
 
@@ -5315,7 +6517,23 @@ range.end]);
     return this.block();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * when
+ */
+
+parseWhen: function(){
+  var val = this.expect(&#x27;when&#x27;).val;
+  if (this.peek().type !== &#x27;newline&#x27;)
+    return new nodes.Case.When(val, this.<span class="apidocCodeKeywordSpan">parseBlockExpansion</span>());
+  else
+    return new nodes.Case.When(val);
+},
+
+/**
+ * default
+ */
+...</pre></li>
     </ul>
 
 
@@ -5341,7 +6559,23 @@ range.end]);
   if (mixin.block.isEmpty()) mixin.block = null;
   return mixin;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+  return this.parseBlockCode();
+case &#x27;call&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseCall</span>();
+case &#x27;interpolation&#x27;:
+  return this.parseInterpolation();
+case &#x27;yield&#x27;:
+  this.advance();
+  var block = new nodes.Block;
+  block.yield = true;
+  return block;
+...</pre></li>
     </ul>
 
 
@@ -5385,7 +6619,23 @@ range.end]);
 
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;mixin&#x27;:
+  return this.parseMixin();
+case &#x27;block&#x27;:
+  return this.parseBlock();
+case &#x27;mixin-block&#x27;:
+  return this.parseMixinBlock();
+case &#x27;case&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseCase</span>();
+case &#x27;extends&#x27;:
+  return this.parseExtends();
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5428,7 +6678,23 @@ range.end]);
 
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseCode</span>();
+case &#x27;blockCode&#x27;:
+  return this.parseBlockCode();
+case &#x27;call&#x27;:
+  return this.parseCall();
+case &#x27;interpolation&#x27;:
+  return this.parseInterpolation();
+case &#x27;yield&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5454,7 +6720,23 @@ range.end]);
   node.line = this.line();
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseComment</span>();
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5470,7 +6752,23 @@ range.end]);
   this.expect(&#x27;default&#x27;);
   return new nodes.Case.When(&#x27;default&#x27;, this.parseBlockExpansion());
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    case &#x27;newline&#x27;:
+      this.advance();
+      break;
+    case &#x27;when&#x27;:
+      block.push(this.parseWhen());
+      break;
+    case &#x27;default&#x27;:
+      block.push(this.<span class="apidocCodeKeywordSpan">parseDefault</span>());
+      break;
+    default:
+      throw new Error(&#x27;Unexpected token &#x22;&#x27; + this.peek().type
+                      + &#x27;&#x22;, expected &#x22;when&#x22;, &#x22;default&#x22; or &#x22;newline&#x22;&#x27;);
+  }
+}
+this.expect(&#x27;outdent&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -5488,7 +6786,23 @@ range.end]);
   node.line = this.line();
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;case&#x27;:
+  return this.parseCase();
+case &#x27;extends&#x27;:
+  return this.parseExtends();
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseDoctype</span>();
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5511,7 +6825,23 @@ range.end]);
   }
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseEach</span>();
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+  return this.parseBlockCode();
+case &#x27;call&#x27;:
+  return this.parseCall();
+case &#x27;interpolation&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5572,7 +6902,23 @@ range.end]);
       throw new Error(&#x27;unexpected token &#x22;&#x27; + this.peek().type + &#x27;&#x22;&#x27;);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+block.filename = this.filename;
+
+while (&#x27;eos&#x27; != this.peek().type) {
+  if (&#x27;newline&#x27; == this.peek().type) {
+    this.advance();
+  } else {
+    var next = this.peek();
+    var expr = this.<span class="apidocCodeKeywordSpan">parseExpr</span>();
+    expr.filename = expr.filename || this.filename;
+    expr.line = next.line;
+    block.push(expr);
+  }
+}
+
+if (parser = this.extending) {
+...</pre></li>
     </ul>
 
 
@@ -5603,7 +6949,23 @@ range.end]);
   // TODO: null node
   return new nodes.Literal(&#x27;&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;block&#x27;:
+  return this.parseBlock();
+case &#x27;mixin-block&#x27;:
+  return this.parseMixinBlock();
+case &#x27;case&#x27;:
+  return this.parseCase();
+case &#x27;extends&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseExtends</span>();
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5633,7 +6995,23 @@ range.end]);
   node.line = this.line();
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;extends&#x27;:
+  return this.parseExtends();
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseFilter</span>();
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+  return this.parseText();
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5690,7 +7068,23 @@ range.end]);
 
   return ast;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;mixin-block&#x27;:
+  return this.parseMixinBlock();
+case &#x27;case&#x27;:
+  return this.parseCase();
+case &#x27;extends&#x27;:
+  return this.parseExtends();
+case &#x27;include&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseInclude</span>();
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5732,7 +7126,23 @@ range.end]);
     return [text];
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Text
+ */
+
+parseText: function(){
+  var tok = this.expect(&#x27;text&#x27;);
+  var tokens = this.<span class="apidocCodeKeywordSpan">parseInlineTagsInText</span>(tok.val);
+  if (tokens.length === 1) return tokens[0];
+  var node = new nodes.Block;
+  for (var i = 0; i &#x3c; tokens.length; i++) {
+    node.push(tokens[i]);
+  };
+  return node;
+},
+...</pre></li>
     </ul>
 
 
@@ -5750,7 +7160,23 @@ range.end]);
   tag.buffer = true;
   return this.tag(tag);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+  return this.parseBlockCode();
+case &#x27;call&#x27;:
+  return this.parseCall();
+case &#x27;interpolation&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseInterpolation</span>();
+case &#x27;yield&#x27;:
+  this.advance();
+  var block = new nodes.Block;
+  block.yield = true;
+  return block;
+case &#x27;id&#x27;:
+case &#x27;class&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5780,7 +7206,23 @@ range.end]);
     return new nodes.Mixin(name, args, null, true);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+parseExpr: function(){
+  switch (this.peek().type) {
+    case &#x27;tag&#x27;:
+      return this.parseTag();
+    case &#x27;mixin&#x27;:
+      return this.<span class="apidocCodeKeywordSpan">parseMixin</span>();
+    case &#x27;block&#x27;:
+      return this.parseBlock();
+    case &#x27;mixin-block&#x27;:
+      return this.parseMixinBlock();
+    case &#x27;case&#x27;:
+      return this.parseCase();
+    case &#x27;extends&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5799,7 +7241,23 @@ range.end]);
   }
   return new nodes.MixinBlock();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;tag&#x27;:
+  return this.parseTag();
+case &#x27;mixin&#x27;:
+  return this.parseMixin();
+case &#x27;block&#x27;:
+  return this.parseBlock();
+case &#x27;mixin-block&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseMixinBlock</span>();
+case &#x27;case&#x27;:
+  return this.parseCase();
+case &#x27;extends&#x27;:
+  return this.parseExtends();
+case &#x27;include&#x27;:
+  return this.parseInclude();
+case &#x27;doctype&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5819,7 +7277,23 @@ range.end]);
 
   return this.tag(tag);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * | class
+ * | interpolation
+ */
+
+parseExpr: function(){
+  switch (this.peek().type) {
+    case &#x27;tag&#x27;:
+      return this.<span class="apidocCodeKeywordSpan">parseTag</span>();
+    case &#x27;mixin&#x27;:
+      return this.parseMixin();
+    case &#x27;block&#x27;:
+      return this.parseBlock();
+    case &#x27;mixin-block&#x27;:
+      return this.parseMixinBlock();
+    case &#x27;case&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5841,7 +7315,23 @@ range.end]);
   };
   return node;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case &#x27;doctype&#x27;:
+  return this.parseDoctype();
+case &#x27;filter&#x27;:
+  return this.parseFilter();
+case &#x27;comment&#x27;:
+  return this.parseComment();
+case &#x27;text&#x27;:
+  return this.<span class="apidocCodeKeywordSpan">parseText</span>();
+case &#x27;each&#x27;:
+  return this.parseEach();
+case &#x27;code&#x27;:
+  return this.parseCode();
+case &#x27;blockCode&#x27;:
+  return this.parseBlockCode();
+case &#x27;call&#x27;:
+...</pre></li>
     </ul>
 
 
@@ -5864,7 +7354,23 @@ range.end]);
   }.bind(this), []);
   return block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   */
+
+  parseComment: function(){
+var tok = this.expect(&#x27;comment&#x27;);
+var node;
+
+var block;
+if (block = this.<span class="apidocCodeKeywordSpan">parseTextBlock</span>()) {
+  node = new nodes.BlockComment(tok.val, block, tok.buffer);
+} else {
+  node = new nodes.Comment(tok.val, tok.buffer);
+}
+
+node.line = this.line();
+return node;
+...</pre></li>
     </ul>
 
 
@@ -5883,7 +7389,23 @@ range.end]);
   else
     return new nodes.Case.When(val);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    while (&#x27;outdent&#x27; != this.peek().type) {
+switch (this.peek().type) {
+  case &#x27;comment&#x27;:
+  case &#x27;newline&#x27;:
+    this.advance();
+    break;
+  case &#x27;when&#x27;:
+    block.push(this.<span class="apidocCodeKeywordSpan">parseWhen</span>());
+    break;
+  case &#x27;default&#x27;:
+    block.push(this.parseDefault());
+    break;
+  default:
+    throw new Error(&#x27;Unexpected token &#x22;&#x27; + this.peek().type
+                    + &#x27;&#x22;, expected &#x22;when&#x22;, &#x22;default&#x22; or &#x22;newline&#x22;&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -5898,7 +7420,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">peek = function () {
   return this.lookahead(1);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   */
+
+  parse: function(){
+var block = new nodes.Block, parser;
+block.line = 0;
+block.filename = this.filename;
+
+while (&#x27;eos&#x27; != this.<span class="apidocCodeKeywordSpan">peek</span>().type) {
+  if (&#x27;newline&#x27; == this.peek().type) {
+    this.advance();
+  } else {
+    var next = this.peek();
+    var expr = this.parseExpr();
+    expr.filename = expr.filename || this.filename;
+    expr.line = next.line;
+...</pre></li>
     </ul>
 
 
@@ -5928,7 +7466,23 @@ range.end]);
 
   return path;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  /**
+   * &#x27;extends&#x27; name
+   */
+
+  parseExtends: function(){
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.<span class="apidocCodeKeywordSpan">resolvePath</span>(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends
+&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.constructor(str, path, this.options);
+parser.dependencies = this.dependencies;
+...</pre></li>
     </ul>
 
 
@@ -6021,8 +7575,445 @@ range.end]);
 
   return tag;
 }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+|| this.include()
+|| this.includeFiltered()
+|| this.mixin()
+|| this.call()
+|| this.conditional()
+|| this.each()
+|| this[&#x22;while&#x22;]()
+|| this.<span class="apidocCodeKeywordSpan">tag</span>()
+|| this.filter()
+|| this.blockCode()
+|| this.code()
+|| this.id()
+|| this.className()
+|| this.attrs()
+|| this.attributesBlock()
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jade.jade" id="apidoc.module.jade.jade">module jade.jade</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.Compiler" id="apidoc.element.jade.jade.Compiler">
+        function <span class="apidocSignatureSpan">jade.jade.</span>Compiler
+        <span class="apidocSignatureSpan">(node, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Compiler(node, options) {
+  this.options = options = options || {};
+  this.node = node;
+  this.hasCompiledDoctype = false;
+  this.hasCompiledTag = false;
+  this.pp = options.pretty || false;
+  if (this.pp &#x26;&#x26; typeof this.pp !== &#x27;string&#x27;) {
+    this.pp = &#x27;  &#x27;;
+  }
+  this.debug = false !== options.compileDebug;
+  this.indents = 0;
+  this.parentIndents = 0;
+  this.terse = false;
+  this.mixins = {};
+  this.dynamicMixins = false;
+  if (options.doctype) this.setDoctype(options.doctype);
+}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.Lexer" id="apidoc.element.jade.jade.Lexer">
+        function <span class="apidocSignatureSpan">jade.jade.</span>Lexer
+        <span class="apidocSignatureSpan">(str, filename)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Lexer(str, filename) {
+  this.input = str.replace(/\r\n|\r/g, &#x27;\n&#x27;);
+  this.filename = filename;
+  this.deferredTokens = [];
+  this.lastIndents = 0;
+  this.lineno = 1;
+  this.stash = [];
+  this.indentStack = [];
+  this.indentRe = null;
+  this.pipeless = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.Parser" id="apidoc.element.jade.jade.Parser">
+        function <span class="apidocSignatureSpan">jade.jade.</span>Parser
+        <span class="apidocSignatureSpan">(str, filename, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(str, filename, options){
+  //Strip any UTF-8 BOM off of the start of `str`, if it exists.
+  this.input = str.replace(/^\uFEFF/, &#x27;&#x27;);
+  this.lexer = new Lexer(this.input, filename);
+  this.filename = filename;
+  this.blocks = {};
+  this.mixins = {};
+  this.options = options;
+  this.contexts = [this];
+  this.inMixin = 0;
+  this.dependencies = [];
+  this.inBlock = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.__express" id="apidoc.element.jade.jade.__express">
+        function <span class="apidocSignatureSpan">jade.jade.</span>__express
+        <span class="apidocSignatureSpan">(path, options, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__express = function (path, options, fn) {
+  if(options.compileDebug == undefined &#x26;&#x26; process.env.NODE_ENV === &#x27;production&#x27;) {
+    options.compileDebug = false;
+  }
+  exports.renderFile(path, options, fn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.compile" id="apidoc.element.jade.jade.compile">
+        function <span class="apidocSignatureSpan">jade.jade.</span>compile
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compile = function (str, options){
+  var options = options || {}
+    , filename = options.filename
+      ? utils.stringify(options.filename)
+      : &#x27;undefined&#x27;
+    , fn;
+
+  str = String(str);
+
+  var parsed = parse(str, options);
+  if (options.compileDebug !== false) {
+    fn = [
+        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
+      , &#x27;try {&#x27;
+      , parsed.body
+      , &#x27;} catch (err) {&#x27;
+      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27; + utils.stringify
+(str) : &#x27;&#x27;) + &#x27;);&#x27;
+      , &#x27;}&#x27;
+    ].join(&#x27;\n&#x27;);
+  } else {
+    fn = parsed.body;
+  }
+  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  var res = function(locals){ return fn(locals, Object.create(runtime)) };
+  if (options.client) {
+    res.toString = function () {
+      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
+      err.name = &#x27;Warning&#x27;;
+      console.error(err.stack || /* istanbul ignore next */ err.message);
+      return exports.compileClient(str, options);
+    };
+  }
+  res.dependencies = parsed.dependencies;
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
+
+```js
+var jade = require(&#x27;jade&#x27;);
+
+// compile
+var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>(&#x27;string of jade&#x27;, options);
+var html = fn(locals);
+
+// render
+var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+
+// renderFile
+var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.compileClient" id="apidoc.element.jade.jade.compileClient">
+        function <span class="apidocSignatureSpan">jade.jade.</span>compileClient
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compileClient = function (str, options) {
+  return exports.compileClientWithDependenciesTracked(str, options).body;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  var res = function(locals){ return fn(locals, Object.create(runtime)) };
+  if (options.client) {
+    res.toString = function () {
+      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
+      err.name = &#x27;Warning&#x27;;
+      console.error(err.stack || /* istanbul ignore next */ err.message);
+      return exports.<span class="apidocCodeKeywordSpan">compileClient</span>(str, options);
+    };
+  }
+  res.dependencies = parsed.dependencies;
+  return res;
+};
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.compileClientWithDependenciesTracked" id="apidoc.element.jade.jade.compileClientWithDependenciesTracked">
+        function <span class="apidocSignatureSpan">jade.jade.</span>compileClientWithDependenciesTracked
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compileClientWithDependenciesTracked = function (str, options){
+  var options = options || {};
+  var name = options.name || &#x27;template&#x27;;
+  var filename = options.filename ? utils.stringify(options.filename) : &#x27;undefined&#x27;;
+  var fn;
+
+  str = String(str);
+  options.compileDebug = options.compileDebug ? true : false;
+  var parsed = parse(str, options);
+  if (options.compileDebug) {
+    fn = [
+        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
+      , &#x27;try {&#x27;
+      , parsed.body
+      , &#x27;} catch (err) {&#x27;
+      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, &#x27; + utils.stringify(str) + &#x27;);&#x27;
+      , &#x27;}&#x27;
+    ].join(&#x27;\n&#x27;);
+  } else {
+    fn = parsed.body;
+  }
+
+  return {body: &#x27;function &#x27; + name + &#x27;(locals) {\n&#x27; + fn + &#x27;\n}&#x27;, dependencies: parsed.dependencies};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {String} str
+* @param {Options} options
+* @return {String}
+* @api public
+*/
+exports.compileClient = function (str, options) {
+ return exports.<span class="apidocCodeKeywordSpan">compileClientWithDependenciesTracked</span>(str, options).body;
+};
+
+/**
+* Compile a `Function` representation of the given jade file.
+*
+* Options:
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.compileFile" id="apidoc.element.jade.jade.compileFile">
+        function <span class="apidocSignatureSpan">jade.jade.</span>compileFile
+        <span class="apidocSignatureSpan">(path, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compileFile = function (path, options) {
+  options = options || {};
+  options.filename = path;
+  return handleTemplateCache(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.compileFileClient" id="apidoc.element.jade.jade.compileFileClient">
+        function <span class="apidocSignatureSpan">jade.jade.</span>compileFileClient
+        <span class="apidocSignatureSpan">(path, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compileFileClient = function (path, options){
+  var key = path + &#x27;:client&#x27;;
+  options = options || {};
+
+  options.filename = path;
+
+  if (options.cache &#x26;&#x26; exports.cache[key]) {
+    return exports.cache[key];
+  }
+
+  var str = fs.readFileSync(options.filename, &#x27;utf8&#x27;);
+  var out = exports.compileClient(str, options);
+  if (options.cache) exports.cache[key] = out;
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.filters" id="apidoc.element.jade.jade.filters">
+        function <span class="apidocSignatureSpan">jade.jade.</span>filters
+        <span class="apidocSignatureSpan">(name, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filter(name, str, options) {
+  if (typeof filter[name] === &#x27;function&#x27;) {
+    return filter[name](str, options);
+  } else {
+    throw new Error(&#x27;unknown filter &#x22;:&#x27; + name + &#x27;&#x22;&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.render" id="apidoc.element.jade.jade.render">
+        function <span class="apidocSignatureSpan">jade.jade.</span>render
+        <span class="apidocSignatureSpan">(str, options, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">render = function (str, options, fn){
+  // support callback API
+  if (&#x27;function&#x27; == typeof options) {
+    fn = options, options = undefined;
+  }
+  if (typeof fn === &#x27;function&#x27;) {
+    var res
+    try {
+      res = exports.render(str, options);
+    } catch (ex) {
+      return fn(ex);
+    }
+    return fn(null, res);
+  }
+
+  options = options || {};
+
+  // cache requires .filename
+  if (options.cache &#x26;&#x26; !options.filename) {
+    throw new Error(&#x27;the &#x22;filename&#x22; option is required for caching&#x27;);
+  }
+
+  return handleTemplateCache(options, str)(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var jade = require(&#x27;jade&#x27;);
+
+// compile
+var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var html = fn(locals);
+
+// render
+var html = jade.<span class="apidocCodeKeywordSpan">render</span>(&#x27;string of jade&#x27;, merge(options, locals));
+
+// renderFile
+var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+```
+
+### Options
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jade.jade.renderFile" id="apidoc.element.jade.jade.renderFile">
+        function <span class="apidocSignatureSpan">jade.jade.</span>renderFile
+        <span class="apidocSignatureSpan">(path, options, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">renderFile = function (path, options, fn){
+  // support callback API
+  if (&#x27;function&#x27; == typeof options) {
+    fn = options, options = undefined;
+  }
+  if (typeof fn === &#x27;function&#x27;) {
+    var res
+    try {
+      res = exports.renderFile(path, options);
+    } catch (ex) {
+      return fn(ex);
+    }
+    return fn(null, res);
+  }
+
+  options = options || {};
+
+  options.filename = path;
+  return handleTemplateCache(options)(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var html = fn(locals);
+
+// render
+var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+
+// renderFile
+var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;filename.jade&#x27;, merge(options, locals));
+```
+
+### Options
+
+- `filename`  Used in exceptions, and required when using includes
+- `compileDebug`  When `false` no debug instrumentation is compiled
+- `pretty`    Add pretty-indentation whitespace to output _(false by default)_
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
@@ -6042,7 +8033,23 @@ range.end]);
   this.nodes = [];
   if (node) this.push(node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *   &#x27;:&#x27; expr
+ * | block
+ */
+
+parseBlockExpansion: function(){
+  if (&#x27;:&#x27; == this.peek().type) {
+    this.advance();
+    return new nodes.<span class="apidocCodeKeywordSpan">Block</span>(this.parseExpr());
+  } else {
+    return this.block();
+  }
+},
+
+/**
+ * case
+...</pre></li>
     </ul>
 
 
@@ -6059,7 +8066,23 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+parseComment: function(){
+  var tok = this.expect(&#x27;comment&#x27;);
+  var node;
+
+  var block;
+  if (block = this.parseTextBlock()) {
+    node = new nodes.<span class="apidocCodeKeywordSpan">BlockComment</span>(tok.val, block, tok.buffer);
+  } else {
+    node = new nodes.Comment(tok.val, tok.buffer);
+  }
+
+  node.line = this.line();
+  return node;
+},
+...</pre></li>
     </ul>
 
 
@@ -6075,7 +8098,23 @@ range.end]);
   this.expr = expr;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * case
+   */
+
+  parseCase: function(){
+var val = this.expect(&#x27;case&#x27;).val;
+var node = new nodes.<span class="apidocCodeKeywordSpan">Case</span>(val);
+node.line = this.line();
+
+var block = new nodes.Block;
+block.line = this.line();
+block.filename = this.filename;
+this.expect(&#x27;indent&#x27;);
+while (&#x27;outdent&#x27; != this.peek().type) {
+...</pre></li>
     </ul>
 
 
@@ -6093,7 +8132,23 @@ range.end]);
   this.escape = escape;
   if (val.match(/^ *else/)) this.debug = false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * code
+   */
+
+  parseCode: function(afterIf){
+var tok = this.expect(&#x27;code&#x27;);
+var node = new nodes.<span class="apidocCodeKeywordSpan">Code</span>(tok.val, tok.buffer, tok.escape);
+var block;
+node.line = this.line();
+
+// throw an error if an else does not have an if
+if (tok.isElse &#x26;&#x26; !tok.hasIf) {
+  throw new Error(&#x27;Unexpected else without if&#x27;);
+}
+...</pre></li>
     </ul>
 
 
@@ -6109,7 +8164,23 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var tok = this.expect(&#x27;comment&#x27;);
+  var node;
+
+  var block;
+  if (block = this.parseTextBlock()) {
+    node = new nodes.BlockComment(tok.val, block, tok.buffer);
+  } else {
+    node = new nodes.<span class="apidocCodeKeywordSpan">Comment</span>(tok.val, tok.buffer);
+  }
+
+  node.line = this.line();
+  return node;
+},
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -6124,7 +8195,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Doctype(val) {
   this.val = val;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * doctype
+ */
+
+parseDoctype: function(){
+  var tok = this.expect(&#x27;doctype&#x27;);
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Doctype</span>(tok.val);
+  node.line = this.line();
+  return node;
+},
+
+/**
+ * filter attrs? text-block
+ */
+...</pre></li>
     </ul>
 
 
@@ -6142,7 +8229,23 @@ range.end]);
   this.key = key;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * each block
+ */
+
+parseEach: function(){
+  var tok = this.expect(&#x27;each&#x27;);
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Each</span>(tok.code, tok.val, tok.key);
+  node.line = this.line();
+  node.block = this.block();
+  if (this.peek().type == &#x27;code&#x27; &#x26;&#x26; this.peek().val == &#x27;else&#x27;) {
+    this.advance();
+    node.alternative = this.block();
+  }
+  return node;
+...</pre></li>
     </ul>
 
 
@@ -6159,7 +8262,23 @@ range.end]);
   this.block = block;
   this.attrs = attrs;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var options = {};
+  if (attrs) {
+    attrs.attrs.forEach(function (attribute) {
+      options[attribute.name] = constantinople.toConstant(attribute.val);
+    });
+  }
+
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Filter</span>(tok.val, block, options);
+  node.line = this.line();
+  return node;
+},
+
+/**
+ * each block
+ */
+...</pre></li>
     </ul>
 
 
@@ -6174,7 +8293,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Literal(str) {
   this.str = str;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  parser.blocks = this.blocks;
+  parser.included = this.included;
+  parser.contexts = this.contexts;
+  this.extending = parser;
+
+  // TODO: null node
+  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>(&#x27;&#x27;);
+},
+
+/**
+ * &#x27;block&#x27; name block
+ */
+
+parseBlock: function(){
+...</pre></li>
     </ul>
 
 
@@ -6193,7 +8328,23 @@ range.end]);
   this.block = block;
   this.call = call;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * call ident block
+   */
+
+  parseCall: function(){
+var tok = this.expect(&#x27;call&#x27;);
+var name = tok.val;
+var args = tok.args;
+var mixin = new nodes.<span class="apidocCodeKeywordSpan">Mixin</span>(name, args, new nodes.Block, true);
+
+this.tag(mixin);
+if (mixin.code) {
+  mixin.block.push(mixin.code);
+  mixin.code = null;
+}
+if (mixin.block.isEmpty()) mixin.block = null;
+...</pre></li>
     </ul>
 
 
@@ -6206,7 +8357,23 @@ range.end]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+parseMixinBlock: function () {
+  var block = this.expect(&#x27;mixin-block&#x27;);
+  if (!this.inMixin) {
+    throw new Error(&#x27;Anonymous blocks are not allowed unless they are part of a mixin.&#x27;);
+  }
+  return new nodes.<span class="apidocCodeKeywordSpan">MixinBlock</span>();
+},
+
+/**
+ * include block?
+ */
+
+parseInclude: function(){
+...</pre></li>
     </ul>
 
 
@@ -6236,7 +8403,23 @@ range.end]);
   this.name = name;
   this.block = block || new Block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * interpolation (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ */
+
+parseInterpolation: function(){
+  var tok = this.advance();
+  var tag = new nodes.<span class="apidocCodeKeywordSpan">Tag</span>(tok.val);
+  tag.buffer = true;
+  return this.tag(tag);
+},
+
+/**
+ * tag (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ */
+...</pre></li>
     </ul>
 
 
@@ -6251,7 +8434,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Text(line) {
   this.val = line;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  parseInlineTagsInText: function (str) {
+var line = this.line();
+
+var match = /(\\)?#\[((?:.|\n)*)$/.exec(str);
+if (match) {
+  if (match[1]) { // escape
+    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + &#x27;#[&#x27;);
+    text.line = line;
+    var rest = this.parseInlineTagsInText(match[2]);
+    if (rest[0].type === &#x27;Text&#x27;) {
+      text.val += rest[0].val;
+      rest.shift();
+    }
+    return [text].concat(rest);
+...</pre></li>
     </ul>
 
 
@@ -6272,7 +8471,23 @@ range.end]);
   this.nodes = [];
   if (node) this.push(node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *   &#x27;:&#x27; expr
+ * | block
+ */
+
+parseBlockExpansion: function(){
+  if (&#x27;:&#x27; == this.peek().type) {
+    this.advance();
+    return new nodes.<span class="apidocCodeKeywordSpan">Block</span>(this.parseExpr());
+  } else {
+    return this.block();
+  }
+},
+
+/**
+ * case
+...</pre></li>
     </ul>
 
 
@@ -6301,7 +8516,22 @@ range.end]);
   }
   return clone;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Block.prototype.clone = function(){
+  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  console.warn(err.stack);
+
+  var clone = new Block;
+  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+    clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
+  }
+  return clone;
+};
+
+},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
+&#x27;use strict&#x27;;
+...</pre></li>
     </ul>
 
 
@@ -6317,7 +8547,22 @@ range.end]);
   this.nodes = [];
   if (node) this.push(node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6344,7 +8589,22 @@ range.end]);
 
   return ret;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var ret = this
+    , node;
+
+  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+    node = this.nodes[i];
+    if (node.yield) return node;
+    else if (node.textOnly) continue;
+    else if (node.includeBlock) ret = node.<span class="apidocCodeKeywordSpan">includeBlock</span>();
+    else if (node.block &#x26;&#x26; !node.block.isEmpty()) ret = node.block.includeBlock();
+    if (ret.yield) return ret;
+  }
+
+  return ret;
+};
+...</pre></li>
     </ul>
 
 
@@ -6359,7 +8619,24 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">isEmpty = function (){
   return 0 == this.nodes.length;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    , node;
+
+  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+    node = this.nodes[i];
+    if (node.yield) return node;
+    else if (node.textOnly) continue;
+    else if (node.includeBlock) ret = node.includeBlock();
+    else if (node.block &#x26;&#x26; !node.block.<span class="apidocCodeKeywordSpan">isEmpty</span>()) ret = node.block.includeBlock
+();
+    if (ret.yield) return ret;
+  }
+
+  return ret;
+};
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -6374,7 +8651,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">push = function (node){
   return this.nodes.push(node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var globals = [];
+
+if (options.globals) {
+  globals = options.globals.slice();
+}
+
+globals.<span class="apidocCodeKeywordSpan">push</span>(&#x27;jade&#x27;);
+globals.push(&#x27;jade_mixins&#x27;);
+globals.push(&#x27;jade_interp&#x27;);
+globals.push(&#x27;jade_debug&#x27;);
+globals.push(&#x27;buf&#x27;);
+
+var body = &#x27;&#x27;
+  + &#x27;var buf = [];\n&#x27;
+...</pre></li>
     </ul>
 
 
@@ -6392,7 +8685,24 @@ range.end]);
 
   other.nodes = this.nodes;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    throw err;
+  }
+}
+
+// Debug compiler
+if (options.debug) {
+  console.error(&#x27;\nCompiled Function:\n\n\u001b[90m%s\u001b[0m&#x27;, js.<span class="apidocCodeKeywordSpan">replace</span>(/^/
+gm, &#x27;  &#x27;));
+}
+
+var globals = [];
+
+if (options.globals) {
+  globals = options.globals.slice();
+}
+...</pre></li>
     </ul>
 
 
@@ -6407,7 +8717,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">unshift = function (node){
   return this.nodes.unshift(node);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * @api public
+   */
+
+  visit: function(node){
+var debug = this.debug;
+
+if (debug) {
+  this.buf.push(&#x27;jade_debug.<span class="apidocCodeKeywordSpan">unshift</span>(new jade.DebugItem( &#x27; + node.line
+    + &#x27;, &#x27; + (node.filename
+      ? utils.stringify(node.filename)
+      : &#x27;jade_debug[0].filename&#x27;)
+    + &#x27; ));&#x27;);
+}
+
+// Massive hack to fix our context
+...</pre></li>
     </ul>
 
 
@@ -6431,7 +8757,23 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+parseComment: function(){
+  var tok = this.expect(&#x27;comment&#x27;);
+  var node;
+
+  var block;
+  if (block = this.parseTextBlock()) {
+    node = new nodes.<span class="apidocCodeKeywordSpan">BlockComment</span>(tok.val, block, tok.buffer);
+  } else {
+    node = new nodes.Comment(tok.val, tok.buffer);
+  }
+
+  node.line = this.line();
+  return node;
+},
+...</pre></li>
     </ul>
 
 
@@ -6453,7 +8795,22 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6476,7 +8833,23 @@ range.end]);
   this.expr = expr;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * case
+   */
+
+  parseCase: function(){
+var val = this.expect(&#x27;case&#x27;).val;
+var node = new nodes.<span class="apidocCodeKeywordSpan">Case</span>(val);
+node.line = this.line();
+
+var block = new nodes.Block;
+block.line = this.line();
+block.filename = this.filename;
+this.expect(&#x27;indent&#x27;);
+while (&#x27;outdent&#x27; != this.peek().type) {
+...</pre></li>
     </ul>
 
 
@@ -6493,7 +8866,23 @@ range.end]);
   this.block = block;
   this.debug = false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * when
+ */
+
+parseWhen: function(){
+  var val = this.expect(&#x27;when&#x27;).val;
+  if (this.peek().type !== &#x27;newline&#x27;)
+    return new nodes.Case.<span class="apidocCodeKeywordSpan">When</span>(val, this.parseBlockExpansion());
+  else
+    return new nodes.Case.When(val);
+},
+
+/**
+ * default
+ */
+...</pre></li>
     </ul>
 
 
@@ -6515,7 +8904,22 @@ range.end]);
   this.block = block;
   this.debug = false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6538,7 +8942,22 @@ range.end]);
   this.expr = expr;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6563,7 +8982,23 @@ range.end]);
   this.escape = escape;
   if (val.match(/^ *else/)) this.debug = false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * code
+   */
+
+  parseCode: function(afterIf){
+var tok = this.expect(&#x27;code&#x27;);
+var node = new nodes.<span class="apidocCodeKeywordSpan">Code</span>(tok.val, tok.buffer, tok.escape);
+var block;
+node.line = this.line();
+
+// throw an error if an else does not have an if
+if (tok.isElse &#x26;&#x26; !tok.hasIf) {
+  throw new Error(&#x27;Unexpected else without if&#x27;);
+}
+...</pre></li>
     </ul>
 
 
@@ -6586,7 +9021,22 @@ range.end]);
   this.escape = escape;
   if (val.match(/^ *else/)) this.debug = false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6609,7 +9059,23 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var tok = this.expect(&#x27;comment&#x27;);
+  var node;
+
+  var block;
+  if (block = this.parseTextBlock()) {
+    node = new nodes.BlockComment(tok.val, block, tok.buffer);
+  } else {
+    node = new nodes.<span class="apidocCodeKeywordSpan">Comment</span>(tok.val, tok.buffer);
+  }
+
+  node.line = this.line();
+  return node;
+},
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -6630,7 +9096,22 @@ range.end]);
   this.val = val;
   this.buffer = buffer;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6652,7 +9133,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Doctype(val) {
   this.val = val;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * doctype
+ */
+
+parseDoctype: function(){
+  var tok = this.expect(&#x27;doctype&#x27;);
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Doctype</span>(tok.val);
+  node.line = this.line();
+  return node;
+},
+
+/**
+ * filter attrs? text-block
+ */
+...</pre></li>
     </ul>
 
 
@@ -6672,7 +9169,22 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Doctype(val) {
   this.val = val;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6697,7 +9209,23 @@ range.end]);
   this.key = key;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * each block
+ */
+
+parseEach: function(){
+  var tok = this.expect(&#x27;each&#x27;);
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Each</span>(tok.code, tok.val, tok.key);
+  node.line = this.line();
+  node.block = this.block();
+  if (this.peek().type == &#x27;code&#x27; &#x26;&#x26; this.peek().val == &#x27;else&#x27;) {
+    this.advance();
+    node.alternative = this.block();
+  }
+  return node;
+...</pre></li>
     </ul>
 
 
@@ -6720,7 +9248,22 @@ range.end]);
   this.key = key;
   this.block = block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6744,7 +9287,23 @@ range.end]);
   this.block = block;
   this.attrs = attrs;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var options = {};
+  if (attrs) {
+    attrs.attrs.forEach(function (attribute) {
+      options[attribute.name] = constantinople.toConstant(attribute.val);
+    });
+  }
+
+  var node = new nodes.<span class="apidocCodeKeywordSpan">Filter</span>(tok.val, block, options);
+  node.line = this.line();
+  return node;
+},
+
+/**
+ * each block
+ */
+...</pre></li>
     </ul>
 
 
@@ -6766,7 +9325,22 @@ range.end]);
   this.block = block;
   this.attrs = attrs;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6788,7 +9362,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Literal(str) {
   this.str = str;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  parser.blocks = this.blocks;
+  parser.included = this.included;
+  parser.contexts = this.contexts;
+  this.extending = parser;
+
+  // TODO: null node
+  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>(&#x27;&#x27;);
+},
+
+/**
+ * &#x27;block&#x27; name block
+ */
+
+parseBlock: function(){
+...</pre></li>
     </ul>
 
 
@@ -6808,7 +9398,22 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Literal(str) {
   this.str = str;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6834,7 +9439,23 @@ range.end]);
   this.block = block;
   this.call = call;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * call ident block
+   */
+
+  parseCall: function(){
+var tok = this.expect(&#x27;call&#x27;);
+var name = tok.val;
+var args = tok.args;
+var mixin = new nodes.<span class="apidocCodeKeywordSpan">Mixin</span>(name, args, new nodes.Block, true);
+
+this.tag(mixin);
+if (mixin.code) {
+  mixin.block.push(mixin.code);
+  mixin.code = null;
+}
+if (mixin.block.isEmpty()) mixin.block = null;
+...</pre></li>
     </ul>
 
 
@@ -6858,7 +9479,22 @@ range.end]);
   this.block = block;
   this.call = call;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6878,7 +9514,23 @@ range.end]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+parseMixinBlock: function () {
+  var block = this.expect(&#x27;mixin-block&#x27;);
+  if (!this.inMixin) {
+    throw new Error(&#x27;Anonymous blocks are not allowed unless they are part of a mixin.&#x27;);
+  }
+  return new nodes.<span class="apidocCodeKeywordSpan">MixinBlock</span>();
+},
+
+/**
+ * include block?
+ */
+
+parseInclude: function(){
+...</pre></li>
     </ul>
 
 
@@ -6896,7 +9548,22 @@ range.end]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -6938,7 +9605,22 @@ range.end]);
   console.warn(err.stack);
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Block.prototype.clone = function(){
+  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  console.warn(err.stack);
+
+  var clone = new Block;
+  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+    clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
+  }
+  return clone;
+};
+
+},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
+&#x27;use strict&#x27;;
+...</pre></li>
     </ul>
 
 
@@ -6962,7 +9644,23 @@ range.end]);
   this.name = name;
   this.block = block || new Block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * interpolation (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ */
+
+parseInterpolation: function(){
+  var tok = this.advance();
+  var tag = new nodes.<span class="apidocCodeKeywordSpan">Tag</span>(tok.val);
+  tag.buffer = true;
+  return this.tag(tag);
+},
+
+/**
+ * tag (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ */
+...</pre></li>
     </ul>
 
 
@@ -7006,7 +9704,23 @@ range.end]);
   // Mixed tag
   return false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  bufferName();
+  this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
+  this.buffer(&#x27;&#x3e;&#x27;);
+  if (tag.code) this.visitCode(tag.code);
+  this.visit(tag.block);
+
+  // pretty print
+  if (pp &#x26;&#x26; !tag.isInline() &#x26;&#x26; &#x27;pre&#x27; != tag.name &#x26;&#x26; !tag.<span class="apidocCodeKeywordSpan
+">canInline</span>())
+    this.prettyIndent(0, true);
+
+  this.buffer(&#x27;&#x3c;/&#x27;);
+  bufferName();
+  this.buffer(&#x27;&#x3e;&#x27;);
+}
+...</pre></li>
     </ul>
 
 
@@ -7028,7 +9742,22 @@ range.end]);
   clone.textOnly = this.textOnly;
   return clone;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Block.prototype.clone = function(){
+  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  console.warn(err.stack);
+
+  var clone = new Block;
+  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+    clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
+  }
+  return clone;
+};
+
+},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
+&#x27;use strict&#x27;;
+...</pre></li>
     </ul>
 
 
@@ -7045,7 +9774,22 @@ range.end]);
   this.name = name;
   this.block = block || new Block;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -7060,7 +9804,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">isInline = function (){
   return ~inlineTags.indexOf(this.name);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!this.hasCompiledDoctype &#x26;&#x26; &#x27;html&#x27; == name) {
+    this.visitDoctype();
+  }
+  this.hasCompiledTag = true;
+}
+
+// pretty print
+if (pp &#x26;&#x26; !tag.<span class="apidocCodeKeywordSpan">isInline</span>())
+  this.prettyIndent(0, true);
+
+if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
+  this.buffer(&#x27;&#x3c;&#x27;);
+  bufferName();
+  this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
+  this.terse
+...</pre></li>
     </ul>
 
 
@@ -7082,7 +9842,23 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Text(line) {
   this.val = line;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  parseInlineTagsInText: function (str) {
+var line = this.line();
+
+var match = /(\\)?#\[((?:.|\n)*)$/.exec(str);
+if (match) {
+  if (match[1]) { // escape
+    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + &#x27;#[&#x27;);
+    text.line = line;
+    var rest = this.parseInlineTagsInText(match[2]);
+    if (rest[0].type === &#x27;Text&#x27;) {
+      text.val += rest[0].val;
+      rest.shift();
+    }
+    return [text].concat(rest);
+...</pre></li>
     </ul>
 
 
@@ -7104,7 +9880,22 @@ range.end]);
     <li>description and source-code<pre class="apidocCodePre">function Text(line) {
   this.val = line;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var fs = require(&#x27;fs&#x27;);
+
+var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
+if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+
+this.dependencies.push(path);
+var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
+parser.dependencies = this.dependencies;
+
+parser.blocks = this.blocks;
+parser.included = this.included;
+parser.contexts = this.contexts;
+this.extending = parser;
+...</pre></li>
     </ul>
 
 
@@ -7127,7 +9918,25 @@ range.end]);
   this.lineno = lineno;
   this.filename = filename;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , fn;
+
+str = String(str);
+
+var parsed = parse(str, options);
+if (options.compileDebug !== false) {
+  fn = [
+      &#x27;var jade_debug = [ new jade.<span class="apidocCodeKeywordSpan">DebugItem</span>( 1, &#x27; + filename + &#x27; ) ];&#
+x27;
+    , &#x27;try {&#x27;
+    , parsed.body
+    , &#x27;} catch (err) {&#x27;
+    , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27
+; + utils.stringify(str) : &#x27;&#x27;) + &#x27;);&#x27;
+    , &#x27;}&#x27;
+  ].join(&#x27;\n&#x27;);
+} else {
+...</pre></li>
     </ul>
 
 
@@ -7171,7 +9980,23 @@ range.end]);
     return &#x27; &#x27; + key + &#x27;=&#x22;&#x27; + val + &#x27;&#x22;&#x27;;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var escaped = attr.escaped;
+
+if (key === &#x27;class&#x27;) {
+  classes.push(attr.val);
+  classEscaping.push(attr.escaped);
+} else if (isConstant(attr.val)) {
+  if (buffer) {
+    this.buffer(runtime.<span class="apidocCodeKeywordSpan">attr</span>(key, toConstant(attr.val), escaped, this.terse));
+  } else {
+    var val = toConstant(attr.val);
+    if (key === &#x27;style&#x27;) val = runtime.style(val);
+    if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0 &#x26;&#x26; typeof val !== &#x27;string&#x27;)) {
+      val = runtime.escape(val);
+    }
+    buf.push(utils.stringify(key) + &#x27;: &#x27; + utils.stringify(val));
+...</pre></li>
     </ul>
 
 
@@ -7205,7 +10030,23 @@ range.end]);
 
   return buf.join(&#x27;&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  } else {
+    this.buf.push(&#x27;}&#x27;);
+  }
+}
+
+if (attrsBlocks.length) {
+  if (attrs.length) {
+    var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
+    attrsBlocks.unshift(val);
+  }
+  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+} else if (attrs.length) {
+  var val = this.attrs(attrs);
+  this.buf.push(&#x27;attributes: &#x27; + val);
+}
+...</pre></li>
     </ul>
 
 
@@ -7233,7 +10074,24 @@ range.end]);
     return &#x27;&#x27;;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+      buf.push(utils.stringify(key) + &#x27;: &#x27; + val);
+    }
+  }
+}.bind(this));
+if (buffer) {
+  if (classes.every(isConstant)) {
+    this.buffer(runtime.<span class="apidocCodeKeywordSpan">cls</span>(classes.map(toConstant), classEscaping));
+  } else {
+    this.bufferExpression(&#x27;jade.cls([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;], &#x27; + utils.stringify(classEscaping
+) + &#x27;)&#x27;);
+  }
+} else if (classes.length) {
+  if (classes.every(isConstant)) {
+    classes = utils.stringify(runtime.joinClasses(classes.map(toConstant).map(runtime.joinClasses).map(function (cls, i) {
+      return classEscaping[i] ? runtime.escape(cls) : cls;
+...</pre></li>
     </ul>
 
 
@@ -7250,7 +10108,23 @@ range.end]);
   if (result === &#x27;&#x27; + html) return html;
   else return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// we only wrap unbuffered code blocks ATM
+// since they are usually flow control
+
+// Buffer code
+if (code.buffer) {
+  var val = code.val.trim();
+  val = &#x27;null == (jade_interp = &#x27;+val+&#x27;) ? &#x22;&#x22; : jade_interp&#x27;;
+  if (code.escape) val = &#x27;jade.<span class="apidocCodeKeywordSpan">escape</span>(&#x27; + val + &#x27;)&#x27;;
+  this.bufferExpression(val);
+} else {
+  this.buf.push(code.val);
+}
+
+// Block support
+if (code.block) {
+...</pre></li>
     </ul>
 
 
@@ -7267,7 +10141,26 @@ range.end]);
     (val &#x26;&#x26; typeof val === &#x27;object&#x27;) ? Object.keys(val).filter(function (key) { return val[key]; }) :
     [val]).filter(nulls).join(&#x27; &#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (classes.every(isConstant)) {
+    this.buffer(runtime.cls(classes.map(toConstant), classEscaping));
+  } else {
+    this.bufferExpression(&#x27;jade.cls([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;], &#x27; + utils.stringify(classEscaping
+) + &#x27;)&#x27;);
+  }
+} else if (classes.length) {
+  if (classes.every(isConstant)) {
+    classes = utils.stringify(runtime.<span class="apidocCodeKeywordSpan">joinClasses</span>(classes.map(toConstant).map(runtime
+.joinClasses).map(function (cls, i) {
+      return classEscaping[i] ? runtime.escape(cls) : cls;
+    })));
+  } else {
+    classes = &#x27;(jade_interp = &#x27; + utils.stringify(classEscaping) + &#x27;,&#x27; +
+      &#x27; jade.joinClasses([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;].map(jade.joinClasses).map(function (cls, i) {&#x27
+; +
+      &#x27;   return jade_interp[i] ? jade.escape(cls) : cls&#x27; +
+      &#x27; }))&#x27; +
+...</pre></li>
     </ul>
 
 
@@ -7306,7 +10199,24 @@ range.end]);
 
   return a;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (attrsBlocks.length) {
+  if (attrs.length) {
+    var val = this.attrs(attrs);
+    attrsBlocks.unshift(val);
+  }
+  this.buf.push(&#x27;attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#
+x27;])&#x27;);
+} else if (attrs.length) {
+  var val = this.attrs(attrs);
+  this.buf.push(&#x27;attributes: &#x27; + val);
+}
+
+if (args) {
+  this.buf.push(&#x27;}, &#x27; + args + &#x27;);&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -7349,7 +10259,23 @@ range.end]);
     + &#x27;\n&#x27; + context + &#x27;\n\n&#x27; + err.message;
   throw err;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var parser = new (options.parser || Parser)(str, options.filename, options);
+var tokens;
+try {
+  // Parse
+  tokens = parser.parse();
+} catch (err) {
+  parser = parser.context();
+  runtime.<span class="apidocCodeKeywordSpan">rethrow</span>(err, parser.filename, parser.lexer.lineno, parser.input);
+}
+
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+var js;
+try {
+  js = compiler.compile();
+...</pre></li>
     </ul>
 
 
@@ -7370,7 +10296,23 @@ range.end]);
     return val;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  classes.push(attr.val);
+  classEscaping.push(attr.escaped);
+} else if (isConstant(attr.val)) {
+  if (buffer) {
+    this.buffer(runtime.attr(key, toConstant(attr.val), escaped, this.terse));
+  } else {
+    var val = toConstant(attr.val);
+    if (key === &#x27;style&#x27;) val = runtime.<span class="apidocCodeKeywordSpan">style</span>(val);
+    if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0 &#x26;&#x26; typeof val !== &#x27;string&#x27;)) {
+      val = runtime.escape(val);
+    }
+    buf.push(utils.stringify(key) + &#x27;: &#x27; + utils.stringify(val));
+  }
+} else {
+  if (buffer) {
+...</pre></li>
     </ul>
 
 
@@ -7391,7 +10333,24 @@ range.end]);
   for (var key in b) a[key] = b[key];
   return a;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (attrsBlocks.length) {
+  if (attrs.length) {
+    var val = this.attrs(attrs);
+    attrsBlocks.unshift(val);
+  }
+  this.buf.push(&#x27;attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#
+x27;])&#x27;);
+} else if (attrs.length) {
+  var val = this.attrs(attrs);
+  this.buf.push(&#x27;attributes: &#x27; + val);
+}
+
+if (args) {
+  this.buf.push(&#x27;}, &#x27; + args + &#x27;);&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -7408,7 +10367,23 @@ range.end]);
              .replace(/\u2028/g, &#x27;\\u2028&#x27;)
              .replace(/\u2029/g, &#x27;\\u2029&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @return {Function}
+ * @api public
+ */
+
+exports.compile = function(str, options){
+var options = options || {}
+  , filename = options.filename
+    ? utils.<span class="apidocCodeKeywordSpan">stringify</span>(options.filename)
+    : &#x27;undefined&#x27;
+  , fn;
+
+str = String(str);
+
+var parsed = parse(str, options);
+if (options.compileDebug !== false) {
+...</pre></li>
     </ul>
 
 
@@ -7451,7 +10426,23 @@ range.end]);
   }
   after &#x26;&#x26; after(ast);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  for (var name in this.mixins)
+    ast.unshift(this.mixins[name]);
+  return ast;
+}
+
+if (!this.extending &#x26;&#x26; !this.included &#x26;&#x26; Object.keys(this.blocks).length){
+  var blocks = [];
+  utils.<span class="apidocCodeKeywordSpan">walkAST</span>(block, function (node) {
+    if (node.type === &#x27;Block&#x27; &#x26;&#x26; node.name) {
+      blocks.push(node.name);
+    }
+  });
+  Object.keys(this.blocks).forEach(function (name) {
+    if (blocks.indexOf(name) === -1 &#x26;&#x26; !this.blocks[name].isSubBlock) {
+      console.warn(&#x27;Warning: Unexpected block &#x22;&#x27;
+...</pre></li>
     </ul>
 
 

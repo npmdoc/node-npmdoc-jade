@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://jade-lang.com"
-
-    >jade (v1.11.0)</a>
+    <a href="http://jade-lang.com">jade (v1.11.0)</a>
 </h1>
 <h4>A clean, whitespace-sensitive template language for writing HTML</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.jade">module jade</a><ol>
 
@@ -2407,8 +2400,8 @@
   this.hasCompiledDoctype = false;
   this.hasCompiledTag = false;
   this.pp = options.pretty || false;
-  if (this.pp &#x26;&#x26; typeof this.pp !== &#x27;string&#x27;) {
-    this.pp = &#x27;  &#x27;;
+  if (this.pp &amp;&amp; typeof this.pp !== 'string') {
+    this.pp = '  ';
   }
   this.debug = false !== options.compileDebug;
   this.indents = 0;
@@ -2431,7 +2424,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Lexer(str, filename) {
-  this.input = str.replace(/\r\n|\r/g, &#x27;\n&#x27;);
+  this.input = str.replace(/\r\n|\r/g, '\n');
   this.filename = filename;
   this.deferredTokens = [];
   this.lastIndents = 0;
@@ -2455,7 +2448,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Parser(str, filename, options){
   //Strip any UTF-8 BOM off of the start of `str`, if it exists.
-  this.input = str.replace(/^\uFEFF/, &#x27;&#x27;);
+  this.input = str.replace(/^\uFEFF/, '');
   this.lexer = new Lexer(this.input, filename);
   this.filename = filename;
   this.blocks = {};
@@ -2479,7 +2472,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">__express = function (path, options, fn) {
-  if(options.compileDebug == undefined &#x26;&#x26; process.env.NODE_ENV === &#x27;production&#x27;) {
+  if(options.compileDebug == undefined &amp;&amp; process.env.NODE_ENV === 'production') {
     options.compileDebug = false;
   }
   exports.renderFile(path, options, fn);
@@ -2500,7 +2493,7 @@
   var options = options || {}
     , filename = options.filename
       ? utils.stringify(options.filename)
-      : &#x27;undefined&#x27;
+      : 'undefined'
     , fn;
 
   str = String(str);
@@ -2508,23 +2501,23 @@
   var parsed = parse(str, options);
   if (options.compileDebug !== false) {
     fn = [
-        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
-      , &#x27;try {&#x27;
+        'var jade_debug = [ new jade.DebugItem( 1, ' + filename + ' ) ];'
+      , 'try {'
       , parsed.body
-      , &#x27;} catch (err) {&#x27;
-      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27; + utils.stringify
-(str) : &#x27;&#x27;) + &#x27;);&#x27;
-      , &#x27;}&#x27;
-    ].join(&#x27;\n&#x27;);
+      , '} catch (err) {'
+      , '  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno' + (options.compileDebug === true ? ',' + utils.stringify
+(str) : '') + ');'
+      , '}'
+    ].join('\n');
   } else {
     fn = parsed.body;
   }
-  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  fn = new Function('locals, jade', fn)
   var res = function(locals){ return fn(locals, Object.create(runtime)) };
   if (options.client) {
     res.toString = function () {
-      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
-      err.name = &#x27;Warning&#x27;;
+      var err = new Error('The `client` option is deprecated, use the `jade.compileClient` method instead');
+      err.name = 'Warning';
       console.error(err.stack || /* istanbul ignore next */ err.message);
       return exports.compileClient(str, options);
     };
@@ -2537,17 +2530,17 @@
 For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
 
 ```js
-var jade = require(&#x27;jade&#x27;);
+var jade = require('jade');
 
 // compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>(&#x27;string of jade&#x27;, options);
+var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.render('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.renderFile('filename.jade', merge(options, locals));
 ...</pre></li>
     </ul>
 
@@ -2564,12 +2557,12 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   return exports.compileClientWithDependenciesTracked(str, options).body;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  fn = new Function('locals, jade', fn)
   var res = function(locals){ return fn(locals, Object.create(runtime)) };
   if (options.client) {
     res.toString = function () {
-      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
-      err.name = &#x27;Warning&#x27;;
+      var err = new Error('The `client` option is deprecated, use the `jade.compileClient` method instead');
+      err.name = 'Warning';
       console.error(err.stack || /* istanbul ignore next */ err.message);
       return exports.<span class="apidocCodeKeywordSpan">compileClient</span>(str, options);
     };
@@ -2593,8 +2586,8 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compileClientWithDependenciesTracked = function (str, options){
   var options = options || {};
-  var name = options.name || &#x27;template&#x27;;
-  var filename = options.filename ? utils.stringify(options.filename) : &#x27;undefined&#x27;;
+  var name = options.name || 'template';
+  var filename = options.filename ? utils.stringify(options.filename) : 'undefined';
   var fn;
 
   str = String(str);
@@ -2602,18 +2595,18 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   var parsed = parse(str, options);
   if (options.compileDebug) {
     fn = [
-        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
-      , &#x27;try {&#x27;
+        'var jade_debug = [ new jade.DebugItem( 1, ' + filename + ' ) ];'
+      , 'try {'
       , parsed.body
-      , &#x27;} catch (err) {&#x27;
-      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, &#x27; + utils.stringify(str) + &#x27;);&#x27;
-      , &#x27;}&#x27;
-    ].join(&#x27;\n&#x27;);
+      , '} catch (err) {'
+      , '  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, ' + utils.stringify(str) + ');'
+      , '}'
+    ].join('\n');
   } else {
     fn = parsed.body;
   }
 
-  return {body: &#x27;function &#x27; + name + &#x27;(locals) {\n&#x27; + fn + &#x27;\n}&#x27;, dependencies: parsed.dependencies};
+  return {body: 'function ' + name + '(locals) {\n' + fn + '\n}', dependencies: parsed.dependencies};
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 *
@@ -2661,16 +2654,16 @@ exports.compileClient = function (str, options) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compileFileClient = function (path, options){
-  var key = path + &#x27;:client&#x27;;
+  var key = path + ':client';
   options = options || {};
 
   options.filename = path;
 
-  if (options.cache &#x26;&#x26; exports.cache[key]) {
+  if (options.cache &amp;&amp; exports.cache[key]) {
     return exports.cache[key];
   }
 
-  var str = fs.readFileSync(options.filename, &#x27;utf8&#x27;);
+  var str = fs.readFileSync(options.filename, 'utf8');
   var out = exports.compileClient(str, options);
   if (options.cache) exports.cache[key] = out;
   return out;
@@ -2688,23 +2681,23 @@ exports.compileClient = function (str, options) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function filter(name, str, options) {
-  if (typeof filter[name] === &#x27;function&#x27;) {
+  if (typeof filter[name] === 'function') {
     return filter[name](str, options);
   } else {
     var tr;
     try {
-      tr = jstransformer(require(&#x27;jstransformer-&#x27; + name));
+      tr = jstransformer(require('jstransformer-' + name));
     } catch (ex) {}
     if (tr) {
-      // TODO: we may want to add a way for people to separately specify &#x22;locals&#x22;
+      // TODO: we may want to add a way for people to separately specify "locals"
       var result = tr.render(str, options, options).body;
-      if (options &#x26;&#x26; options.minify) {
+      if (options &amp;&amp; options.minify) {
         try {
           switch (tr.outputFormat) {
-            case &#x27;js&#x27;:
+            case 'js':
               result = uglify.minify(result, {fromString: true}).code;
               break;
-            case &#x27;css&#x27;:
+            case 'css':
               result = new CleanCSS().minify(result).styles;
               break;
           }
@@ -2716,26 +2709,26 @@ exports.compileClient = function (str, options) {
     } else if (transformers[name]) {
       if (!warned[name]) {
         warned[name] = true;
-        if (name === &#x27;md&#x27; || name === &#x27;markdown&#x27;) {
+        if (name === 'md' || name === 'markdown') {
           var implementation = getMarkdownImplementation();
-          console.log(&#x27;Transformers.&#x27; + name + &#x27; is deprecated, you must replace the :&#x27; +
-                      name + &#x27; jade filter, with :&#x27; +
-                      implementation + &#x27; and install jstransformer-&#x27; +
-                      implementation + &#x27; before you update to jade@2.0.0.&#x27;);
+          console.log('Transformers.' + name + ' is deprecated, you must replace the :' +
+                      name + ' jade filter, with :' +
+                      implementation + ' and install jstransformer-' +
+                      implementation + ' before you update to jade@2.0.0.');
         } else if (alternatives[name]) {
-          console.log(&#x27;Transformers.&#x27; + name + &#x27; is deprecated, you must replace the :&#x27; +
-                      name + &#x27; jade filter, with :&#x27; +
-                      alternatives[name] + &#x27; and install jstransformer-&#x27; +
-                      alternatives[name] + &#x27; before you update to jade@2.0.0.&#x27;);
+          console.log('Transformers.' + name + ' is deprecated, you must replace the :' +
+                      name + ' jade filter, with :' +
+                      alternatives[name] + ' and install jstransformer-' +
+                      alternatives[name] + ' before you update to jade@2.0.0.');
         } else {
-          console.log(&#x27;Transformers.&#x27; + name + &#x27; is deprecated, to continue using the :&#x27; +
-                      name + &#x27; jade filter after jade@2.0.0, you will need to install jstransformer-&#x27; +
-                      name.toLowerCase() + &#x27;.&#x27;);
+          console.log('Transformers.' + name + ' is deprecated, to continue using the :' +
+                      name + ' jade filter after jade@2.0.0, you will need to install jstransformer-' +
+                      name.toLowerCase() + '.');
         }
       }
       return transformers[name].renderSync(str, options);
     } else {
-      throw new Error(&#x27;unknown filter &#x22;:&#x27; + name + &#x27;&#x22;&#x27;);
+      throw new Error('unknown filter ":' + name + '"');
     }
   }
 }</pre></li>
@@ -2978,10 +2971,10 @@ exports.compileClient = function (str, options) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">render = function (str, options, fn){
   // support callback API
-  if (&#x27;function&#x27; == typeof options) {
+  if ('function' == typeof options) {
     fn = options, options = undefined;
   }
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     var res
     try {
       res = exports.render(str, options);
@@ -2994,24 +2987,24 @@ exports.compileClient = function (str, options) {
   options = options || {};
 
   // cache requires .filename
-  if (options.cache &#x26;&#x26; !options.filename) {
-    throw new Error(&#x27;the &#x22;filename&#x22; option is required for caching&#x27;);
+  if (options.cache &amp;&amp; !options.filename) {
+    throw new Error('the "filename" option is required for caching');
   }
 
   return handleTemplateCache(options, str)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var jade = require(&#x27;jade&#x27;);
+var jade = require('jade');
 
 // compile
-var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var fn = jade.compile('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.<span class="apidocCodeKeywordSpan">render</span>(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.<span class="apidocCodeKeywordSpan">render</span>('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.renderFile('filename.jade', merge(options, locals));
 ```
 
 ### Options
@@ -3029,10 +3022,10 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">renderFile = function (path, options, fn){
   // support callback API
-  if (&#x27;function&#x27; == typeof options) {
+  if ('function' == typeof options) {
     fn = options, options = undefined;
   }
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     var res
     try {
       res = exports.renderFile(path, options);
@@ -3048,14 +3041,14 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   return handleTemplateCache(options)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var fn = jade.compile('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.render('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>('filename.jade', merge(options, locals));
 ```
 
 ### Options
@@ -3136,8 +3129,8 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
   this.hasCompiledDoctype = false;
   this.hasCompiledTag = false;
   this.pp = options.pretty || false;
-  if (this.pp &#x26;&#x26; typeof this.pp !== &#x27;string&#x27;) {
-    this.pp = &#x27;  &#x27;;
+  if (this.pp &amp;&amp; typeof this.pp !== 'string') {
+    this.pp = '  ';
   }
   this.debug = false !== options.compileDebug;
   this.indents = 0;
@@ -3173,7 +3166,7 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
     var key = attr.name;
     var escaped = attr.escaped;
 
-    if (key === &#x27;class&#x27;) {
+    if (key === 'class') {
       classes.push(attr.val);
       classEscaping.push(attr.escaped);
     } else if (isConstant(attr.val)) {
@@ -3181,27 +3174,27 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
         this.buffer(runtime.attr(key, toConstant(attr.val), escaped, this.terse));
       } else {
         var val = toConstant(attr.val);
-        if (key === &#x27;style&#x27;) val = runtime.style(val);
-        if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0 &#x26;&#x26; typeof val !== &#x27;string&#x27;)) {
+        if (key === 'style') val = runtime.style(val);
+        if (escaped &amp;&amp; !(key.indexOf('data') === 0 &amp;&amp; typeof val !== 'string')) {
           val = runtime.escape(val);
         }
-        buf.push(utils.stringify(key) + &#x27;: &#x27; + utils.stringify(val));
+        buf.push(utils.stringify(key) + ': ' + utils.stringify(val));
       }
     } else {
       if (buffer) {
-        this.bufferExpression(&#x27;jade.attr(&#x22;&#x27; + key + &#x27;&#x22;, &#x27; + attr.val + &#x27;, &#x27; + utils.stringify(escaped) + &#x27;, &#x27; + utils.stringify(
-this.terse) + &#x27;)&#x27;);
+        this.bufferExpression('jade.attr("' + key + '", ' + attr.val + ', ' + utils.stringify(escaped) + ', ' + utils.stringify(
+this.terse) + ')');
       } else {
         var val = attr.val;
-        if (key === &#x27;style&#x27;) {
-          val = &#x27;jade.style(&#x27; + val + &#x27;)&#x27;;
+        if (key === 'style') {
+          val = 'jade.style(' + val + ')';
         }
-        if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0)) {
-          val = &#x27;jade.escape(&#x27; + val + &#x27;)&#x27;;
+        if (escaped &amp;&amp; !(key.indexOf('data') === 0)) {
+          val = 'jade.escape(' + val + ')';
         } else if (escaped) {
-          val = &#x27;(typeof (jade_interp = &#x27; + val + &#x27;) == &#x22;string&#x22; ? jade.escape(jade_interp) : jade_interp)&#x27;;
+          val = '(typeof (jade_interp = ' + val + ') == "string" ? jade.escape(jade_interp) : jade_interp)';
         }
-        buf.push(utils.stringify(key) + &#x27;: &#x27; + val);
+        buf.push(utils.stringify(key) + ': ' + val);
       }
     }
   }.bind(this));
@@ -3209,7 +3202,7 @@ this.terse) + &#x27;)&#x27;);
     if (classes.every(isConstant)) {
       this.buffer(runtime.cls(classes.map(toConstant), classEscaping));
     } else {
-      this.bufferExpression(&#x27;jade.cls([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;], &#x27; + utils.stringify(classEscaping) + &#x27;)&#x27;);
+      this.bufferExpression('jade.cls([' + classes.join(',') + '], ' + utils.stringify(classEscaping) + ')');
     }
   } else if (classes.length) {
     if (classes.every(isConstant)) {
@@ -3217,20 +3210,20 @@ this.terse) + &#x27;)&#x27;);
         return classEscaping[i] ? runtime.escape(cls) : cls;
       })));
     } else {
-      classes = &#x27;(jade_interp = &#x27; + utils.stringify(classEscaping) + &#x27;,&#x27; +
-        &#x27; jade.joinClasses([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;].map(jade.joinClasses).map(function (cls, i) {&#x27; +
-        &#x27;   return jade_interp[i] ? jade.escape(cls) : cls&#x27; +
-        &#x27; }))&#x27; +
-        &#x27;)&#x27;;
+      classes = '(jade_interp = ' + utils.stringify(classEscaping) + ',' +
+        ' jade.joinClasses([' + classes.join(',') + '].map(jade.joinClasses).map(function (cls, i) {' +
+        '   return jade_interp[i] ? jade.escape(cls) : cls' +
+        ' }))' +
+        ')';
     }
     if (classes.length)
-      buf.push(&#x27;&#x22;class&#x22;: &#x27; + classes);
+      buf.push('"class": ' + classes);
   }
-  return &#x27;{&#x27; + buf.join(&#x27;,&#x27;) + &#x27;}&#x27;;
+  return '{' + buf.join(',') + '}';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   } else {
-    this.buf.push(&#x27;}&#x27;);
+    this.buf.push('}');
   }
 }
 
@@ -3239,10 +3232,10 @@ if (attrsBlocks.length) {
     var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
     attrsBlocks.unshift(val);
   }
-  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+  this.buf.push('attributes: jade.merge([' + attrsBlocks.join(',') + '])');
 } else if (attrs.length) {
   var val = this.attrs(attrs);
-  this.buf.push(&#x27;attributes: &#x27; + val);
+  this.buf.push('attributes: ' + val);
 }
 ...</pre></li>
     </ul>
@@ -3263,13 +3256,13 @@ if (attrsBlocks.length) {
     if (match) {
       this.buffer(str.substr(0, match.index), false);
       if (match[1]) { // escape
-        this.buffer(match[2] + &#x27;{&#x27;, false);
+        this.buffer(match[2] + '{', false);
         this.buffer(match[3], true);
         return;
       } else {
         var rest = match[3];
         var range = parseJSExpression(rest);
-        var code = (&#x27;!&#x27; == match[2] ? &#x27;&#x27; : &#x27;jade.escape&#x27;) + &#x22;((jade_interp = &#x22; + range.src + &#x22;) == null ? &#x27;&#x27; : jade_interp)&#x22;;
+        var code = ('!' == match[2] ? '' : 'jade.escape') + "((jade_interp = " + range.src + ") == null ? '' : jade_interp)";
         this.bufferExpression(code);
         this.buffer(rest.substr(range.end + 1), true);
         return;
@@ -3281,14 +3274,14 @@ if (attrsBlocks.length) {
   str = str.substr(1, str.length - 2);
 
   if (this.lastBufferedIdx == this.buf.length) {
-    if (this.lastBufferedType === &#x27;code&#x27;) this.lastBuffered += &#x27; + &#x22;&#x27;;
-    this.lastBufferedType = &#x27;text&#x27;;
+    if (this.lastBufferedType === 'code') this.lastBuffered += ' + "';
+    this.lastBufferedType = 'text';
     this.lastBuffered += str;
-    this.buf[this.lastBufferedIdx - 1] = &#x27;buf.push(&#x27; + this.bufferStartChar + this.lastBuffered + &#x27;&#x22;);&#x27;
+    this.buf[this.lastBufferedIdx - 1] = 'buf.push(' + this.bufferStartChar + this.lastBuffered + '");'
   } else {
-    this.buf.push(&#x27;buf.push(&#x22;&#x27; + str + &#x27;&#x22;);&#x27;);
-    this.lastBufferedType = &#x27;text&#x27;;
-    this.bufferStartChar = &#x27;&#x22;&#x27;;
+    this.buf.push('buf.push("' + str + '");');
+    this.lastBufferedType = 'text';
+    this.bufferStartChar = '"';
     this.lastBuffered = str;
     this.lastBufferedIdx = this.buf.length;
   }
@@ -3303,7 +3296,7 @@ buffer: function (str, interpolate) {
     if (match) {
       this.<span class="apidocCodeKeywordSpan">buffer</span>(str.substr(0, match.index), false);
       if (match[1]) { // escape
-        this.buffer(match[2] + &#x27;{&#x27;, false);
+        this.buffer(match[2] + '{', false);
         this.buffer(match[3], true);
         return;
       } else {
@@ -3323,30 +3316,30 @@ buffer: function (str, interpolate) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">bufferExpression = function (src) {
   if (isConstant(src)) {
-    return this.buffer(toConstant(src) + &#x27;&#x27;, false)
+    return this.buffer(toConstant(src) + '', false)
   }
   if (this.lastBufferedIdx == this.buf.length) {
-    if (this.lastBufferedType === &#x27;text&#x27;) this.lastBuffered += &#x27;&#x22;&#x27;;
-    this.lastBufferedType = &#x27;code&#x27;;
-    this.lastBuffered += &#x27; + (&#x27; + src + &#x27;)&#x27;;
-    this.buf[this.lastBufferedIdx - 1] = &#x27;buf.push(&#x27; + this.bufferStartChar + this.lastBuffered + &#x27;);&#x27;
+    if (this.lastBufferedType === 'text') this.lastBuffered += '"';
+    this.lastBufferedType = 'code';
+    this.lastBuffered += ' + (' + src + ')';
+    this.buf[this.lastBufferedIdx - 1] = 'buf.push(' + this.bufferStartChar + this.lastBuffered + ');'
   } else {
-    this.buf.push(&#x27;buf.push(&#x27; + src + &#x27;);&#x27;);
-    this.lastBufferedType = &#x27;code&#x27;;
-    this.bufferStartChar = &#x27;&#x27;;
-    this.lastBuffered = &#x27;(&#x27; + src + &#x27;)&#x27;;
+    this.buf.push('buf.push(' + src + ');');
+    this.lastBufferedType = 'code';
+    this.bufferStartChar = '';
+    this.lastBuffered = '(' + src + ')';
     this.lastBufferedIdx = this.buf.length;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-      this.buffer(match[2] + &#x27;{&#x27;, false);
+      this.buffer(match[2] + '{', false);
       this.buffer(match[3], true);
       return;
     } else {
       var rest = match[3];
       var range = parseJSExpression(rest);
-      var code = (&#x27;!&#x27; == match[2] ? &#x27;&#x27; : &#x27;jade.escape&#x27;) + &#x22;((jade_interp = &#x22; + range.src
- + &#x22;) == null ? &#x27;&#x27; : jade_interp)&#x22;;
+      var code = ('!' == match[2] ? '' : 'jade.escape') + "((jade_interp = " + range.src
+ + ") == null ? '' : jade_interp)";
       this.<span class="apidocCodeKeywordSpan">bufferExpression</span>(code);
       this.buffer(rest.substr(range.end + 1), true);
       return;
@@ -3369,41 +3362,41 @@ str = utils.stringify(str);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compile = function (){
   this.buf = [];
-  if (this.pp) this.buf.push(&#x22;var jade_indent = [];&#x22;);
+  if (this.pp) this.buf.push("var jade_indent = [];");
   this.lastBufferedIdx = -1;
   this.visit(this.node);
   if (!this.dynamicMixins) {
     // if there are no dynamic mixins we can remove any un-used mixins
     var mixinNames = Object.keys(this.mixins);
-    for (var i = 0; i &#x3c; mixinNames.length; i++) {
+    for (var i = 0; i &lt; mixinNames.length; i++) {
       var mixin = this.mixins[mixinNames[i]];
       if (!mixin.used) {
-        for (var x = 0; x &#x3c; mixin.instances.length; x++) {
-          for (var y = mixin.instances[x].start; y &#x3c; mixin.instances[x].end; y++) {
-            this.buf[y] = &#x27;&#x27;;
+        for (var x = 0; x &lt; mixin.instances.length; x++) {
+          for (var y = mixin.instances[x].start; y &lt; mixin.instances[x].end; y++) {
+            this.buf[y] = '';
           }
         }
       }
     }
   }
-  return this.buf.join(&#x27;\n&#x27;);
+  return this.buf.join('\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
 
 ```js
-var jade = require(&#x27;jade&#x27;);
+var jade = require('jade');
 
 // compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>(&#x27;string of jade&#x27;, options);
+var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.render('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.renderFile('filename.jade', merge(options, locals));
 ...</pre></li>
     </ul>
 
@@ -3418,10 +3411,10 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">prettyIndent = function (offset, newline){
   offset = offset || 0;
-  newline = newline ? &#x27;\n&#x27; : &#x27;&#x27;;
+  newline = newline ? '\n' : '';
   this.buffer(newline + Array(this.indents + offset).join(this.pp));
   if (this.parentIndents)
-    this.buf.push(&#x22;buf.push.apply(buf, jade_indent);&#x22;);
+    this.buf.push("buf.push.apply(buf, jade_indent);");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   visitBlock: function(block){
@@ -3430,12 +3423,12 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
 , pp = this.pp
 
     // Pretty print multi-line text
-    if (pp &#x26;&#x26; len &#x3e; 1 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[0].isText &#x26;&#x26; block.nodes[1].isText)
+    if (pp &amp;&amp; len &gt; 1 &amp;&amp; !escape &amp;&amp; block.nodes[0].isText &amp;&amp; block.nodes[1].isText)
 this.<span class="apidocCodeKeywordSpan">prettyIndent</span>(1, true);
 
-    for (var i = 0; i &#x3c; len; ++i) {
+    for (var i = 0; i &lt; len; ++i) {
 // Pretty print text
-if (pp &#x26;&#x26; i &#x3e; 0 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[i].isText &#x26;&#x26; block.nodes[i-1].isText)
+if (pp &amp;&amp; i &gt; 0 &amp;&amp; !escape &amp;&amp; block.nodes[i].isText &amp;&amp; block.nodes[i-1].isText)
   this.prettyIndent(1, false);
 
 this.visit(block.nodes[i]);
@@ -3452,9 +3445,9 @@ this.visit(block.nodes[i]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setDoctype = function (name){
-  this.doctype = doctypes[name.toLowerCase()] || &#x27;&#x3c;!DOCTYPE &#x27; + name + &#x27;&#x3e;&#x27;;
-  this.terse = this.doctype.toLowerCase() == &#x27;&#x3c;!doctype html&#x3e;&#x27;;
-  this.xml = 0 == this.doctype.indexOf(&#x27;&#x3c;?xml&#x27;);
+  this.doctype = doctypes[name.toLowerCase()] || '&lt;!DOCTYPE ' + name + '&gt;';
+  this.terse = this.doctype.toLowerCase() == '&lt;!doctype html&gt;';
+  this.xml = 0 == this.doctype.indexOf('&lt;?xml');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   }
@@ -3488,23 +3481,23 @@ Compiler.prototype = {
   var debug = this.debug;
 
   if (debug) {
-    this.buf.push(&#x27;jade_debug.unshift(new jade.DebugItem( &#x27; + node.line
-      + &#x27;, &#x27; + (node.filename
+    this.buf.push('jade_debug.unshift(new jade.DebugItem( ' + node.line
+      + ', ' + (node.filename
         ? utils.stringify(node.filename)
-        : &#x27;jade_debug[0].filename&#x27;)
-      + &#x27; ));&#x27;);
+        : 'jade_debug[0].filename')
+      + ' ));');
   }
 
   // Massive hack to fix our context
   // stack for - else[ if] etc
-  if (false === node.debug &#x26;&#x26; this.debug) {
+  if (false === node.debug &amp;&amp; this.debug) {
     this.buf.pop();
     this.buf.pop();
   }
 
   this.visitNode(node);
 
-  if (debug) this.buf.push(&#x27;jade_debug.shift();&#x27;);
+  if (debug) this.buf.push('jade_debug.shift();');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * @api public
@@ -3512,16 +3505,16 @@ Compiler.prototype = {
 
 compile: function(){
   this.buf = [];
-  if (this.pp) this.buf.push(&#x22;var jade_indent = [];&#x22;);
+  if (this.pp) this.buf.push("var jade_indent = [];");
   this.lastBufferedIdx = -1;
   this.<span class="apidocCodeKeywordSpan">visit</span>(this.node);
   if (!this.dynamicMixins) {
     // if there are no dynamic mixins we can remove any un-used mixins
     var mixinNames = Object.keys(this.mixins);
-    for (var i = 0; i &#x3c; mixinNames.length; i++) {
+    for (var i = 0; i &lt; mixinNames.length; i++) {
       var mixin = this.mixins[mixinNames[i]];
       if (!mixin.used) {
-        for (var x = 0; x &#x3c; mixin.instances.length; x++) {
+        for (var x = 0; x &lt; mixin.instances.length; x++) {
 ...</pre></li>
     </ul>
 
@@ -3540,26 +3533,26 @@ compile: function(){
       var val = this.attrs(attrs);
       attributeBlocks.unshift(val);
     }
-    this.bufferExpression(&#x27;jade.attrs(jade.merge([&#x27; + attributeBlocks.join(&#x27;,&#x27;) + &#x27;]), &#x27; + utils.stringify(this.terse) + &#x27;)&#x27;);
+    this.bufferExpression('jade.attrs(jade.merge([' + attributeBlocks.join(',') + ']), ' + utils.stringify(this.terse) + ')');
   } else if (attrs.length) {
     this.attrs(attrs, true);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // pretty print
-if (pp &#x26;&#x26; !tag.isInline())
+if (pp &amp;&amp; !tag.isInline())
   this.prettyIndent(0, true);
 
-if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
-  this.buffer(&#x27;&#x3c;&#x27;);
+if (tag.selfClosing || (!this.xml &amp;&amp; selfClosing[tag.name])) {
+  this.buffer('&lt;');
   bufferName();
   this.<span class="apidocCodeKeywordSpan">visitAttributes</span>(tag.attrs, tag.attributeBlocks.slice());
   this.terse
-    ? this.buffer(&#x27;&#x3e;&#x27;)
-    : this.buffer(&#x27;/&#x3e;&#x27;);
+    ? this.buffer('&gt;')
+    : this.buffer('/&gt;');
   // if it is non-empty throw an error
-  if (tag.block &#x26;&#x26;
-      !(tag.block.type === &#x27;Block&#x27; &#x26;&#x26; tag.block.nodes.length === 0) &#x26;&#x26;
+  if (tag.block &amp;&amp;
+      !(tag.block.type === 'Block' &amp;&amp; tag.block.nodes.length === 0) &amp;&amp;
       tag.block.nodes.some(function (tag) {
 ...</pre></li>
     </ul>
@@ -3579,18 +3572,18 @@ if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
     , pp = this.pp
 
   // Pretty print multi-line text
-  if (pp &#x26;&#x26; len &#x3e; 1 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[0].isText &#x26;&#x26; block.nodes[1].isText)
+  if (pp &amp;&amp; len &gt; 1 &amp;&amp; !escape &amp;&amp; block.nodes[0].isText &amp;&amp; block.nodes[1].isText)
     this.prettyIndent(1, true);
 
-  for (var i = 0; i &#x3c; len; ++i) {
+  for (var i = 0; i &lt; len; ++i) {
     // Pretty print text
-    if (pp &#x26;&#x26; i &#x3e; 0 &#x26;&#x26; !escape &#x26;&#x26; block.nodes[i].isText &#x26;&#x26; block.nodes[i-1].isText)
+    if (pp &amp;&amp; i &gt; 0 &amp;&amp; !escape &amp;&amp; block.nodes[i].isText &amp;&amp; block.nodes[i-1].isText)
       this.prettyIndent(1, false);
 
     this.visit(block.nodes[i]);
     // Multiple text nodes are separated by newlines
-    if (block.nodes[i+1] &#x26;&#x26; block.nodes[i].isText &#x26;&#x26; block.nodes[i+1].isText)
-      this.buffer(&#x27;\n&#x27;);
+    if (block.nodes[i+1] &amp;&amp; block.nodes[i].isText &amp;&amp; block.nodes[i+1].isText)
+      this.buffer('\n');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3608,10 +3601,10 @@ if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
     <li>description and source-code<pre class="apidocCodePre">visitBlockComment = function (comment){
   if (!comment.buffer) return;
   if (this.pp) this.prettyIndent(1, true);
-  this.buffer(&#x27;&#x3c;!--&#x27; + comment.val);
+  this.buffer('&lt;!--' + comment.val);
   this.visit(comment.block);
   if (this.pp) this.prettyIndent(1, true);
-  this.buffer(&#x27;--&#x3e;&#x27;);
+  this.buffer('--&gt;');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3628,9 +3621,9 @@ if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
     <li>description and source-code<pre class="apidocCodePre">visitCase = function (node){
   var _ = this.withinCase;
   this.withinCase = true;
-  this.buf.push(&#x27;switch (&#x27; + node.expr + &#x27;){&#x27;);
+  this.buf.push('switch (' + node.expr + '){');
   this.visit(node.block);
-  this.buf.push(&#x27;}&#x27;);
+  this.buf.push('}');
   this.withinCase = _;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3653,8 +3646,8 @@ if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
   // Buffer code
   if (code.buffer) {
     var val = code.val.trim();
-    val = &#x27;null == (jade_interp = &#x27;+val+&#x27;) ? &#x22;&#x22; : jade_interp&#x27;;
-    if (code.escape) val = &#x27;jade.escape(&#x27; + val + &#x27;)&#x27;;
+    val = 'null == (jade_interp = '+val+') ? "" : jade_interp';
+    if (code.escape) val = 'jade.escape(' + val + ')';
     this.bufferExpression(val);
   } else {
     this.buf.push(code.val);
@@ -3662,27 +3655,27 @@ if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
 
   // Block support
   if (code.block) {
-    if (!code.buffer) this.buf.push(&#x27;{&#x27;);
+    if (!code.buffer) this.buf.push('{');
     this.visit(code.block);
-    if (!code.buffer) this.buf.push(&#x27;}&#x27;);
+    if (!code.buffer) this.buf.push('}');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 }
     } else {
 // Optimize attributes buffering
-this.buffer(&#x27;&#x3c;&#x27;);
+this.buffer('&lt;');
 bufferName();
 this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
-this.buffer(&#x27;&#x3e;&#x27;);
+this.buffer('&gt;');
 if (tag.code) this.<span class="apidocCodeKeywordSpan">visitCode</span>(tag.code);
 this.visit(tag.block);
 
 // pretty print
-if (pp &#x26;&#x26; !tag.isInline() &#x26;&#x26; &#x27;pre&#x27; != tag.name &#x26;&#x26; !tag.canInline())
+if (pp &amp;&amp; !tag.isInline() &amp;&amp; 'pre' != tag.name &amp;&amp; !tag.canInline())
   this.prettyIndent(0, true);
 
-this.buffer(&#x27;&#x3c;/&#x27;);
+this.buffer('&lt;/');
 ...</pre></li>
     </ul>
 
@@ -3698,7 +3691,7 @@ this.buffer(&#x27;&#x3c;/&#x27;);
     <li>description and source-code<pre class="apidocCodePre">visitComment = function (comment){
   if (!comment.buffer) return;
   if (this.pp) this.prettyIndent(1, true);
-  this.buffer(&#x27;&#x3c;!--&#x27; + comment.val + &#x27;--&#x3e;&#x27;);
+  this.buffer('&lt;!--' + comment.val + '--&gt;');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3713,8 +3706,8 @@ this.buffer(&#x27;&#x3c;/&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitDoctype = function (doctype){
-  if (doctype &#x26;&#x26; (doctype.val || !this.doctype)) {
-    this.setDoctype(doctype.val || &#x27;default&#x27;);
+  if (doctype &amp;&amp; (doctype.val || !this.doctype)) {
+    this.setDoctype(doctype.val || 'default');
   }
 
   if (this.doctype) this.buffer(this.doctype);
@@ -3724,17 +3717,17 @@ this.buffer(&#x27;&#x3c;/&#x27;);
   else self.buffer(name);
 }
 
-if (&#x27;pre&#x27; == tag.name) this.escape = true;
+if ('pre' == tag.name) this.escape = true;
 
 if (!this.hasCompiledTag) {
-  if (!this.hasCompiledDoctype &#x26;&#x26; &#x27;html&#x27; == name) {
+  if (!this.hasCompiledDoctype &amp;&amp; 'html' == name) {
     this.<span class="apidocCodeKeywordSpan">visitDoctype</span>();
   }
   this.hasCompiledTag = true;
 }
 
 // pretty print
-if (pp &#x26;&#x26; !tag.isInline())
+if (pp &amp;&amp; !tag.isInline())
   this.prettyIndent(0, true);
 ...</pre></li>
     </ul>
@@ -3749,46 +3742,46 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitEach = function (each){
-  this.buf.push(&#x27;&#x27;
-    + &#x27;// iterate &#x27; + each.obj + &#x27;\n&#x27;
-    + &#x27;;(function(){\n&#x27;
-    + &#x27;  var $$obj = &#x27; + each.obj + &#x27;;\n&#x27;
-    + &#x27;  if (\&#x27;number\&#x27; == typeof $$obj.length) {\n&#x27;);
+  this.buf.push(''
+    + '// iterate ' + each.obj + '\n'
+    + ';(function(){\n'
+    + '  var $$obj = ' + each.obj + ';\n'
+    + '  if (\'number\' == typeof $$obj.length) {\n');
 
   if (each.alternative) {
-    this.buf.push(&#x27;  if ($$obj.length) {&#x27;);
+    this.buf.push('  if ($$obj.length) {');
   }
 
-  this.buf.push(&#x27;&#x27;
-    + &#x27;    for (var &#x27; + each.key + &#x27; = 0, $$l = $$obj.length; &#x27; + each.key + &#x27; &#x3c; $$l; &#x27; + each.key + &#x27;++) {\n&#x27;
-    + &#x27;      var &#x27; + each.val + &#x27; = $$obj[&#x27; + each.key + &#x27;];\n&#x27;);
+  this.buf.push(''
+    + '    for (var ' + each.key + ' = 0, $$l = $$obj.length; ' + each.key + ' &lt; $$l; ' + each.key + '++) {\n'
+    + '      var ' + each.val + ' = $$obj[' + each.key + '];\n');
 
   this.visit(each.block);
 
-  this.buf.push(&#x27;    }\n&#x27;);
+  this.buf.push('    }\n');
 
   if (each.alternative) {
-    this.buf.push(&#x27;  } else {&#x27;);
+    this.buf.push('  } else {');
     this.visit(each.alternative);
-    this.buf.push(&#x27;  }&#x27;);
+    this.buf.push('  }');
   }
 
-  this.buf.push(&#x27;&#x27;
-    + &#x27;  } else {\n&#x27;
-    + &#x27;    var $$l = 0;\n&#x27;
-    + &#x27;    for (var &#x27; + each.key + &#x27; in $$obj) {\n&#x27;
-    + &#x27;      $$l++;&#x27;
-    + &#x27;      var &#x27; + each.val + &#x27; = $$obj[&#x27; + each.key + &#x27;];\n&#x27;);
+  this.buf.push(''
+    + '  } else {\n'
+    + '    var $$l = 0;\n'
+    + '    for (var ' + each.key + ' in $$obj) {\n'
+    + '      $$l++;'
+    + '      var ' + each.val + ' = $$obj[' + each.key + '];\n');
 
   this.visit(each.block);
 
-  this.buf.push(&#x27;    }\n&#x27;);
+  this.buf.push('    }\n');
   if (each.alternative) {
-    this.buf.push(&#x27;    if ($$l === 0) {&#x27;);
+    this.buf.push('    if ($$l === 0) {');
     this.visit(each.alternative);
-    this.buf.push(&#x27;    }&#x27;);
+    this.buf.push('    }');
   }
-  this.buf.push(&#x27;  }\n}).call(this);\n&#x27;);
+  this.buf.push('  }\n}).call(this);\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3805,7 +3798,7 @@ if (pp &#x26;&#x26; !tag.isInline())
     <li>description and source-code<pre class="apidocCodePre">visitFilter = function (filter){
   var text = filter.block.nodes.map(
     function(node){ return node.val; }
-  ).join(&#x27;\n&#x27;);
+  ).join('\n');
   filter.attrs.filename = this.options.filename;
   try {
     this.buffer(filters(filter.name, text, filter.attrs), true);
@@ -3841,27 +3834,27 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitMixin = function (mixin){
-  var name = &#x27;jade_mixins[&#x27;;
-  var args = mixin.args || &#x27;&#x27;;
+  var name = 'jade_mixins[';
+  var args = mixin.args || '';
   var block = mixin.block;
   var attrs = mixin.attrs;
   var attrsBlocks = mixin.attributeBlocks.slice();
   var pp = this.pp;
-  var dynamic = mixin.name[0]===&#x27;#&#x27;;
+  var dynamic = mixin.name[0]==='#';
   var key = mixin.name;
   if (dynamic) this.dynamicMixins = true;
-  name += (dynamic ? mixin.name.substr(2,mixin.name.length-3):&#x27;&#x22;&#x27;+mixin.name+&#x27;&#x22;&#x27;)+&#x27;]&#x27;;
+  name += (dynamic ? mixin.name.substr(2,mixin.name.length-3):'"'+mixin.name+'"')+']';
 
   this.mixins[key] = this.mixins[key] || {used: false, instances: []};
   if (mixin.call) {
     this.mixins[key].used = true;
-    if (pp) this.buf.push(&#x22;jade_indent.push(&#x27;&#x22; + Array(this.indents + 1).join(pp) + &#x22;&#x27;);&#x22;)
+    if (pp) this.buf.push("jade_indent.push('" + Array(this.indents + 1).join(pp) + "');")
     if (block || attrs.length || attrsBlocks.length) {
 
-      this.buf.push(name + &#x27;.call({&#x27;);
+      this.buf.push(name + '.call({');
 
       if (block) {
-        this.buf.push(&#x27;block: function(){&#x27;);
+        this.buf.push('block: function(){');
 
         // Render block with no indents, dynamically added when rendered
         this.parentIndents++;
@@ -3872,9 +3865,9 @@ if (pp &#x26;&#x26; !tag.isInline())
         this.parentIndents--;
 
         if (attrs.length || attrsBlocks.length) {
-          this.buf.push(&#x27;},&#x27;);
+          this.buf.push('},');
         } else {
-          this.buf.push(&#x27;}&#x27;);
+          this.buf.push('}');
         }
       }
 
@@ -3883,43 +3876,43 @@ if (pp &#x26;&#x26; !tag.isInline())
           var val = this.attrs(attrs);
           attrsBlocks.unshift(val);
         }
-        this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+        this.buf.push('attributes: jade.merge([' + attrsBlocks.join(',') + '])');
       } else if (attrs.length) {
         var val = this.attrs(attrs);
-        this.buf.push(&#x27;attributes: &#x27; + val);
+        this.buf.push('attributes: ' + val);
       }
 
       if (args) {
-        this.buf.push(&#x27;}, &#x27; + args + &#x27;);&#x27;);
+        this.buf.push('}, ' + args + ');');
       } else {
-        this.buf.push(&#x27;});&#x27;);
+        this.buf.push('});');
       }
 
     } else {
-      this.buf.push(name + &#x27;(&#x27; + args + &#x27;);&#x27;);
+      this.buf.push(name + '(' + args + ');');
     }
-    if (pp) this.buf.push(&#x22;jade_indent.pop();&#x22;)
+    if (pp) this.buf.push("jade_indent.pop();")
   } else {
     var mixin_start = this.buf.length;
-    args = args ? args.split(&#x27;,&#x27;) : [];
+    args = args ? args.split(',') : [];
     var rest;
-    if (args.length &#x26;&#x26; /^\.\.\./.test(args[args.length - 1].trim())) {
-      rest = args.pop().trim().replace(/^\.\.\./, &#x27;&#x27;);
+    if (args.length &amp;&amp; /^\.\.\./.test(args[args.length - 1].trim())) {
+      rest = args.pop().trim().replace(/^\.\.\./, '');
     }
     // we need use jade_interp here for v8: https://code.google.com/p/v8/issues/detail?id=4165
-    // once fixed, use this: this.buf.push(name + &#x27; = function(&#x27; + args.join(&#x27;,&#x27;) + &#x27;){&#x27;);
-    this.buf.push(name + &#x27; = jade_interp = function(&#x27; + args.join(&#x27;,&#x27;) + &#x27;){&#x27;);
-    this.buf.push(&#x27;var block = (this &#x26;&#x26; this.block), attributes = (this &#x26;&#x26; this.attributes) || {};&#x27;);
+    // once fixed, use this: this.buf.push(name + ' = function(' + args.join(',') + '){');
+    this.buf.push(name + ' = jade_interp = function(' + args.join(',') + '){');
+    this.buf.push('var block = (this &amp;&amp; this.block), attributes = (this &amp;&amp; this.attributes) || {};');
     if (rest) {
-      this.buf.push(&#x27;var &#x27; + rest + &#x27; = [];&#x27;);
-      this.buf.push(&#x27;for (jade_interp = &#x27; + args.length + &#x27;; jade_interp &#x3c; arguments.length; jade_interp++) {&#x27;);
-      this.buf.push(&#x27;  &#x27; + rest + &#x27;.push(arguments[jade_interp]);&#x27;);
-      this.buf.push(&#x27;}&#x27;);
+      this.buf.push('var ' + rest + ' = [];');
+      this.buf.push('for (jade_interp = ' + args.length + '; jade_interp &lt; arguments.length; jade_interp++) {');
+      this.buf.push('  ' + rest + '.push(arguments[jade_interp]);');
+      this.buf.push('}');
     }
     this.parentIndents++;
     this.visit(block);
     this.parentIndents--;
-    this.buf.push(&#x27;};&#x27;);
+    this.buf.push('};');
     var mixin_end = this.buf.length;
     this.mixins[key].instances.push({start: mixin_start, end: mixin_end});
   }
@@ -3937,9 +3930,9 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitMixinBlock = function (block){
-  if (this.pp) this.buf.push(&#x22;jade_indent.push(&#x27;&#x22; + Array(this.indents + 1).join(this.pp) + &#x22;&#x27;);&#x22;);
-  this.buf.push(&#x27;block &#x26;&#x26; block();&#x27;);
-  if (this.pp) this.buf.push(&#x22;jade_indent.pop();&#x22;);
+  if (this.pp) this.buf.push("jade_indent.push('" + Array(this.indents + 1).join(this.pp) + "');");
+  this.buf.push('block &amp;&amp; block();');
+  if (this.pp) this.buf.push("jade_indent.pop();");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3954,19 +3947,19 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitNode = function (node){
-  return this[&#x27;visit&#x27; + node.type](node);
+  return this['visit' + node.type](node);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // Massive hack to fix our context
   // stack for - else[ if] etc
-  if (false === node.debug &#x26;&#x26; this.debug) {
+  if (false === node.debug &amp;&amp; this.debug) {
     this.buf.pop();
     this.buf.pop();
   }
 
   this.<span class="apidocCodeKeywordSpan">visitNode</span>(node);
 
-  if (debug) this.buf.push(&#x27;jade_debug.shift();&#x27;);
+  if (debug) this.buf.push('jade_debug.shift();');
 },
 
 /**
@@ -3995,53 +3988,53 @@ if (pp &#x26;&#x26; !tag.isInline())
     else self.buffer(name);
   }
 
-  if (&#x27;pre&#x27; == tag.name) this.escape = true;
+  if ('pre' == tag.name) this.escape = true;
 
   if (!this.hasCompiledTag) {
-    if (!this.hasCompiledDoctype &#x26;&#x26; &#x27;html&#x27; == name) {
+    if (!this.hasCompiledDoctype &amp;&amp; 'html' == name) {
       this.visitDoctype();
     }
     this.hasCompiledTag = true;
   }
 
   // pretty print
-  if (pp &#x26;&#x26; !tag.isInline())
+  if (pp &amp;&amp; !tag.isInline())
     this.prettyIndent(0, true);
 
-  if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
-    this.buffer(&#x27;&#x3c;&#x27;);
+  if (tag.selfClosing || (!this.xml &amp;&amp; selfClosing[tag.name])) {
+    this.buffer('&lt;');
     bufferName();
     this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
     this.terse
-      ? this.buffer(&#x27;&#x3e;&#x27;)
-      : this.buffer(&#x27;/&#x3e;&#x27;);
+      ? this.buffer('&gt;')
+      : this.buffer('/&gt;');
     // if it is non-empty throw an error
-    if (tag.block &#x26;&#x26;
-        !(tag.block.type === &#x27;Block&#x27; &#x26;&#x26; tag.block.nodes.length === 0) &#x26;&#x26;
+    if (tag.block &amp;&amp;
+        !(tag.block.type === 'Block' &amp;&amp; tag.block.nodes.length === 0) &amp;&amp;
         tag.block.nodes.some(function (tag) {
-          return tag.type !== &#x27;Text&#x27; || !/^\s*$/.test(tag.val)
+          return tag.type !== 'Text' || !/^\s*$/.test(tag.val)
         })) {
-      throw errorAtNode(tag, new Error(name + &#x27; is self closing and should not have content.&#x27;));
+      throw errorAtNode(tag, new Error(name + ' is self closing and should not have content.'));
     }
   } else {
     // Optimize attributes buffering
-    this.buffer(&#x27;&#x3c;&#x27;);
+    this.buffer('&lt;');
     bufferName();
     this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
-    this.buffer(&#x27;&#x3e;&#x27;);
+    this.buffer('&gt;');
     if (tag.code) this.visitCode(tag.code);
     this.visit(tag.block);
 
     // pretty print
-    if (pp &#x26;&#x26; !tag.isInline() &#x26;&#x26; &#x27;pre&#x27; != tag.name &#x26;&#x26; !tag.canInline())
+    if (pp &amp;&amp; !tag.isInline() &amp;&amp; 'pre' != tag.name &amp;&amp; !tag.canInline())
       this.prettyIndent(0, true);
 
-    this.buffer(&#x27;&#x3c;/&#x27;);
+    this.buffer('&lt;/');
     bufferName();
-    this.buffer(&#x27;&#x3e;&#x27;);
+    this.buffer('&gt;');
   }
 
-  if (&#x27;pre&#x27; == tag.name) this.escape = false;
+  if ('pre' == tag.name) this.escape = false;
 
   this.indents--;
 }</pre></li>
@@ -4073,14 +4066,14 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">visitWhen = function (node){
-  if (&#x27;default&#x27; == node.expr) {
-    this.buf.push(&#x27;default:&#x27;);
+  if ('default' == node.expr) {
+    this.buf.push('default:');
   } else {
-    this.buf.push(&#x27;case &#x27; + node.expr + &#x27;:&#x27;);
+    this.buf.push('case ' + node.expr + ':');
   }
   if (node.block) {
     this.visit(node.block);
-    this.buf.push(&#x27;  break;&#x27;);
+    this.buf.push('  break;');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4101,7 +4094,7 @@ if (pp &#x26;&#x26; !tag.isInline())
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Lexer(str, filename) {
-  this.input = str.replace(/\r\n|\r/g, &#x27;\n&#x27;);
+  this.input = str.replace(/\r\n|\r/g, '\n');
   this.filename = filename;
   this.deferredTokens = [];
   this.lastIndents = 0;
@@ -4164,9 +4157,9 @@ advance: function(){
   var captures;
   if (captures = /^append +([^\n]+)/.exec(this.input)) {
     this.consume(captures[0].length);
-    var mode = &#x27;append&#x27;
+    var mode = 'append'
       , name = captures[1]
-      , tok = this.tok(&#x27;block&#x27;, name);
+      , tok = this.tok('block', name);
     tok.mode = mode;
     return tok;
   }
@@ -4175,10 +4168,10 @@ advance: function(){
 || this.yield()
 || this.doctype()
 || this.interpolation()
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.<span class="apidocCodeKeywordSpan">append</span>()
 || this.prepend()
 || this.block()
@@ -4201,11 +4194,11 @@ advance: function(){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">attributesBlock = function () {
   var captures;
-  if (/^&#x26;attributes\b/.test(this.input)) {
+  if (/^&amp;attributes\b/.test(this.input)) {
     this.consume(11);
     var args = this.bracketExpression();
     this.consume(args.end + 1);
-    return this.tok(&#x27;&#x26;attributes&#x27;, args.src);
+    return this.tok('&amp;attributes', args.src);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -4237,22 +4230,22 @@ advance: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">attrs = function () {
-  if (&#x27;(&#x27; == this.input.charAt(0)) {
+  if ('(' == this.input.charAt(0)) {
     var index = this.bracketExpression().end
       , str = this.input.substr(1, index-1)
-      , tok = this.tok(&#x27;attrs&#x27;);
+      , tok = this.tok('attrs');
 
     assertNestingCorrect(str);
 
-    var quote = &#x27;&#x27;;
+    var quote = '';
     var interpolate = function (attr) {
       return attr.replace(/(\\)?#\{(.+)/g, function(_, escape, expr){
         if (escape) return _;
         try {
           var range = characterParser.parseMax(expr);
-          if (expr[range.end] !== &#x27;}&#x27;) return _.substr(0, 2) + interpolate(_.substr(2));
+          if (expr[range.end] !== '}') return _.substr(0, 2) + interpolate(_.substr(2));
           assertExpression(range.src)
-          return quote + &#x22; + (&#x22; + range.src + &#x22;) + &#x22; + quote + interpolate(expr.substr(range.end + 1));
+          return quote + " + (" + range.src + ") + " + quote + interpolate(expr.substr(range.end + 1));
         } catch (ex) {
           return _.substr(0, 2) + interpolate(_.substr(2));
         }
@@ -4263,98 +4256,98 @@ advance: function(){
     tok.attrs = [];
 
     var escapedAttr = true
-    var key = &#x27;&#x27;;
-    var val = &#x27;&#x27;;
-    var interpolatable = &#x27;&#x27;;
+    var key = '';
+    var val = '';
+    var interpolatable = '';
     var state = characterParser.defaultState();
-    var loc = &#x27;key&#x27;;
+    var loc = 'key';
     var isEndOfAttribute = function (i) {
-      if (key.trim() === &#x27;&#x27;) return false;
+      if (key.trim() === '') return false;
       if (i === str.length) return true;
-      if (loc === &#x27;key&#x27;) {
-        if (str[i] === &#x27; &#x27; || str[i] === &#x27;\n&#x27;) {
-          for (var x = i; x &#x3c; str.length; x++) {
-            if (str[x] != &#x27; &#x27; &#x26;&#x26; str[x] != &#x27;\n&#x27;) {
-              if (str[x] === &#x27;=&#x27; || str[x] === &#x27;!&#x27; || str[x] === &#x27;,&#x27;) return false;
+      if (loc === 'key') {
+        if (str[i] === ' ' || str[i] === '\n') {
+          for (var x = i; x &lt; str.length; x++) {
+            if (str[x] != ' ' &amp;&amp; str[x] != '\n') {
+              if (str[x] === '=' || str[x] === '!' || str[x] === ',') return false;
               else return true;
             }
           }
         }
-        return str[i] === &#x27;,&#x27;
-      } else if (loc === &#x27;value&#x27; &#x26;&#x26; !state.isNesting()) {
+        return str[i] === ','
+      } else if (loc === 'value' &amp;&amp; !state.isNesting()) {
         try {
           assertExpression(val);
-          if (str[i] === &#x27; &#x27; || str[i] === &#x27;\n&#x27;) {
-            for (var x = i; x &#x3c; str.length; x++) {
-              if (str[x] != &#x27; &#x27; &#x26;&#x26; str[x] != &#x27;\n&#x27;) {
-                if (characterParser.isPunctuator(str[x]) &#x26;&#x26; str[x] != &#x27;&#x22;&#x27; &#x26;&#x26; str[x] != &#x22;&#x27;&#x22;) return false;
+          if (str[i] === ' ' || str[i] === '\n') {
+            for (var x = i; x &lt; str.length; x++) {
+              if (str[x] != ' ' &amp;&amp; str[x] != '\n') {
+                if (characterParser.isPunctuator(str[x]) &amp;&amp; str[x] != '"' &amp;&amp; str[x] != "'") return false;
                 else return true;
               }
             }
           }
-          return str[i] === &#x27;,&#x27;;
+          return str[i] === ',';
         } catch (ex) {
           return false;
         }
       }
     }
 
-    this.lineno += str.split(&#x22;\n&#x22;).length - 1;
+    this.lineno += str.split("\n").length - 1;
 
-    for (var i = 0; i &#x3c;= str.length; i++) {
+    for (var i = 0; i &lt;= str.length; i++) {
       if (isEndOfAttribute(i)) {
         val = val.trim();
         if (val) assertExpression(val)
         key = key.trim();
-        key = key.replace(/^[&#x27;&#x22;]|[&#x27;&#x22;]$/g, &#x27;&#x27;);
+        key = key.replace(/^['"]|['"]$/g, '');
         tok.attrs.push({
           name: key,
-          val: &#x27;&#x27; == val ? true : val,
+          val: '' == val ? true : val,
           escaped: escapedAttr
         });
-        key = val = &#x27;&#x27;;
-        loc = &#x27;key&#x27;;
+        key = val = '';
+        loc = 'key';
         escapedAttr = false;
       } else {
         switch (loc) {
-          case &#x27;key-char&#x27;:
+          case 'key-char':
             if (str[i] === quote) {
-              loc = &#x27;key&#x27;;
-              if (i + 1 &#x3c; str.length &#x26;&#x26; [&#x27; &#x27;, &#x27;,&#x27;, &#x27;!&#x27;, &#x27;=&#x27;, &#x27;\n&#x27;].indexOf(str[i + 1]) === -1)
-                throw new Error(&#x27;Unexpected character &#x27; + str[i + 1] + &#x27; expected ` `, `\\n`, `,`, `!` or `=`&#x27;);
+              loc = 'key';
+              if (i + 1 &lt; str.length &amp;&amp; [' ', ',', '!', '=', '\n'].indexOf(str[i + 1]) === -1)
+                throw new Error('Unexpected character ' + str[i + 1] + ' expected ` `, `\\n`, `,`, `!` or `=`');
             } else {
               key += str[i];
             }
             break;
-          case &#x27;key&#x27;:
-            if (key === &#x27;&#x27; &#x26;&#x26; (str[i] === &#x27;&#x22;&#x27; || str[i] === &#x22;&#x27;&#x22;)) {
-              loc = &#x27;key-char&#x27;;
+          case 'key':
+            if (key === '' &amp;&amp; (str[i] === '"' || str[i] === "'")) {
+              loc = 'key-char';
               quote = str[i];
-            } else if (str[i] === &#x27;!&#x27; || str[i] === &#x27;=&#x27;) {
-              escapedAttr = str[i] !== &#x27;!&#x27;;
-              if (str[i] === &#x27;!&#x27;) i++;
-              if (str[i] !== &#x27;=&#x27;) throw new Error(&#x27;Unexpected character &#x27; + str[i] + &#x27; expected `=`&#x27;);
-              loc = &#x27;value&#x27;;
+            } else if (str[i] === '!' || str[i] === '=') {
+              escapedAttr = str[i] !== '!';
+              if (str[i] === '!') i++;
+              if (str[i] !== '=') throw new Error('Unexpected character ' + str[i] + ' expected `=`');
+              loc = 'value';
               state = characterParser.defaultState();
             } else {
               key += str[i]
             }
             break;
-          case &#x27;value&#x27;:
+          case 'value':
             state = characterParser.parseChar(str[i], state);
             if (state.isString()) {
-              loc = &#x27;string&#x27;;
+              loc = 'string';
               quote = str[i];
               interpolatable = str[i];
             } else {
               val += str[i];
             }
             break;
-          case &#x27;string&#x27;:
+          case 'string':
             state = characterParser.parseChar(str[i], state);
             interpolatable += str[i];
             if (!state.isString()) {
-              loc = &#x27;value&#x27;;
+              loc = 'value';
               val += interpolate(interpolatable);
             }
             break;
@@ -4362,10 +4355,10 @@ advance: function(){
       }
     }
 
-    if (&#x27;/&#x27; == this.input.char ...</pre></li>
+    if ('/' == this.input.char ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   } else {
-    this.buf.push(&#x27;}&#x27;);
+    this.buf.push('}');
   }
 }
 
@@ -4374,10 +4367,10 @@ if (attrsBlocks.length) {
     var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
     attrsBlocks.unshift(val);
   }
-  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+  this.buf.push('attributes: jade.merge([' + attrsBlocks.join(',') + '])');
 } else if (attrs.length) {
   var val = this.attrs(attrs);
-  this.buf.push(&#x27;attributes: &#x27; + val);
+  this.buf.push('attributes: ' + val);
 }
 ...</pre></li>
     </ul>
@@ -4396,7 +4389,7 @@ if (attrsBlocks.length) {
   if (captures = /^\n *\n/.exec(this.input)) {
     this.consume(captures[0].length - 1);
     ++this.lineno;
-    if (this.pipeless) return this.tok(&#x27;text&#x27;, &#x27;&#x27;);
+    if (this.pipeless) return this.tok('text', '');
     return this.next();
   }
 }</pre></li>
@@ -4414,7 +4407,7 @@ next: function() {
     || this.yield()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
     || this.when()
 ...</pre></li>
     </ul>
@@ -4432,9 +4425,9 @@ next: function() {
   var captures;
   if (captures = /^block\b *(?:(prepend|append) +)?([^\n]+)/.exec(this.input)) {
     this.consume(captures[0].length);
-    var mode = captures[1] || &#x27;replace&#x27;
+    var mode = captures[1] || 'replace'
       , name = captures[2]
-      , tok = this.tok(&#x27;block&#x27;, name);
+      , tok = this.tok('block', name);
 
     tok.mode = mode;
     return tok;
@@ -4442,10 +4435,10 @@ next: function() {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.interpolation()
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.<span class="apidocCodeKeywordSpan">block</span>()
@@ -4472,7 +4465,7 @@ next: function() {
   var captures;
   if (captures = /^-\n/.exec(this.input)) {
     this.consume(captures[0].length - 1);
-    var tok = this.tok(&#x27;blockCode&#x27;);
+    var tok = this.tok('blockCode');
     this.pipeless = true;
     return tok;
   }
@@ -4482,7 +4475,7 @@ next: function() {
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.<span class="apidocCodeKeywordSpan">blockCode</span>()
@@ -4508,10 +4501,10 @@ next: function() {
     <li>description and source-code<pre class="apidocCodePre">bracketExpression = function (skip){
   skip = skip || 0;
   var start = this.input[skip];
-  if (start != &#x27;(&#x27; &#x26;&#x26; start != &#x27;{&#x27; &#x26;&#x26; start != &#x27;[&#x27;) throw new Error(&#x27;unrecognized start character&#x27;);
-  var end = ({&#x27;(&#x27;: &#x27;)&#x27;, &#x27;{&#x27;: &#x27;}&#x27;, &#x27;[&#x27;: &#x27;]&#x27;})[start];
+  if (start != '(' &amp;&amp; start != '{' &amp;&amp; start != '[') throw new Error('unrecognized start character');
+  var end = ({'(': ')', '{': '}', '[': ']'})[start];
   var range = characterParser.parseMax(this.input, {start: skip + 1});
-  if (this.input[range.end] !== end) throw new Error(&#x27;start character &#x27; + start + &#x27; does not match end character &#x27; + this.input[
+  if (this.input[range.end] !== end) throw new Error('start character ' + start + ' does not match end character ' + this.input[
 range.end]);
   return range;
 }</pre></li>
@@ -4526,7 +4519,7 @@ interpolation: function() {
     var match = this.<span class="apidocCodeKeywordSpan">bracketExpression</span>(1);
 
     this.consume(match.end + 1);
-    return this.tok(&#x27;interpolation&#x27;, match.src);
+    return this.tok('interpolation', match.src);
   }
 },
 
@@ -4551,13 +4544,13 @@ interpolation: function() {
     if (captures[3]) {
       // simple call
       this.consume(captures[0].length);
-      tok = this.tok(&#x27;call&#x27;, captures[3]);
+      tok = this.tok('call', captures[3]);
     } else {
       // interpolated call
       var match = this.bracketExpression(2 + captures[1].length);
       this.consume(match.end + 1);
       assertExpression(match.src);
-      tok = this.tok(&#x27;call&#x27;, &#x27;#{&#x27;+match.src+&#x27;}&#x27;);
+      tok = this.tok('call', '#{'+match.src+'}');
     }
 
     // Check for args (not attributes)
@@ -4568,7 +4561,7 @@ interpolation: function() {
         tok.args = range.src;
       }
       if (tok.args) {
-        assertExpression(&#x27;[&#x27; + tok.args + &#x27;]&#x27;);
+        assertExpression('[' + tok.args + ']');
       }
     }
 
@@ -4583,21 +4576,20 @@ interpolation: function() {
 
 
 
-(function(f){if(typeof exports===&#x22;object&#x22;&#x26;&#x26;typeof module!==&#x22;undefined&#x22;){module.exports=f()}else if
-(typeof define===&#x22;function&#x22;&#x26;&#x26;define.amd){define([],f)}else{var g;if(typeof window!==&#x22;undefined&#x22;){g
-=window}else if(typeof global!==&#x22;undefined&#x22;){g=global}else if(typeof self!==&#x22;undefined&#x22;){g=self}else{g=this}
+(function(f){if(typeof exports==="object"&amp;&amp;typeof module!=="undefined"){module.exports=f()}else if
+(typeof define==="function"&amp;&amp;define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g
+=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}
 g.jade = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof
-require==&#x22;function&#x22;&#x26;&#x26;require;if(!u&#x26;&#x26;a)return a(o,!0);if(i)return i(o,!0);var f=new Error(&#x22;Cannot
- find module &#x27;&#x22;+o+&#x22;&#x27;&#x22;);throw f.code=&#x22;MODULE_NOT_FOUND&#x22;,f}var l=n[o]={exports:{}};t[o][0].<span
- class="apidocCodeKeywordSpan">call</span>(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n
-[o].exports}var i=typeof require==&#x22;function&#x22;&#x26;&#x26;require;for(var o=0;o&#x3c;r.length;o++)s(r[o]);return s})({1:[
+require=="function"&amp;&amp;require;if(!u&amp;&amp;a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot
+ find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].<span class="apidocCodeKeywordSpan">call</span>(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n
+[o].exports}var i=typeof require=="function"&amp;&amp;require;for(var o=0;o&lt;r.length;o++)s(r[o]);return s})({1:[
 function(require,module,exports){
 (function (process){
-&#x27;use strict&#x27;;
+'use strict';
 
 /*!
 * Jade
-* Copyright(c) 2010 TJ Holowaychuk &#x3c;tj@vision-media.ca&#x3e;
+* Copyright(c) 2010 TJ Holowaychuk &lt;tj@vision-media.ca&gt;
 * MIT Licensed
 ...</pre></li>
     </ul>
@@ -4612,7 +4604,7 @@ function(require,module,exports){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">case = function () {
-  return this.scan(/^case +([^\n]+)/, &#x27;case&#x27;);
+  return this.scan(/^case +([^\n]+)/, 'case');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4627,11 +4619,11 @@ function(require,module,exports){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">className = function () {
-  return this.scan(/^\.([\w-]+)/, &#x27;class&#x27;);
+  return this.scan(/^\.([\w-]+)/, 'class');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -4663,9 +4655,9 @@ function(require,module,exports){
     this.consume(captures[0].length);
     var flags = captures[1];
     captures[1] = captures[2];
-    var tok = this.tok(&#x27;code&#x27;, captures[1]);
-    tok.escape = flags.charAt(0) === &#x27;=&#x27;;
-    tok.buffer = flags.charAt(0) === &#x27;=&#x27; || flags.charAt(1) === &#x27;=&#x27;;
+    var tok = this.tok('code', captures[1]);
+    tok.escape = flags.charAt(0) === '=';
+    tok.buffer = flags.charAt(0) === '=' || flags.charAt(1) === '=';
     if (tok.buffer) assertExpression(captures[1])
     return tok;
   }
@@ -4674,7 +4666,7 @@ function(require,module,exports){
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -4700,10 +4692,10 @@ function(require,module,exports){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">colon = function () {
   var good = /^: +/.test(this.input);
-  var res = this.scan(/^: */, &#x27;:&#x27;);
-  if (res &#x26;&#x26; !good) {
-    console.warn(&#x27;Warning: space required after `:` on line &#x27; + this.lineno +
-        &#x27; of jade file &#x22;&#x27; + this.filename + &#x27;&#x22;&#x27;);
+  var res = this.scan(/^: */, ':');
+  if (res &amp;&amp; !good) {
+    console.warn('Warning: space required after `:` on line ' + this.lineno +
+        ' of jade file "' + this.filename + '"');
   }
   return res;
 }</pre></li>
@@ -4722,7 +4714,7 @@ function(require,module,exports){
   }
 };
 
-},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
+},{"./utils":25,"character-parser":29}],7:[function(require,module,exports){
 ...</pre></li>
     </ul>
 
@@ -4739,8 +4731,8 @@ function(require,module,exports){
   var captures;
   if (captures = /^\/\/(-)?([^\n]*)/.exec(this.input)) {
     this.consume(captures[0].length);
-    var tok = this.tok(&#x27;comment&#x27;, captures[2]);
-    tok.buffer = &#x27;-&#x27; != captures[1];
+    var tok = this.tok('comment', captures[2]);
+    tok.buffer = '-' != captures[1];
     this.pipeless = true;
     return tok;
   }
@@ -4782,31 +4774,31 @@ function(require,module,exports){
     var isElse = false;
 
     switch (type) {
-      case &#x27;if&#x27;:
+      case 'if':
         assertExpression(js)
-        js = &#x27;if (&#x27; + js + &#x27;)&#x27;;
+        js = 'if (' + js + ')';
         isIf = true;
         break;
-      case &#x27;unless&#x27;:
+      case 'unless':
         assertExpression(js)
-        js = &#x27;if (!(&#x27; + js + &#x27;))&#x27;;
+        js = 'if (!(' + js + '))';
         isIf = true;
         break;
-      case &#x27;else if&#x27;:
+      case 'else if':
         assertExpression(js)
-        js = &#x27;else if (&#x27; + js + &#x27;)&#x27;;
+        js = 'else if (' + js + ')';
         isIf = true;
         isElse = true;
         break;
-      case &#x27;else&#x27;:
-        if (js &#x26;&#x26; js.trim()) {
-          throw new Error(&#x27;`else` cannot have a condition, perhaps you meant `else if`&#x27;);
+      case 'else':
+        if (js &amp;&amp; js.trim()) {
+          throw new Error('`else` cannot have a condition, perhaps you meant `else if`');
         }
-        js = &#x27;else&#x27;;
+        js = 'else';
         isElse = true;
         break;
     }
-    var tok = this.tok(&#x27;code&#x27;, js);
+    var tok = this.tok('code', js);
     tok.isElse = isElse;
     tok.isIf = isIf;
     tok.requiresBlock = true;
@@ -4823,7 +4815,7 @@ function(require,module,exports){
 || this.call()
 || this.<span class="apidocCodeKeywordSpan">conditional</span>()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -4873,7 +4865,7 @@ scan: function(regexp, type){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">default = function () {
-  return this.scan(/^default */, &#x27;default&#x27;);
+  return this.scan(/^default */, 'default');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4895,17 +4887,17 @@ var captures;
 if (captures = /^(\w[-:\w]*)(\/?)/.exec(this.input)) {
   this.consume(captures[0].length);
   var tok, name = captures[1];
-  if (&#x27;:&#x27; == name[name.length - 1]) {
+  if (':' == name[name.length - 1]) {
     name = name.slice(0, -1);
-    tok = this.tok(&#x27;tag&#x27;, name);
-    this.<span class="apidocCodeKeywordSpan">defer</span>(this.tok(&#x27;:&#x27;));
-    if (this.input[0] !== &#x27; &#x27;) {
-      console.warn(&#x27;Warning: space required after `:` on line &#x27; + this.lineno +
-          &#x27; of jade file &#x22;&#x27; + this.filename + &#x27;&#x22;&#x27;);
+    tok = this.tok('tag', name);
+    this.<span class="apidocCodeKeywordSpan">defer</span>(this.tok(':'));
+    if (this.input[0] !== ' ') {
+      console.warn('Warning: space required after `:` on line ' + this.lineno +
+          ' of jade file "' + this.filename + '"');
     }
-    while (&#x27; &#x27; == this.input[0]) this.input = this.input.substr(1);
+    while (' ' == this.input[0]) this.input = this.input.substr(1);
   } else {
-    tok = this.tok(&#x27;tag&#x27;, name);
+    tok = this.tok('tag', name);
 ...</pre></li>
     </ul>
 
@@ -4920,7 +4912,7 @@ if (captures = /^(\w[-:\w]*)(\/?)/.exec(this.input)) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">deferred = function () {
   return this.deferredTokens.length
-    &#x26;&#x26; this.deferredTokens.shift();
+    &amp;&amp; this.deferredTokens.shift();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * Return the next token object.
@@ -4937,7 +4929,7 @@ next: function() {
     || this.yield()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
 ...</pre></li>
     </ul>
 
@@ -4951,12 +4943,12 @@ next: function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">doctype = function () {
-  if (this.scan(/^!!! *([^\n]+)?/, &#x27;doctype&#x27;)) {
-    throw new Error(&#x27;`!!!` is deprecated, you must now use `doctype`&#x27;);
+  if (this.scan(/^!!! *([^\n]+)?/, 'doctype')) {
+    throw new Error('`!!!` is deprecated, you must now use `doctype`');
   }
-  var node = this.scan(/^(?:doctype) *([^\n]+)?/, &#x27;doctype&#x27;);
-  if (node &#x26;&#x26; node.val &#x26;&#x26; node.val.trim() === &#x27;5&#x27;) {
-    throw new Error(&#x27;`doctype 5` is deprecated, you must now use `doctype html`&#x27;);
+  var node = this.scan(/^(?:doctype) *([^\n]+)?/, 'doctype');
+  if (node &amp;&amp; node.val &amp;&amp; node.val.trim() === '5') {
+    throw new Error('`doctype 5` is deprecated, you must now use `doctype html`');
   }
   return node;
 }</pre></li>
@@ -4970,10 +4962,10 @@ return this.deferred()
   || this.yield()
   || this.<span class="apidocCodeKeywordSpan">doctype</span>()
   || this.interpolation()
-  || this[&#x22;case&#x22;]()
+  || this["case"]()
   || this.when()
-  || this[&#x22;default&#x22;]()
-  || this[&#x22;extends&#x22;]()
+  || this["default"]()
+  || this["extends"]()
   || this.append()
   || this.prepend()
 ...</pre></li>
@@ -4990,7 +4982,7 @@ return this.deferred()
     <ul>
     <li>description and source-code<pre class="apidocCodePre">dot = function () {
   var match;
-  if (match = this.scan(/^\./, &#x27;dot&#x27;)) {
+  if (match = this.scan(/^\./, 'dot')) {
     this.pipeless = true;
     return match;
   }
@@ -5009,8 +5001,8 @@ return this.deferred()
   }
 };
 
-},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./utils":25,"character-parser":29}],7:[function(require,module,exports){
+'use strict';
 ...</pre></li>
     </ul>
 
@@ -5027,8 +5019,8 @@ return this.deferred()
   var captures;
   if (captures = /^(?:- *)?(?:each|for) +([a-zA-Z_$][\w$]*)(?: *, *([a-zA-Z_$][\w$]*))? * in *([^\n]+)/.exec(this.input)) {
     this.consume(captures[0].length);
-    var tok = this.tok(&#x27;each&#x27;, captures[1]);
-    tok.key = captures[2] || &#x27;$index&#x27;;
+    var tok = this.tok('each', captures[1]);
+    tok.key = captures[2] || '$index';
     assertExpression(captures[3])
     tok.code = captures[3];
     return tok;
@@ -5043,7 +5035,7 @@ return this.deferred()
 || this.call()
 || this.conditional()
 || this.<span class="apidocCodeKeywordSpan">each</span>()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -5066,9 +5058,9 @@ return this.deferred()
   if (this.input.length) return;
   if (this.indentStack.length) {
     this.indentStack.shift();
-    return this.tok(&#x27;outdent&#x27;);
+    return this.tok('outdent');
   } else {
-    return this.tok(&#x27;eos&#x27;);
+    return this.tok('eos');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5084,9 +5076,9 @@ next: function() {
     || this.yield()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
     || this.when()
-    || this[&#x22;default&#x22;]()
+    || this["default"]()
 ...</pre></li>
     </ul>
 
@@ -5100,7 +5092,7 @@ next: function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">extends = function () {
-  return this.scan(/^extends? +([^\n]+)/, &#x27;extends&#x27;);
+  return this.scan(/^extends? +([^\n]+)/, 'extends');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5115,7 +5107,7 @@ next: function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fail = function () {
-  throw new Error(&#x27;unexpected text &#x27; + this.input.substr(0, 5));
+  throw new Error('unexpected text ' + this.input.substr(0, 5));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       || this.attributesBlock()
@@ -5129,10 +5121,10 @@ next: function() {
   }
 };
 
-},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./utils":25,"character-parser":29}],7:[function(require,module,exports){
+'use strict';
 
-var Node = require(&#x27;./node&#x27;);
+var Node = require('./node');
 ...</pre></li>
     </ul>
 
@@ -5146,7 +5138,7 @@ var Node = require(&#x27;./node&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">filter = function () {
-  var tok = this.scan(/^:([\w\-]+)/, &#x27;filter&#x27;);
+  var tok = this.scan(/^:([\w\-]+)/, 'filter');
   if (tok) {
     this.pipeless = true;
     return tok;
@@ -5158,7 +5150,7 @@ var Node = require(&#x27;./node&#x27;);
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.<span class="apidocCodeKeywordSpan">filter</span>()
 || this.blockCode()
@@ -5181,12 +5173,12 @@ var Node = require(&#x27;./node&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">id = function () {
-  return this.scan(/^#([\w-]+)/, &#x27;id&#x27;);
+  return this.scan(/^#([\w-]+)/, 'id');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -5212,12 +5204,12 @@ var Node = require(&#x27;./node&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">include = function () {
-  return this.scan(/^include +([^\n]+)/, &#x27;include&#x27;);
+  return this.scan(/^include +([^\n]+)/, 'include');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.block()
@@ -5228,7 +5220,7 @@ var Node = require(&#x27;./node&#x27;);
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 ...</pre></li>
     </ul>
@@ -5247,25 +5239,25 @@ var Node = require(&#x27;./node&#x27;);
   if (captures = /^include:([\w\-]+)([\( ])/.exec(this.input)) {
     this.consume(captures[0].length - 1);
     var filter = captures[1];
-    var attrs = captures[2] === &#x27;(&#x27; ? this.attrs() : null;
-    if (!(captures[2] === &#x27; &#x27; || this.input[0] === &#x27; &#x27;)) {
-      throw new Error(&#x27;expected space after include:filter but got &#x27; + utils.stringify(this.input[0]));
+    var attrs = captures[2] === '(' ? this.attrs() : null;
+    if (!(captures[2] === ' ' || this.input[0] === ' ')) {
+      throw new Error('expected space after include:filter but got ' + utils.stringify(this.input[0]));
     }
     captures = /^ *([^\n]+)/.exec(this.input);
-    if (!captures || captures[1].trim() === &#x27;&#x27;) {
-      throw new Error(&#x27;missing path for include:filter&#x27;);
+    if (!captures || captures[1].trim() === '') {
+      throw new Error('missing path for include:filter');
     }
     this.consume(captures[0].length);
     var path = captures[1];
-    var tok = this.tok(&#x27;include&#x27;, path);
+    var tok = this.tok('include', path);
     tok.filter = filter;
     tok.attrs = attrs;
     return tok;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.block()
@@ -5276,7 +5268,7 @@ var Node = require(&#x27;./node&#x27;);
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 ...</pre></li>
@@ -5304,13 +5296,13 @@ var Node = require(&#x27;./node&#x27;);
     captures = re.exec(this.input);
 
     // spaces
-    if (captures &#x26;&#x26; !captures[1].length) {
+    if (captures &amp;&amp; !captures[1].length) {
       re = /^\n( *)/;
       captures = re.exec(this.input);
     }
 
     // established
-    if (captures &#x26;&#x26; captures[1].length) this.indentRe = re;
+    if (captures &amp;&amp; captures[1].length) this.indentRe = re;
   }
 
   if (captures) {
@@ -5320,30 +5312,30 @@ var Node = require(&#x27;./node&#x27;);
     ++this.lineno;
     this.consume(indents + 1);
 
-    if (&#x27; &#x27; == this.input[0] || &#x27;\t&#x27; == this.input[0]) {
-      throw new Error(&#x27;Invalid indentation, you can use tabs or spaces but not both&#x27;);
+    if (' ' == this.input[0] || '\t' == this.input[0]) {
+      throw new Error('Invalid indentation, you can use tabs or spaces but not both');
     }
 
     // blank line
-    if (&#x27;\n&#x27; == this.input[0]) {
+    if ('\n' == this.input[0]) {
       this.pipeless = false;
-      return this.tok(&#x27;newline&#x27;);
+      return this.tok('newline');
     }
 
     // outdent
-    if (this.indentStack.length &#x26;&#x26; indents &#x3c; this.indentStack[0]) {
-      while (this.indentStack.length &#x26;&#x26; this.indentStack[0] &#x3e; indents) {
-        this.stash.push(this.tok(&#x27;outdent&#x27;));
+    if (this.indentStack.length &amp;&amp; indents &lt; this.indentStack[0]) {
+      while (this.indentStack.length &amp;&amp; this.indentStack[0] &gt; indents) {
+        this.stash.push(this.tok('outdent'));
         this.indentStack.shift();
       }
       tok = this.stash.pop();
     // indent
-    } else if (indents &#x26;&#x26; indents != this.indentStack[0]) {
+    } else if (indents &amp;&amp; indents != this.indentStack[0]) {
       this.indentStack.unshift(indents);
-      tok = this.tok(&#x27;indent&#x27;, indents);
+      tok = this.tok('indent', indents);
     // newline
     } else {
-      tok = this.tok(&#x27;newline&#x27;);
+      tok = this.tok('newline');
     }
 
     this.pipeless = false;
@@ -5383,7 +5375,7 @@ var Node = require(&#x27;./node&#x27;);
     var match = this.bracketExpression(1);
 
     this.consume(match.end + 1);
-    return this.tok(&#x27;interpolation&#x27;, match.src);
+    return this.tok('interpolation', match.src);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5395,10 +5387,10 @@ return this.deferred()
   || this.yield()
   || this.doctype()
   || this.<span class="apidocCodeKeywordSpan">interpolation</span>()
-  || this[&#x22;case&#x22;]()
+  || this["case"]()
   || this.when()
-  || this[&#x22;default&#x22;]()
-  || this[&#x22;extends&#x22;]()
+  || this["default"]()
+  || this["extends"]()
   || this.append()
   || this.prepend()
   || this.block()
@@ -5416,7 +5408,7 @@ return this.deferred()
     <ul>
     <li>description and source-code<pre class="apidocCodePre">lookahead = function (n){
   var fetch = n - this.stash.length;
-  while (fetch-- &#x3e; 0) this.stash.push(this.next());
+  while (fetch-- &gt; 0) this.stash.push(this.next());
   return this.stash[--n];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5451,13 +5443,13 @@ peek: function() {
   var captures;
   if (captures = /^mixin +([-\w]+)(?: *\((.*)\))? */.exec(this.input)) {
     this.consume(captures[0].length);
-    var tok = this.tok(&#x27;mixin&#x27;, captures[1]);
+    var tok = this.tok('mixin', captures[1]);
     tok.args = captures[2];
     return tok;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-|| this[&#x22;extends&#x22;]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.block()
@@ -5468,7 +5460,7 @@ peek: function() {
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.tag()
 || this.filter()
 || this.blockCode()
@@ -5488,14 +5480,14 @@ peek: function() {
   var captures;
   if (captures = /^block[ \t]*(\n|$)/.exec(this.input)) {
     this.consume(captures[0].length - captures[1].length);
-    return this.tok(&#x27;mixin-block&#x27;);
+    return this.tok('mixin-block');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.block()
@@ -5506,7 +5498,7 @@ peek: function() {
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 ...</pre></li>
     </ul>
 
@@ -5527,10 +5519,10 @@ peek: function() {
     || this.yield()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
     || this.when()
-    || this[&#x22;default&#x22;]()
-    || this[&#x22;extends&#x22;]()
+    || this["default"]()
+    || this["extends"]()
     || this.append()
     || this.prepend()
     || this.block()
@@ -5541,7 +5533,7 @@ peek: function() {
     || this.call()
     || this.conditional()
     || this.each()
-    || this[&#x22;while&#x22;]()
+    || this["while"]()
     || this.tag()
     || this.filter()
     || this.blockCode()
@@ -5566,7 +5558,7 @@ peek: function() {
 
 lookahead: function(n){
   var fetch = n - this.stash.length;
-  while (fetch-- &#x3e; 0) this.stash.push(this.<span class="apidocCodeKeywordSpan">next</span>());
+  while (fetch-- &gt; 0) this.stash.push(this.<span class="apidocCodeKeywordSpan">next</span>());
   return this.stash[--n];
 },
 
@@ -5600,24 +5592,24 @@ lookahead: function(n){
     captures = re.exec(this.input);
 
     // spaces
-    if (captures &#x26;&#x26; !captures[1].length) {
+    if (captures &amp;&amp; !captures[1].length) {
       re = /^\n( *)/;
       captures = re.exec(this.input);
     }
 
     // established
-    if (captures &#x26;&#x26; captures[1].length) this.indentRe = re;
+    if (captures &amp;&amp; captures[1].length) this.indentRe = re;
   }
 
-  var indents = captures &#x26;&#x26; captures[1].length;
-  if (indents &#x26;&#x26; (this.indentStack.length === 0 || indents &#x3e; this.indentStack[0])) {
+  var indents = captures &amp;&amp; captures[1].length;
+  if (indents &amp;&amp; (this.indentStack.length === 0 || indents &gt; this.indentStack[0])) {
     var indent = captures[1];
     var line;
     var tokens = [];
     var isMatch;
     do {
       // text has `\n` as a prefix
-      var i = this.input.substr(1).indexOf(&#x27;\n&#x27;);
+      var i = this.input.substr(1).indexOf('\n');
       if (-1 == i) i = this.input.length - 1;
       var str = this.input.substr(1, i);
       isMatch = str.substr(0, indent.length) === indent || !str.trim();
@@ -5627,9 +5619,9 @@ lookahead: function(n){
         ++this.lineno;
         tokens.push(str.substr(indent.length));
       }
-    } while(this.input.length &#x26;&#x26; isMatch);
-    while (this.input.length === 0 &#x26;&#x26; tokens[tokens.length - 1] === &#x27;&#x27;) tokens.pop();
-    return this.tok(&#x27;pipeless-text&#x27;, tokens);
+    } while(this.input.length &amp;&amp; isMatch);
+    while (this.input.length === 0 &amp;&amp; tokens[tokens.length - 1] === '') tokens.pop();
+    return this.tok('pipeless-text', tokens);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5644,10 +5636,10 @@ next: function() {
     || this.yield()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
     || this.when()
-    || this[&#x22;default&#x22;]()
-    || this[&#x22;extends&#x22;]()
+    || this["default"]()
+    || this["extends"]()
 ...</pre></li>
     </ul>
 
@@ -5664,9 +5656,9 @@ next: function() {
   var captures;
   if (captures = /^prepend +([^\n]+)/.exec(this.input)) {
     this.consume(captures[0].length);
-    var mode = &#x27;prepend&#x27;
+    var mode = 'prepend'
       , name = captures[1]
-      , tok = this.tok(&#x27;block&#x27;, name);
+      , tok = this.tok('block', name);
     tok.mode = mode;
     return tok;
   }
@@ -5674,10 +5666,10 @@ next: function() {
     <li>example usage<pre class="apidocCodePre">...
 || this.doctype()
 || this.interpolation()
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.<span class="apidocCodeKeywordSpan">prepend</span>()
 || this.block()
@@ -5714,7 +5706,7 @@ next: function() {
  */
 
 filter: function() {
-  var tok = this.<span class="apidocCodeKeywordSpan">scan</span>(/^:([\w\-]+)/, &#x27;filter&#x27;);
+  var tok = this.<span class="apidocCodeKeywordSpan">scan</span>(/^:([\w\-]+)/, 'filter');
   if (tok) {
     this.pipeless = true;
     return tok;
@@ -5736,7 +5728,7 @@ filter: function() {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">stashed = function () {
   return this.stash.length
-    &#x26;&#x26; this.stash.shift();
+    &amp;&amp; this.stash.shift();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * previously stashed by lookahead.
@@ -5771,17 +5763,17 @@ advance: function(){
   if (captures = /^(\w[-:\w]*)(\/?)/.exec(this.input)) {
     this.consume(captures[0].length);
     var tok, name = captures[1];
-    if (&#x27;:&#x27; == name[name.length - 1]) {
+    if (':' == name[name.length - 1]) {
       name = name.slice(0, -1);
-      tok = this.tok(&#x27;tag&#x27;, name);
-      this.defer(this.tok(&#x27;:&#x27;));
-      if (this.input[0] !== &#x27; &#x27;) {
-        console.warn(&#x27;Warning: space required after `:` on line &#x27; + this.lineno +
-            &#x27; of jade file &#x22;&#x27; + this.filename + &#x27;&#x22;&#x27;);
+      tok = this.tok('tag', name);
+      this.defer(this.tok(':'));
+      if (this.input[0] !== ' ') {
+        console.warn('Warning: space required after `:` on line ' + this.lineno +
+            ' of jade file "' + this.filename + '"');
       }
-      while (&#x27; &#x27; == this.input[0]) this.input = this.input.substr(1);
+      while (' ' == this.input[0]) this.input = this.input.substr(1);
     } else {
-      tok = this.tok(&#x27;tag&#x27;, name);
+      tok = this.tok('tag', name);
     }
     tok.selfClosing = !!captures[2];
     return tok;
@@ -5794,7 +5786,7 @@ advance: function(){
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.<span class="apidocCodeKeywordSpan">tag</span>()
 || this.filter()
 || this.blockCode()
@@ -5816,9 +5808,9 @@ advance: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">text = function () {
-  return this.scan(/^(?:\| ?| )([^\n]+)/, &#x27;text&#x27;) ||
-    this.scan(/^\|?( )/, &#x27;text&#x27;) ||
-    this.scan(/^(&#x3c;[^\n]*)/, &#x27;text&#x27;);
+  return this.scan(/^(?:\| ?| )([^\n]+)/, 'text') ||
+    this.scan(/^\|?( )/, 'text') ||
+    this.scan(/^(&lt;[^\n]*)/, 'text');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       || this.blockCode()
@@ -5850,9 +5842,9 @@ advance: function(){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">textFail = function () {
   var tok;
-  if (tok = this.scan(/^([^\.\n][^\n]+)/, &#x27;text&#x27;)) {
-    console.warn(&#x27;Warning: missing space before text for line &#x27; + this.lineno +
-        &#x27; of jade file &#x22;&#x27; + this.filename + &#x27;&#x22;&#x27;);
+  if (tok = this.scan(/^([^\.\n][^\n]+)/, 'text')) {
+    console.warn('Warning: missing space before text for line ' + this.lineno +
+        ' of jade file "' + this.filename + '"');
     return tok;
   }
 }</pre></li>
@@ -5869,8 +5861,8 @@ advance: function(){
   }
 };
 
-},{&#x22;./utils&#x22;:25,&#x22;character-parser&#x22;:29}],7:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./utils":25,"character-parser":29}],7:[function(require,module,exports){
+'use strict';
 ...</pre></li>
     </ul>
 
@@ -5919,7 +5911,7 @@ scan: function(regexp, type){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">when = function () {
-  return this.scan(/^when +([^:\n]+)/, &#x27;when&#x27;);
+  return this.scan(/^when +([^:\n]+)/, 'when');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.blank()
@@ -5928,10 +5920,10 @@ scan: function(regexp, type){
 || this.yield()
 || this.doctype()
 || this.interpolation()
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.<span class="apidocCodeKeywordSpan">when</span>()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.block()
@@ -5954,7 +5946,7 @@ scan: function(regexp, type){
   if (captures = /^while +([^\n]+)/.exec(this.input)) {
     this.consume(captures[0].length);
     assertExpression(captures[1])
-    var tok = this.tok(&#x27;code&#x27;, &#x27;while (&#x27; + captures[1] + &#x27;)&#x27;);
+    var tok = this.tok('code', 'while (' + captures[1] + ')');
     tok.requiresBlock = true;
     return tok;
   }
@@ -5972,7 +5964,7 @@ scan: function(regexp, type){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">yield = function () {
-  return this.scan(/^yield */, &#x27;yield&#x27;);
+  return this.scan(/^yield */, 'yield');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  */
@@ -5985,10 +5977,10 @@ next: function() {
     || this.<span class="apidocCodeKeywordSpan">yield</span>()
     || this.doctype()
     || this.interpolation()
-    || this[&#x22;case&#x22;]()
+    || this["case"]()
     || this.when()
-    || this[&#x22;default&#x22;]()
-    || this[&#x22;extends&#x22;]()
+    || this["default"]()
+    || this["extends"]()
     || this.append()
 ...</pre></li>
     </ul>
@@ -6009,7 +6001,7 @@ next: function() {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Parser(str, filename, options){
   //Strip any UTF-8 BOM off of the start of `str`, if it exists.
-  this.input = str.replace(/^\uFEFF/, &#x27;&#x27;);
+  this.input = str.replace(/^\uFEFF/, '');
   this.lexer = new Lexer(this.input, filename);
   this.filename = filename;
   this.blocks = {};
@@ -6049,8 +6041,8 @@ next: function() {
    */
 
   parseFilter: function(){
-var tok = this.expect(&#x27;filter&#x27;);
-var attrs = this.<span class="apidocCodeKeywordSpan">accept</span>(&#x27;attrs&#x27;);
+var tok = this.expect('filter');
+var attrs = this.<span class="apidocCodeKeywordSpan">accept</span>('attrs');
 var block;
 
 block = this.parseTextBlock() || new nodes.Block();
@@ -6105,9 +6097,9 @@ advance: function(){
   var block = new nodes.Block;
   block.line = this.line();
   block.filename = this.filename;
-  this.expect(&#x27;indent&#x27;);
-  while (&#x27;outdent&#x27; != this.peek().type) {
-    if (&#x27;newline&#x27; == this.peek().type) {
+  this.expect('indent');
+  while ('outdent' != this.peek().type) {
+    if ('newline' == this.peek().type) {
       this.advance();
     } else {
       var expr = this.parseExpr();
@@ -6115,15 +6107,15 @@ advance: function(){
       block.push(expr);
     }
   }
-  this.expect(&#x27;outdent&#x27;);
+  this.expect('outdent');
   return block;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 || this.interpolation()
-|| this[&#x22;case&#x22;]()
+|| this["case"]()
 || this.when()
-|| this[&#x22;default&#x22;]()
-|| this[&#x22;extends&#x22;]()
+|| this["default"]()
+|| this["extends"]()
 || this.append()
 || this.prepend()
 || this.<span class="apidocCodeKeywordSpan">block</span>()
@@ -6148,7 +6140,7 @@ advance: function(){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Parser(str, filename, options){
   //Strip any UTF-8 BOM off of the start of `str`, if it exists.
-  this.input = str.replace(/^\uFEFF/, &#x27;&#x27;);
+  this.input = str.replace(/^\uFEFF/, '');
   this.lexer = new Lexer(this.input, filename);
   this.filename = filename;
   this.blocks = {};
@@ -6160,13 +6152,13 @@ advance: function(){
   this.inBlock = 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -6225,7 +6217,7 @@ try {
   if (this.peek().type === type) {
     return this.advance();
   } else {
-    throw new Error(&#x27;expected &#x22;&#x27; + type + &#x27;&#x22;, but got &#x22;&#x27; + this.peek().type + &#x27;&#x22;&#x27;);
+    throw new Error('expected "' + type + '", but got "' + this.peek().type + '"');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6236,11 +6228,11 @@ try {
  */
 
 parseText: function(){
-  var tok = this.<span class="apidocCodeKeywordSpan">expect</span>(&#x27;text&#x27;);
+  var tok = this.<span class="apidocCodeKeywordSpan">expect</span>('text');
   var tokens = this.parseInlineTagsInText(tok.val);
   if (tokens.length === 1) return tokens[0];
   var node = new nodes.Block;
-  for (var i = 0; i &#x3c; tokens.length; i++) {
+  for (var i = 0; i &lt; tokens.length; i++) {
     node.push(tokens[i]);
   };
   return node;
@@ -6265,15 +6257,15 @@ parseText: function(){
    */
 
   parseCase: function(){
-var val = this.expect(&#x27;case&#x27;).val;
+var val = this.expect('case').val;
 var node = new nodes.Case(val);
 node.line = this.<span class="apidocCodeKeywordSpan">line</span>();
 
 var block = new nodes.Block;
 block.line = this.line();
 block.filename = this.filename;
-this.expect(&#x27;indent&#x27;);
-while (&#x27;outdent&#x27; != this.peek().type) {
+this.expect('indent');
+while ('outdent' != this.peek().type) {
   switch (this.peek().type) {
 ...</pre></li>
     </ul>
@@ -6323,8 +6315,8 @@ peek: function() {
   block.line = 0;
   block.filename = this.filename;
 
-  while (&#x27;eos&#x27; != this.peek().type) {
-    if (&#x27;newline&#x27; == this.peek().type) {
+  while ('eos' != this.peek().type) {
+    if ('newline' == this.peek().type) {
       this.advance();
     } else {
       var next = this.peek();
@@ -6346,23 +6338,23 @@ peek: function() {
     return ast;
   }
 
-  if (!this.extending &#x26;&#x26; !this.included &#x26;&#x26; Object.keys(this.blocks).length){
+  if (!this.extending &amp;&amp; !this.included &amp;&amp; Object.keys(this.blocks).length){
     var blocks = [];
     utils.walkAST(block, function (node) {
-      if (node.type === &#x27;Block&#x27; &#x26;&#x26; node.name) {
+      if (node.type === 'Block' &amp;&amp; node.name) {
         blocks.push(node.name);
       }
     });
     Object.keys(this.blocks).forEach(function (name) {
-      if (blocks.indexOf(name) === -1 &#x26;&#x26; !this.blocks[name].isSubBlock) {
-        console.warn(&#x27;Warning: Unexpected block &#x22;&#x27;
+      if (blocks.indexOf(name) === -1 &amp;&amp; !this.blocks[name].isSubBlock) {
+        console.warn('Warning: Unexpected block "'
                      + name
-                     + &#x27;&#x22; &#x27;
-                     + &#x27; on line &#x27;
+                     + '" '
+                     + ' on line '
                      + this.blocks[name].line
-                     + &#x27; of &#x27;
+                     + ' of '
                      + (this.blocks[name].filename)
-                     + &#x27;. This block is never used. This warning will be an error in v2.0.0&#x27;);
+                     + '. This block is never used. This warning will be an error in v2.0.0');
       }
     }.bind(this));
   }
@@ -6398,32 +6390,32 @@ var compiler = new (options.compiler || Compiler)(tokens, options);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseBlock = function (){
-  var block = this.expect(&#x27;block&#x27;);
+  var block = this.expect('block');
   var mode = block.mode;
   var name = block.val.trim();
 
   var line = block.line;
 
   this.inBlock++;
-  block = &#x27;indent&#x27; == this.peek().type
+  block = 'indent' == this.peek().type
     ? this.block()
-    : new nodes.Block(new nodes.Literal(&#x27;&#x27;));
+    : new nodes.Block(new nodes.Literal(''));
   this.inBlock--;
   block.name = name;
   block.line = line;
 
   var prev = this.blocks[name] || {prepended: [], appended: []}
-  if (prev.mode === &#x27;replace&#x27;) return this.blocks[name] = prev;
+  if (prev.mode === 'replace') return this.blocks[name] = prev;
 
   var allNodes = prev.prepended.concat(block.nodes).concat(prev.appended);
 
   switch (mode) {
-    case &#x27;append&#x27;:
+    case 'append':
       prev.appended = prev.parser === this ?
                       prev.appended.concat(block.nodes) :
                       block.nodes.concat(prev.appended);
       break;
-    case &#x27;prepend&#x27;:
+    case 'prepend':
       prev.prepended = prev.parser === this ?
                        block.nodes.concat(prev.prepended) :
                        prev.prepended.concat(block.nodes);
@@ -6435,26 +6427,26 @@ var compiler = new (options.compiler || Compiler)(tokens, options);
   block.mode = mode;
   block.parser = this;
 
-  block.isSubBlock = this.inBlock &#x3e; 0;
+  block.isSubBlock = this.inBlock &gt; 0;
 
   return this.blocks[name] = block;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   parseExpr: function(){
 switch (this.peek().type) {
-  case &#x27;tag&#x27;:
+  case 'tag':
     return this.parseTag();
-  case &#x27;mixin&#x27;:
+  case 'mixin':
     return this.parseMixin();
-  case &#x27;block&#x27;:
+  case 'block':
     return this.<span class="apidocCodeKeywordSpan">parseBlock</span>();
-  case &#x27;mixin-block&#x27;:
+  case 'mixin-block':
     return this.parseMixinBlock();
-  case &#x27;case&#x27;:
+  case 'case':
     return this.parseCase();
-  case &#x27;extends&#x27;:
+  case 'extends':
     return this.parseExtends();
-  case &#x27;include&#x27;:
+  case 'include':
 ...</pre></li>
     </ul>
 
@@ -6468,33 +6460,33 @@ switch (this.peek().type) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseBlockCode = function (){
-  var tok = this.expect(&#x27;blockCode&#x27;);
+  var tok = this.expect('blockCode');
   var node;
   var body = this.peek();
   var text;
-  if (body.type === &#x27;pipeless-text&#x27;) {
+  if (body.type === 'pipeless-text') {
     this.advance();
-    text = body.val.join(&#x27;\n&#x27;);
+    text = body.val.join('\n');
   } else {
-    text = &#x27;&#x27;;
+    text = '';
   }
     node = new nodes.Code(text, false, false);
     return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.<span class="apidocCodeKeywordSpan">parseBlockCode</span>();
-case &#x27;call&#x27;:
+case 'call':
   return this.parseCall();
-case &#x27;interpolation&#x27;:
+case 'interpolation':
   return this.parseInterpolation();
-case &#x27;yield&#x27;:
+case 'yield':
   this.advance();
   var block = new nodes.Block;
 ...</pre></li>
@@ -6510,7 +6502,7 @@ case &#x27;yield&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseBlockExpansion = function (){
-  if (&#x27;:&#x27; == this.peek().type) {
+  if (':' == this.peek().type) {
     this.advance();
     return new nodes.Block(this.parseExpr());
   } else {
@@ -6523,8 +6515,8 @@ case &#x27;yield&#x27;:
  */
 
 parseWhen: function(){
-  var val = this.expect(&#x27;when&#x27;).val;
-  if (this.peek().type !== &#x27;newline&#x27;)
+  var val = this.expect('when').val;
+  if (this.peek().type !== 'newline')
     return new nodes.Case.When(val, this.<span class="apidocCodeKeywordSpan">parseBlockExpansion</span>());
   else
     return new nodes.Case.When(val);
@@ -6546,7 +6538,7 @@ parseWhen: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseCall = function (){
-  var tok = this.expect(&#x27;call&#x27;);
+  var tok = this.expect('call');
   var name = tok.val;
   var args = tok.args;
   var mixin = new nodes.Mixin(name, args, new nodes.Block, true);
@@ -6560,17 +6552,17 @@ parseWhen: function(){
   return mixin;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.parseBlockCode();
-case &#x27;call&#x27;:
+case 'call':
   return this.<span class="apidocCodeKeywordSpan">parseCall</span>();
-case &#x27;interpolation&#x27;:
+case 'interpolation':
   return this.parseInterpolation();
-case &#x27;yield&#x27;:
+case 'yield':
   this.advance();
   var block = new nodes.Block;
   block.yield = true;
@@ -6588,53 +6580,53 @@ case &#x27;yield&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseCase = function (){
-  var val = this.expect(&#x27;case&#x27;).val;
+  var val = this.expect('case').val;
   var node = new nodes.Case(val);
   node.line = this.line();
 
   var block = new nodes.Block;
   block.line = this.line();
   block.filename = this.filename;
-  this.expect(&#x27;indent&#x27;);
-  while (&#x27;outdent&#x27; != this.peek().type) {
+  this.expect('indent');
+  while ('outdent' != this.peek().type) {
     switch (this.peek().type) {
-      case &#x27;comment&#x27;:
-      case &#x27;newline&#x27;:
+      case 'comment':
+      case 'newline':
         this.advance();
         break;
-      case &#x27;when&#x27;:
+      case 'when':
         block.push(this.parseWhen());
         break;
-      case &#x27;default&#x27;:
+      case 'default':
         block.push(this.parseDefault());
         break;
       default:
-        throw new Error(&#x27;Unexpected token &#x22;&#x27; + this.peek().type
-                        + &#x27;&#x22;, expected &#x22;when&#x22;, &#x22;default&#x22; or &#x22;newline&#x22;&#x27;);
+        throw new Error('Unexpected token "' + this.peek().type
+                        + '", expected "when", "default" or "newline"');
     }
   }
-  this.expect(&#x27;outdent&#x27;);
+  this.expect('outdent');
 
   node.block = block;
 
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;mixin&#x27;:
+case 'mixin':
   return this.parseMixin();
-case &#x27;block&#x27;:
+case 'block':
   return this.parseBlock();
-case &#x27;mixin-block&#x27;:
+case 'mixin-block':
   return this.parseMixinBlock();
-case &#x27;case&#x27;:
+case 'case':
   return this.<span class="apidocCodeKeywordSpan">parseCase</span>();
-case &#x27;extends&#x27;:
+case 'extends':
   return this.parseExtends();
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
 ...</pre></li>
     </ul>
 
@@ -6648,52 +6640,52 @@ case &#x27;filter&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseCode = function (afterIf){
-  var tok = this.expect(&#x27;code&#x27;);
+  var tok = this.expect('code');
   var node = new nodes.Code(tok.val, tok.buffer, tok.escape);
   var block;
   node.line = this.line();
 
   // throw an error if an else does not have an if
-  if (tok.isElse &#x26;&#x26; !tok.hasIf) {
-    throw new Error(&#x27;Unexpected else without if&#x27;);
+  if (tok.isElse &amp;&amp; !tok.hasIf) {
+    throw new Error('Unexpected else without if');
   }
 
   // handle block
-  block = &#x27;indent&#x27; == this.peek().type;
+  block = 'indent' == this.peek().type;
   if (block) {
     node.block = this.block();
   }
 
   // handle missing block
-  if (tok.requiresBlock &#x26;&#x26; !block) {
+  if (tok.requiresBlock &amp;&amp; !block) {
     node.block = new nodes.Block();
   }
 
   // mark presense of if for future elses
-  if (tok.isIf &#x26;&#x26; this.peek().isElse) {
+  if (tok.isIf &amp;&amp; this.peek().isElse) {
     this.peek().hasIf = true;
-  } else if (tok.isIf &#x26;&#x26; this.peek().type === &#x27;newline&#x27; &#x26;&#x26; this.lookahead(2).isElse) {
+  } else if (tok.isIf &amp;&amp; this.peek().type === 'newline' &amp;&amp; this.lookahead(2).isElse) {
     this.lookahead(2).hasIf = true;
   }
 
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
   return this.<span class="apidocCodeKeywordSpan">parseCode</span>();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.parseBlockCode();
-case &#x27;call&#x27;:
+case 'call':
   return this.parseCall();
-case &#x27;interpolation&#x27;:
+case 'interpolation':
   return this.parseInterpolation();
-case &#x27;yield&#x27;:
+case 'yield':
 ...</pre></li>
     </ul>
 
@@ -6707,7 +6699,7 @@ case &#x27;yield&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseComment = function (){
-  var tok = this.expect(&#x27;comment&#x27;);
+  var tok = this.expect('comment');
   var node;
 
   var block;
@@ -6721,21 +6713,21 @@ case &#x27;yield&#x27;:
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.<span class="apidocCodeKeywordSpan">parseComment</span>();
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
 ...</pre></li>
     </ul>
 
@@ -6749,25 +6741,25 @@ case &#x27;blockCode&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseDefault = function (){
-  this.expect(&#x27;default&#x27;);
-  return new nodes.Case.When(&#x27;default&#x27;, this.parseBlockExpansion());
+  this.expect('default');
+  return new nodes.Case.When('default', this.parseBlockExpansion());
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    case &#x27;newline&#x27;:
+    case 'newline':
       this.advance();
       break;
-    case &#x27;when&#x27;:
+    case 'when':
       block.push(this.parseWhen());
       break;
-    case &#x27;default&#x27;:
+    case 'default':
       block.push(this.<span class="apidocCodeKeywordSpan">parseDefault</span>());
       break;
     default:
-      throw new Error(&#x27;Unexpected token &#x22;&#x27; + this.peek().type
-                      + &#x27;&#x22;, expected &#x22;when&#x22;, &#x22;default&#x22; or &#x22;newline&#x22;&#x27;);
+      throw new Error('Unexpected token "' + this.peek().type
+                      + '", expected "when", "default" or "newline"');
   }
 }
-this.expect(&#x27;outdent&#x27;);
+this.expect('outdent');
 ...</pre></li>
     </ul>
 
@@ -6781,27 +6773,27 @@ this.expect(&#x27;outdent&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseDoctype = function (){
-  var tok = this.expect(&#x27;doctype&#x27;);
+  var tok = this.expect('doctype');
   var node = new nodes.Doctype(tok.val);
   node.line = this.line();
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;case&#x27;:
+case 'case':
   return this.parseCase();
-case &#x27;extends&#x27;:
+case 'extends':
   return this.parseExtends();
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.<span class="apidocCodeKeywordSpan">parseDoctype</span>();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
 ...</pre></li>
     </ul>
 
@@ -6815,32 +6807,32 @@ case &#x27;each&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseEach = function (){
-  var tok = this.expect(&#x27;each&#x27;);
+  var tok = this.expect('each');
   var node = new nodes.Each(tok.code, tok.val, tok.key);
   node.line = this.line();
   node.block = this.block();
-  if (this.peek().type == &#x27;code&#x27; &#x26;&#x26; this.peek().val == &#x27;else&#x27;) {
+  if (this.peek().type == 'code' &amp;&amp; this.peek().val == 'else') {
     this.advance();
     node.alternative = this.block();
   }
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
   return this.<span class="apidocCodeKeywordSpan">parseEach</span>();
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.parseBlockCode();
-case &#x27;call&#x27;:
+case 'call':
   return this.parseCall();
-case &#x27;interpolation&#x27;:
+case 'interpolation':
 ...</pre></li>
     </ul>
 
@@ -6855,58 +6847,58 @@ case &#x27;interpolation&#x27;:
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseExpr = function (){
   switch (this.peek().type) {
-    case &#x27;tag&#x27;:
+    case 'tag':
       return this.parseTag();
-    case &#x27;mixin&#x27;:
+    case 'mixin':
       return this.parseMixin();
-    case &#x27;block&#x27;:
+    case 'block':
       return this.parseBlock();
-    case &#x27;mixin-block&#x27;:
+    case 'mixin-block':
       return this.parseMixinBlock();
-    case &#x27;case&#x27;:
+    case 'case':
       return this.parseCase();
-    case &#x27;extends&#x27;:
+    case 'extends':
       return this.parseExtends();
-    case &#x27;include&#x27;:
+    case 'include':
       return this.parseInclude();
-    case &#x27;doctype&#x27;:
+    case 'doctype':
       return this.parseDoctype();
-    case &#x27;filter&#x27;:
+    case 'filter':
       return this.parseFilter();
-    case &#x27;comment&#x27;:
+    case 'comment':
       return this.parseComment();
-    case &#x27;text&#x27;:
+    case 'text':
       return this.parseText();
-    case &#x27;each&#x27;:
+    case 'each':
       return this.parseEach();
-    case &#x27;code&#x27;:
+    case 'code':
       return this.parseCode();
-    case &#x27;blockCode&#x27;:
+    case 'blockCode':
       return this.parseBlockCode();
-    case &#x27;call&#x27;:
+    case 'call':
       return this.parseCall();
-    case &#x27;interpolation&#x27;:
+    case 'interpolation':
       return this.parseInterpolation();
-    case &#x27;yield&#x27;:
+    case 'yield':
       this.advance();
       var block = new nodes.Block;
       block.yield = true;
       return block;
-    case &#x27;id&#x27;:
-    case &#x27;class&#x27;:
+    case 'id':
+    case 'class':
       var tok = this.advance();
-      this.lexer.defer(this.lexer.tok(&#x27;tag&#x27;, &#x27;div&#x27;));
+      this.lexer.defer(this.lexer.tok('tag', 'div'));
       this.lexer.defer(tok);
       return this.parseExpr();
     default:
-      throw new Error(&#x27;unexpected token &#x22;&#x27; + this.peek().type + &#x27;&#x22;&#x27;);
+      throw new Error('unexpected token "' + this.peek().type + '"');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 block.filename = this.filename;
 
-while (&#x27;eos&#x27; != this.peek().type) {
-  if (&#x27;newline&#x27; == this.peek().type) {
+while ('eos' != this.peek().type) {
+  if ('newline' == this.peek().type) {
     this.advance();
   } else {
     var next = this.peek();
@@ -6931,13 +6923,13 @@ if (parser = this.extending) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseExtends = function (){
-  var fs = require(&#x27;fs&#x27;);
+  var fs = require('fs');
 
-  var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-  if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+  var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+  if ('.jade' != path.substr(-5)) path += '.jade';
 
   this.dependencies.push(path);
-  var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+  var str = fs.readFileSync(path, 'utf8');
   var parser = new this.constructor(str, path, this.options);
   parser.dependencies = this.dependencies;
 
@@ -6947,24 +6939,24 @@ if (parser = this.extending) {
   this.extending = parser;
 
   // TODO: null node
-  return new nodes.Literal(&#x27;&#x27;);
+  return new nodes.Literal('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;block&#x27;:
+case 'block':
   return this.parseBlock();
-case &#x27;mixin-block&#x27;:
+case 'mixin-block':
   return this.parseMixinBlock();
-case &#x27;case&#x27;:
+case 'case':
   return this.parseCase();
-case &#x27;extends&#x27;:
+case 'extends':
   return this.<span class="apidocCodeKeywordSpan">parseExtends</span>();
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
 ...</pre></li>
     </ul>
 
@@ -6978,8 +6970,8 @@ case &#x27;comment&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseFilter = function (){
-  var tok = this.expect(&#x27;filter&#x27;);
-  var attrs = this.accept(&#x27;attrs&#x27;);
+  var tok = this.expect('filter');
+  var attrs = this.accept('attrs');
   var block;
 
   block = this.parseTextBlock() || new nodes.Block();
@@ -6996,21 +6988,21 @@ case &#x27;comment&#x27;:
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;extends&#x27;:
+case 'extends':
   return this.parseExtends();
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.<span class="apidocCodeKeywordSpan">parseFilter</span>();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
   return this.parseText();
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
 ...</pre></li>
     </ul>
 
@@ -7024,14 +7016,14 @@ case &#x27;code&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseInclude = function (){
-  var fs = require(&#x27;fs&#x27;);
-  var tok = this.expect(&#x27;include&#x27;);
+  var fs = require('fs');
+  var tok = this.expect('include');
 
-  var path = this.resolvePath(tok.val.trim(), &#x27;include&#x27;);
+  var path = this.resolvePath(tok.val.trim(), 'include');
   this.dependencies.push(path);
   // has-filter
   if (tok.filter) {
-    var str = fs.readFileSync(path, &#x27;utf8&#x27;).replace(/\r/g, &#x27;&#x27;);
+    var str = fs.readFileSync(path, 'utf8').replace(/\r/g, '');
     var options = {filename: path};
     if (tok.attrs) {
       tok.attrs.attrs.forEach(function (attribute) {
@@ -7043,12 +7035,12 @@ case &#x27;code&#x27;:
   }
 
   // non-jade
-  if (&#x27;.jade&#x27; != path.substr(-5)) {
-    var str = fs.readFileSync(path, &#x27;utf8&#x27;).replace(/\r/g, &#x27;&#x27;);
+  if ('.jade' != path.substr(-5)) {
+    var str = fs.readFileSync(path, 'utf8').replace(/\r/g, '');
     return new nodes.Literal(str);
   }
 
-  var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+  var str = fs.readFileSync(path, 'utf8');
   var parser = new this.constructor(str, path, this.options);
   parser.dependencies = this.dependencies;
 
@@ -7062,28 +7054,28 @@ case &#x27;code&#x27;:
   this.context();
   ast.filename = path;
 
-  if (&#x27;indent&#x27; == this.peek().type) {
+  if ('indent' == this.peek().type) {
     ast.includeBlock().push(this.block());
   }
 
   return ast;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;mixin-block&#x27;:
+case 'mixin-block':
   return this.parseMixinBlock();
-case &#x27;case&#x27;:
+case 'case':
   return this.parseCase();
-case &#x27;extends&#x27;:
+case 'extends':
   return this.parseExtends();
-case &#x27;include&#x27;:
+case 'include':
   return this.<span class="apidocCodeKeywordSpan">parseInclude</span>();
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
 ...</pre></li>
     </ul>
 
@@ -7102,10 +7094,10 @@ case &#x27;text&#x27;:
   var match = /(\\)?#\[((?:.|\n)*)$/.exec(str);
   if (match) {
     if (match[1]) { // escape
-      var text = new nodes.Text(str.substr(0, match.index) + &#x27;#[&#x27;);
+      var text = new nodes.Text(str.substr(0, match.index) + '#[');
       text.line = line;
       var rest = this.parseInlineTagsInText(match[2]);
-      if (rest[0].type === &#x27;Text&#x27;) {
+      if (rest[0].type === 'Text') {
         text.val += rest[0].val;
         rest.shift();
       }
@@ -7133,11 +7125,11 @@ case &#x27;text&#x27;:
  */
 
 parseText: function(){
-  var tok = this.expect(&#x27;text&#x27;);
+  var tok = this.expect('text');
   var tokens = this.<span class="apidocCodeKeywordSpan">parseInlineTagsInText</span>(tok.val);
   if (tokens.length === 1) return tokens[0];
   var node = new nodes.Block;
-  for (var i = 0; i &#x3c; tokens.length; i++) {
+  for (var i = 0; i &lt; tokens.length; i++) {
     node.push(tokens[i]);
   };
   return node;
@@ -7161,21 +7153,21 @@ parseText: function(){
   return this.tag(tag);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.parseBlockCode();
-case &#x27;call&#x27;:
+case 'call':
   return this.parseCall();
-case &#x27;interpolation&#x27;:
+case 'interpolation':
   return this.<span class="apidocCodeKeywordSpan">parseInterpolation</span>();
-case &#x27;yield&#x27;:
+case 'yield':
   this.advance();
   var block = new nodes.Block;
   block.yield = true;
   return block;
-case &#x27;id&#x27;:
-case &#x27;class&#x27;:
+case 'id':
+case 'class':
 ...</pre></li>
     </ul>
 
@@ -7189,13 +7181,13 @@ case &#x27;class&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseMixin = function (){
-  var tok = this.expect(&#x27;mixin&#x27;);
+  var tok = this.expect('mixin');
   var name = tok.val;
   var args = tok.args;
   var mixin;
 
   // definition
-  if (&#x27;indent&#x27; == this.peek().type) {
+  if ('indent' == this.peek().type) {
     this.inMixin++;
     mixin = new nodes.Mixin(name, args, this.block(), false);
     this.mixins[name] = mixin;
@@ -7211,17 +7203,17 @@ case &#x27;class&#x27;:
 
 parseExpr: function(){
   switch (this.peek().type) {
-    case &#x27;tag&#x27;:
+    case 'tag':
       return this.parseTag();
-    case &#x27;mixin&#x27;:
+    case 'mixin':
       return this.<span class="apidocCodeKeywordSpan">parseMixin</span>();
-    case &#x27;block&#x27;:
+    case 'block':
       return this.parseBlock();
-    case &#x27;mixin-block&#x27;:
+    case 'mixin-block':
       return this.parseMixinBlock();
-    case &#x27;case&#x27;:
+    case 'case':
       return this.parseCase();
-    case &#x27;extends&#x27;:
+    case 'extends':
 ...</pre></li>
     </ul>
 
@@ -7235,28 +7227,28 @@ parseExpr: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseMixinBlock = function () {
-  var block = this.expect(&#x27;mixin-block&#x27;);
+  var block = this.expect('mixin-block');
   if (!this.inMixin) {
-    throw new Error(&#x27;Anonymous blocks are not allowed unless they are part of a mixin.&#x27;);
+    throw new Error('Anonymous blocks are not allowed unless they are part of a mixin.');
   }
   return new nodes.MixinBlock();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;tag&#x27;:
+case 'tag':
   return this.parseTag();
-case &#x27;mixin&#x27;:
+case 'mixin':
   return this.parseMixin();
-case &#x27;block&#x27;:
+case 'block':
   return this.parseBlock();
-case &#x27;mixin-block&#x27;:
+case 'mixin-block':
   return this.<span class="apidocCodeKeywordSpan">parseMixinBlock</span>();
-case &#x27;case&#x27;:
+case 'case':
   return this.parseCase();
-case &#x27;extends&#x27;:
+case 'extends':
   return this.parseExtends();
-case &#x27;include&#x27;:
+case 'include':
   return this.parseInclude();
-case &#x27;doctype&#x27;:
+case 'doctype':
 ...</pre></li>
     </ul>
 
@@ -7284,15 +7276,15 @@ case &#x27;doctype&#x27;:
 
 parseExpr: function(){
   switch (this.peek().type) {
-    case &#x27;tag&#x27;:
+    case 'tag':
       return this.<span class="apidocCodeKeywordSpan">parseTag</span>();
-    case &#x27;mixin&#x27;:
+    case 'mixin':
       return this.parseMixin();
-    case &#x27;block&#x27;:
+    case 'block':
       return this.parseBlock();
-    case &#x27;mixin-block&#x27;:
+    case 'mixin-block':
       return this.parseMixinBlock();
-    case &#x27;case&#x27;:
+    case 'case':
 ...</pre></li>
     </ul>
 
@@ -7306,31 +7298,31 @@ parseExpr: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseText = function (){
-  var tok = this.expect(&#x27;text&#x27;);
+  var tok = this.expect('text');
   var tokens = this.parseInlineTagsInText(tok.val);
   if (tokens.length === 1) return tokens[0];
   var node = new nodes.Block;
-  for (var i = 0; i &#x3c; tokens.length; i++) {
+  for (var i = 0; i &lt; tokens.length; i++) {
     node.push(tokens[i]);
   };
   return node;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-case &#x27;doctype&#x27;:
+case 'doctype':
   return this.parseDoctype();
-case &#x27;filter&#x27;:
+case 'filter':
   return this.parseFilter();
-case &#x27;comment&#x27;:
+case 'comment':
   return this.parseComment();
-case &#x27;text&#x27;:
+case 'text':
   return this.<span class="apidocCodeKeywordSpan">parseText</span>();
-case &#x27;each&#x27;:
+case 'each':
   return this.parseEach();
-case &#x27;code&#x27;:
+case 'code':
   return this.parseCode();
-case &#x27;blockCode&#x27;:
+case 'blockCode':
   return this.parseBlockCode();
-case &#x27;call&#x27;:
+case 'call':
 ...</pre></li>
     </ul>
 
@@ -7347,7 +7339,7 @@ case &#x27;call&#x27;:
   var block = new nodes.Block;
   block.line = this.line();
   var body = this.peek();
-  if (body.type !== &#x27;pipeless-text&#x27;) return;
+  if (body.type !== 'pipeless-text') return;
   this.advance();
   block.nodes = body.val.reduce(function (accumulator, text) {
     return accumulator.concat(this.parseInlineTagsInText(text));
@@ -7358,7 +7350,7 @@ case &#x27;call&#x27;:
    */
 
   parseComment: function(){
-var tok = this.expect(&#x27;comment&#x27;);
+var tok = this.expect('comment');
 var node;
 
 var block;
@@ -7383,28 +7375,28 @@ return node;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parseWhen = function (){
-  var val = this.expect(&#x27;when&#x27;).val;
-  if (this.peek().type !== &#x27;newline&#x27;)
+  var val = this.expect('when').val;
+  if (this.peek().type !== 'newline')
     return new nodes.Case.When(val, this.parseBlockExpansion());
   else
     return new nodes.Case.When(val);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    while (&#x27;outdent&#x27; != this.peek().type) {
+    while ('outdent' != this.peek().type) {
 switch (this.peek().type) {
-  case &#x27;comment&#x27;:
-  case &#x27;newline&#x27;:
+  case 'comment':
+  case 'newline':
     this.advance();
     break;
-  case &#x27;when&#x27;:
+  case 'when':
     block.push(this.<span class="apidocCodeKeywordSpan">parseWhen</span>());
     break;
-  case &#x27;default&#x27;:
+  case 'default':
     block.push(this.parseDefault());
     break;
   default:
-    throw new Error(&#x27;Unexpected token &#x22;&#x27; + this.peek().type
-                    + &#x27;&#x22;, expected &#x22;when&#x22;, &#x22;default&#x22; or &#x22;newline&#x22;&#x27;);
+    throw new Error('Unexpected token "' + this.peek().type
+                    + '", expected "when", "default" or "newline"');
 ...</pre></li>
     </ul>
 
@@ -7428,8 +7420,8 @@ var block = new nodes.Block, parser;
 block.line = 0;
 block.filename = this.filename;
 
-while (&#x27;eos&#x27; != this.<span class="apidocCodeKeywordSpan">peek</span>().type) {
-  if (&#x27;newline&#x27; == this.peek().type) {
+while ('eos' != this.<span class="apidocCodeKeywordSpan">peek</span>().type) {
+  if ('newline' == this.peek().type) {
     this.advance();
   } else {
     var next = this.peek();
@@ -7449,37 +7441,37 @@ while (&#x27;eos&#x27; != this.<span class="apidocCodeKeywordSpan">peek</span>()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">resolvePath = function (path, purpose) {
-  var p = require(&#x27;path&#x27;);
+  var p = require('path');
   var dirname = p.dirname;
   var basename = p.basename;
   var join = p.join;
 
-  if (path[0] !== &#x27;/&#x27; &#x26;&#x26; !this.filename)
-    throw new Error(&#x27;the &#x22;filename&#x22; option is required to use &#x22;&#x27; + purpose + &#x27;&#x22; with &#x22;relative&#x22; paths&#x27;);
+  if (path[0] !== '/' &amp;&amp; !this.filename)
+    throw new Error('the "filename" option is required to use "' + purpose + '" with "relative" paths');
 
-  if (path[0] === &#x27;/&#x27; &#x26;&#x26; !this.options.basedir)
-    throw new Error(&#x27;the &#x22;basedir&#x22; option is required to use &#x22;&#x27; + purpose + &#x27;&#x22; with &#x22;absolute&#x22; paths&#x27;);
+  if (path[0] === '/' &amp;&amp; !this.options.basedir)
+    throw new Error('the "basedir" option is required to use "' + purpose + '" with "absolute" paths');
 
-  path = join(path[0] === &#x27;/&#x27; ? this.options.basedir : dirname(this.filename), path);
+  path = join(path[0] === '/' ? this.options.basedir : dirname(this.filename), path);
 
-  if (basename(path).indexOf(&#x27;.&#x27;) === -1) path += &#x27;.jade&#x27;;
+  if (basename(path).indexOf('.') === -1) path += '.jade';
 
   return path;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   /**
-   * &#x27;extends&#x27; name
+   * 'extends' name
    */
 
   parseExtends: function(){
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.<span class="apidocCodeKeywordSpan">resolvePath</span>(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends
-&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.<span class="apidocCodeKeywordSpan">resolvePath</span>(this.expect('extends').val.trim(), 'extends
+');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.constructor(str, path, this.options);
 parser.dependencies = this.dependencies;
 ...</pre></li>
@@ -7502,15 +7494,15 @@ parser.dependencies = this.dependencies;
   out:
     while (true) {
       switch (this.peek().type) {
-        case &#x27;id&#x27;:
-        case &#x27;class&#x27;:
+        case 'id':
+        case 'class':
           var tok = this.advance();
-          tag.setAttribute(tok.type, &#x22;&#x27;&#x22; + tok.val + &#x22;&#x27;&#x22;);
+          tag.setAttribute(tok.type, "'" + tok.val + "'");
           continue;
-        case &#x27;attrs&#x27;:
+        case 'attrs':
           if (seenAttrs) {
-            console.warn(this.filename + &#x27;, line &#x27; + this.peek().line + &#x27;:\nYou should not have jade tags with multiple attributes
-.&#x27;);
+            console.warn(this.filename + ', line ' + this.peek().line + ':\nYou should not have jade tags with multiple attributes
+.');
           }
           seenAttrs = true;
           var tok = this.advance();
@@ -7518,11 +7510,11 @@ parser.dependencies = this.dependencies;
 
           if (tok.selfClosing) tag.selfClosing = true;
 
-          for (var i = 0; i &#x3c; attrs.length; i++) {
+          for (var i = 0; i &lt; attrs.length; i++) {
             tag.setAttribute(attrs[i].name, attrs[i].val, attrs[i].escaped);
           }
           continue;
-        case &#x27;&#x26;attributes&#x27;:
+        case '&amp;attributes':
           var tok = this.advance();
           tag.addAttributes(tok.val);
           break;
@@ -7531,44 +7523,44 @@ parser.dependencies = this.dependencies;
       }
     }
 
-  // check immediate &#x27;.&#x27;
-  if (&#x27;dot&#x27; == this.peek().type) {
+  // check immediate '.'
+  if ('dot' == this.peek().type) {
     tag.textOnly = true;
     this.advance();
   }
 
-  // (text | code | &#x27;:&#x27;)?
+  // (text | code | ':')?
   switch (this.peek().type) {
-    case &#x27;text&#x27;:
+    case 'text':
       tag.block.push(this.parseText());
       break;
-    case &#x27;code&#x27;:
+    case 'code':
       tag.code = this.parseCode();
       break;
-    case &#x27;:&#x27;:
+    case ':':
       this.advance();
       tag.block = new nodes.Block;
       tag.block.push(this.parseExpr());
       break;
-    case &#x27;newline&#x27;:
-    case &#x27;indent&#x27;:
-    case &#x27;outdent&#x27;:
-    case &#x27;eos&#x27;:
-    case &#x27;pipeless-text&#x27;:
+    case 'newline':
+    case 'indent':
+    case 'outdent':
+    case 'eos':
+    case 'pipeless-text':
       break;
     default:
-      throw new Error(&#x27;Unexpected token `&#x27; + this.peek().type + &#x27;` expected `text`, `code`, `:`, `newline` or `eos`&#x27;)
+      throw new Error('Unexpected token `' + this.peek().type + '` expected `text`, `code`, `:`, `newline` or `eos`')
   }
 
   // newline*
-  while (&#x27;newline&#x27; == this.peek().type) this.advance();
+  while ('newline' == this.peek().type) this.advance();
 
   // block?
   if (tag.textOnly) {
     tag.block = this.parseTextBlock() || new nodes.Block();
-  } else if (&#x27;indent&#x27; == this.peek().type) {
+  } else if ('indent' == this.peek().type) {
     var block = this.block();
-    for (var i = 0, len = block.nodes.length; i &#x3c; len; ++i) {
+    for (var i = 0, len = block.nodes.length; i &lt; len; ++i) {
       tag.block.push(block.nodes[i]);
     }
   }
@@ -7582,7 +7574,7 @@ parser.dependencies = this.dependencies;
 || this.call()
 || this.conditional()
 || this.each()
-|| this[&#x22;while&#x22;]()
+|| this["while"]()
 || this.<span class="apidocCodeKeywordSpan">tag</span>()
 || this.filter()
 || this.blockCode()
@@ -7614,8 +7606,8 @@ parser.dependencies = this.dependencies;
   this.hasCompiledDoctype = false;
   this.hasCompiledTag = false;
   this.pp = options.pretty || false;
-  if (this.pp &#x26;&#x26; typeof this.pp !== &#x27;string&#x27;) {
-    this.pp = &#x27;  &#x27;;
+  if (this.pp &amp;&amp; typeof this.pp !== 'string') {
+    this.pp = '  ';
   }
   this.debug = false !== options.compileDebug;
   this.indents = 0;
@@ -7638,7 +7630,7 @@ parser.dependencies = this.dependencies;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Lexer(str, filename) {
-  this.input = str.replace(/\r\n|\r/g, &#x27;\n&#x27;);
+  this.input = str.replace(/\r\n|\r/g, '\n');
   this.filename = filename;
   this.deferredTokens = [];
   this.lastIndents = 0;
@@ -7662,7 +7654,7 @@ parser.dependencies = this.dependencies;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Parser(str, filename, options){
   //Strip any UTF-8 BOM off of the start of `str`, if it exists.
-  this.input = str.replace(/^\uFEFF/, &#x27;&#x27;);
+  this.input = str.replace(/^\uFEFF/, '');
   this.lexer = new Lexer(this.input, filename);
   this.filename = filename;
   this.blocks = {};
@@ -7686,7 +7678,7 @@ parser.dependencies = this.dependencies;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">__express = function (path, options, fn) {
-  if(options.compileDebug == undefined &#x26;&#x26; process.env.NODE_ENV === &#x27;production&#x27;) {
+  if(options.compileDebug == undefined &amp;&amp; process.env.NODE_ENV === 'production') {
     options.compileDebug = false;
   }
   exports.renderFile(path, options, fn);
@@ -7707,7 +7699,7 @@ parser.dependencies = this.dependencies;
   var options = options || {}
     , filename = options.filename
       ? utils.stringify(options.filename)
-      : &#x27;undefined&#x27;
+      : 'undefined'
     , fn;
 
   str = String(str);
@@ -7715,23 +7707,23 @@ parser.dependencies = this.dependencies;
   var parsed = parse(str, options);
   if (options.compileDebug !== false) {
     fn = [
-        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
-      , &#x27;try {&#x27;
+        'var jade_debug = [ new jade.DebugItem( 1, ' + filename + ' ) ];'
+      , 'try {'
       , parsed.body
-      , &#x27;} catch (err) {&#x27;
-      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27; + utils.stringify
-(str) : &#x27;&#x27;) + &#x27;);&#x27;
-      , &#x27;}&#x27;
-    ].join(&#x27;\n&#x27;);
+      , '} catch (err) {'
+      , '  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno' + (options.compileDebug === true ? ',' + utils.stringify
+(str) : '') + ');'
+      , '}'
+    ].join('\n');
   } else {
     fn = parsed.body;
   }
-  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  fn = new Function('locals, jade', fn)
   var res = function(locals){ return fn(locals, Object.create(runtime)) };
   if (options.client) {
     res.toString = function () {
-      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
-      err.name = &#x27;Warning&#x27;;
+      var err = new Error('The `client` option is deprecated, use the `jade.compileClient` method instead');
+      err.name = 'Warning';
       console.error(err.stack || /* istanbul ignore next */ err.message);
       return exports.compileClient(str, options);
     };
@@ -7744,17 +7736,17 @@ parser.dependencies = this.dependencies;
 For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
 
 ```js
-var jade = require(&#x27;jade&#x27;);
+var jade = require('jade');
 
 // compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>(&#x27;string of jade&#x27;, options);
+var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.render('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.renderFile('filename.jade', merge(options, locals));
 ...</pre></li>
     </ul>
 
@@ -7771,12 +7763,12 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   return exports.compileClientWithDependenciesTracked(str, options).body;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  fn = new Function(&#x27;locals, jade&#x27;, fn)
+  fn = new Function('locals, jade', fn)
   var res = function(locals){ return fn(locals, Object.create(runtime)) };
   if (options.client) {
     res.toString = function () {
-      var err = new Error(&#x27;The `client` option is deprecated, use the `jade.compileClient` method instead&#x27;);
-      err.name = &#x27;Warning&#x27;;
+      var err = new Error('The `client` option is deprecated, use the `jade.compileClient` method instead');
+      err.name = 'Warning';
       console.error(err.stack || /* istanbul ignore next */ err.message);
       return exports.<span class="apidocCodeKeywordSpan">compileClient</span>(str, options);
     };
@@ -7800,8 +7792,8 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compileClientWithDependenciesTracked = function (str, options){
   var options = options || {};
-  var name = options.name || &#x27;template&#x27;;
-  var filename = options.filename ? utils.stringify(options.filename) : &#x27;undefined&#x27;;
+  var name = options.name || 'template';
+  var filename = options.filename ? utils.stringify(options.filename) : 'undefined';
   var fn;
 
   str = String(str);
@@ -7809,18 +7801,18 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   var parsed = parse(str, options);
   if (options.compileDebug) {
     fn = [
-        &#x27;var jade_debug = [ new jade.DebugItem( 1, &#x27; + filename + &#x27; ) ];&#x27;
-      , &#x27;try {&#x27;
+        'var jade_debug = [ new jade.DebugItem( 1, ' + filename + ' ) ];'
+      , 'try {'
       , parsed.body
-      , &#x27;} catch (err) {&#x27;
-      , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, &#x27; + utils.stringify(str) + &#x27;);&#x27;
-      , &#x27;}&#x27;
-    ].join(&#x27;\n&#x27;);
+      , '} catch (err) {'
+      , '  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, ' + utils.stringify(str) + ');'
+      , '}'
+    ].join('\n');
   } else {
     fn = parsed.body;
   }
 
-  return {body: &#x27;function &#x27; + name + &#x27;(locals) {\n&#x27; + fn + &#x27;\n}&#x27;, dependencies: parsed.dependencies};
+  return {body: 'function ' + name + '(locals) {\n' + fn + '\n}', dependencies: parsed.dependencies};
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 *
@@ -7868,16 +7860,16 @@ exports.compileClient = function (str, options) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compileFileClient = function (path, options){
-  var key = path + &#x27;:client&#x27;;
+  var key = path + ':client';
   options = options || {};
 
   options.filename = path;
 
-  if (options.cache &#x26;&#x26; exports.cache[key]) {
+  if (options.cache &amp;&amp; exports.cache[key]) {
     return exports.cache[key];
   }
 
-  var str = fs.readFileSync(options.filename, &#x27;utf8&#x27;);
+  var str = fs.readFileSync(options.filename, 'utf8');
   var out = exports.compileClient(str, options);
   if (options.cache) exports.cache[key] = out;
   return out;
@@ -7895,10 +7887,10 @@ exports.compileClient = function (str, options) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function filter(name, str, options) {
-  if (typeof filter[name] === &#x27;function&#x27;) {
+  if (typeof filter[name] === 'function') {
     return filter[name](str, options);
   } else {
-    throw new Error(&#x27;unknown filter &#x22;:&#x27; + name + &#x27;&#x22;&#x27;);
+    throw new Error('unknown filter ":' + name + '"');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -7915,10 +7907,10 @@ exports.compileClient = function (str, options) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">render = function (str, options, fn){
   // support callback API
-  if (&#x27;function&#x27; == typeof options) {
+  if ('function' == typeof options) {
     fn = options, options = undefined;
   }
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     var res
     try {
       res = exports.render(str, options);
@@ -7931,24 +7923,24 @@ exports.compileClient = function (str, options) {
   options = options || {};
 
   // cache requires .filename
-  if (options.cache &#x26;&#x26; !options.filename) {
-    throw new Error(&#x27;the &#x22;filename&#x22; option is required for caching&#x27;);
+  if (options.cache &amp;&amp; !options.filename) {
+    throw new Error('the "filename" option is required for caching');
   }
 
   return handleTemplateCache(options, str)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var jade = require(&#x27;jade&#x27;);
+var jade = require('jade');
 
 // compile
-var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var fn = jade.compile('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.<span class="apidocCodeKeywordSpan">render</span>(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.<span class="apidocCodeKeywordSpan">render</span>('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.renderFile('filename.jade', merge(options, locals));
 ```
 
 ### Options
@@ -7966,10 +7958,10 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">renderFile = function (path, options, fn){
   // support callback API
-  if (&#x27;function&#x27; == typeof options) {
+  if ('function' == typeof options) {
     fn = options, options = undefined;
   }
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     var res
     try {
       res = exports.renderFile(path, options);
@@ -7985,14 +7977,14 @@ var html = jade.renderFile(&#x27;filename.jade&#x27;, merge(options, locals));
   return handleTemplateCache(options)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fn = jade.compile(&#x27;string of jade&#x27;, options);
+var fn = jade.compile('string of jade', options);
 var html = fn(locals);
 
 // render
-var html = jade.render(&#x27;string of jade&#x27;, merge(options, locals));
+var html = jade.render('string of jade', merge(options, locals));
 
 // renderFile
-var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;filename.jade&#x27;, merge(options, locals));
+var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>('filename.jade', merge(options, locals));
 ```
 
 ### Options
@@ -8034,12 +8026,12 @@ var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>(&#x27;file
   if (node) this.push(node);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- *   &#x27;:&#x27; expr
+ *   ':' expr
  * | block
  */
 
 parseBlockExpansion: function(){
-  if (&#x27;:&#x27; == this.peek().type) {
+  if (':' == this.peek().type) {
     this.advance();
     return new nodes.<span class="apidocCodeKeywordSpan">Block</span>(this.parseExpr());
   } else {
@@ -8069,7 +8061,7 @@ parseBlockExpansion: function(){
     <li>example usage<pre class="apidocCodePre">...
 
 parseComment: function(){
-  var tok = this.expect(&#x27;comment&#x27;);
+  var tok = this.expect('comment');
   var node;
 
   var block;
@@ -8105,15 +8097,15 @@ parseComment: function(){
    */
 
   parseCase: function(){
-var val = this.expect(&#x27;case&#x27;).val;
+var val = this.expect('case').val;
 var node = new nodes.<span class="apidocCodeKeywordSpan">Case</span>(val);
 node.line = this.line();
 
 var block = new nodes.Block;
 block.line = this.line();
 block.filename = this.filename;
-this.expect(&#x27;indent&#x27;);
-while (&#x27;outdent&#x27; != this.peek().type) {
+this.expect('indent');
+while ('outdent' != this.peek().type) {
 ...</pre></li>
     </ul>
 
@@ -8139,14 +8131,14 @@ while (&#x27;outdent&#x27; != this.peek().type) {
    */
 
   parseCode: function(afterIf){
-var tok = this.expect(&#x27;code&#x27;);
+var tok = this.expect('code');
 var node = new nodes.<span class="apidocCodeKeywordSpan">Code</span>(tok.val, tok.buffer, tok.escape);
 var block;
 node.line = this.line();
 
 // throw an error if an else does not have an if
-if (tok.isElse &#x26;&#x26; !tok.hasIf) {
-  throw new Error(&#x27;Unexpected else without if&#x27;);
+if (tok.isElse &amp;&amp; !tok.hasIf) {
+  throw new Error('Unexpected else without if');
 }
 ...</pre></li>
     </ul>
@@ -8165,7 +8157,7 @@ if (tok.isElse &#x26;&#x26; !tok.hasIf) {
   this.buffer = buffer;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  var tok = this.expect(&#x27;comment&#x27;);
+  var tok = this.expect('comment');
   var node;
 
   var block;
@@ -8202,7 +8194,7 @@ if (tok.isElse &#x26;&#x26; !tok.hasIf) {
  */
 
 parseDoctype: function(){
-  var tok = this.expect(&#x27;doctype&#x27;);
+  var tok = this.expect('doctype');
   var node = new nodes.<span class="apidocCodeKeywordSpan">Doctype</span>(tok.val);
   node.line = this.line();
   return node;
@@ -8236,11 +8228,11 @@ parseDoctype: function(){
  */
 
 parseEach: function(){
-  var tok = this.expect(&#x27;each&#x27;);
+  var tok = this.expect('each');
   var node = new nodes.<span class="apidocCodeKeywordSpan">Each</span>(tok.code, tok.val, tok.key);
   node.line = this.line();
   node.block = this.block();
-  if (this.peek().type == &#x27;code&#x27; &#x26;&#x26; this.peek().val == &#x27;else&#x27;) {
+  if (this.peek().type == 'code' &amp;&amp; this.peek().val == 'else') {
     this.advance();
     node.alternative = this.block();
   }
@@ -8301,11 +8293,11 @@ parseEach: function(){
   this.extending = parser;
 
   // TODO: null node
-  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>(&#x27;&#x27;);
+  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>('');
 },
 
 /**
- * &#x27;block&#x27; name block
+ * 'block' name block
  */
 
 parseBlock: function(){
@@ -8333,7 +8325,7 @@ parseBlock: function(){
    */
 
   parseCall: function(){
-var tok = this.expect(&#x27;call&#x27;);
+var tok = this.expect('call');
 var name = tok.val;
 var args = tok.args;
 var mixin = new nodes.<span class="apidocCodeKeywordSpan">Mixin</span>(name, args, new nodes.Block, true);
@@ -8361,9 +8353,9 @@ if (mixin.block.isEmpty()) mixin.block = null;
 },
 
 parseMixinBlock: function () {
-  var block = this.expect(&#x27;mixin-block&#x27;);
+  var block = this.expect('mixin-block');
   if (!this.inMixin) {
-    throw new Error(&#x27;Anonymous blocks are not allowed unless they are part of a mixin.&#x27;);
+    throw new Error('Anonymous blocks are not allowed unless they are part of a mixin.');
   }
   return new nodes.<span class="apidocCodeKeywordSpan">MixinBlock</span>();
 },
@@ -8406,7 +8398,7 @@ parseInclude: function(){
     <li>example usage<pre class="apidocCodePre">...
 
 /**
- * interpolation (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ * interpolation (attrs | class | id)* (text | code | ':')? newline* block?
  */
 
 parseInterpolation: function(){
@@ -8417,7 +8409,7 @@ parseInterpolation: function(){
 },
 
 /**
- * tag (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ * tag (attrs | class | id)* (text | code | ':')? newline* block?
  */
 ...</pre></li>
     </ul>
@@ -8442,10 +8434,10 @@ var line = this.line();
 var match = /(\\)?#\[((?:.|\n)*)$/.exec(str);
 if (match) {
   if (match[1]) { // escape
-    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + &#x27;#[&#x27;);
+    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + '#[');
     text.line = line;
     var rest = this.parseInlineTagsInText(match[2]);
-    if (rest[0].type === &#x27;Text&#x27;) {
+    if (rest[0].type === 'Text') {
       text.val += rest[0].val;
       rest.shift();
     }
@@ -8472,12 +8464,12 @@ if (match) {
   if (node) this.push(node);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- *   &#x27;:&#x27; expr
+ *   ':' expr
  * | block
  */
 
 parseBlockExpansion: function(){
-  if (&#x27;:&#x27; == this.peek().type) {
+  if (':' == this.peek().type) {
     this.advance();
     return new nodes.<span class="apidocCodeKeywordSpan">Block</span>(this.parseExpr());
   } else {
@@ -8507,11 +8499,11 @@ parseBlockExpansion: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">clone = function (){
-  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('block.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   var clone = new Block;
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     clone.push(this.nodes[i].clone());
   }
   return clone;
@@ -8519,18 +8511,18 @@ parseBlockExpansion: function(){
     <li>example usage<pre class="apidocCodePre">...
 
 Block.prototype.clone = function(){
-  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('block.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   var clone = new Block;
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
   }
   return clone;
 };
 
-},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./node":20}],10:[function(require,module,exports){
+'use strict';
 ...</pre></li>
     </ul>
 
@@ -8548,13 +8540,13 @@ Block.prototype.clone = function(){
   if (node) this.push(node);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -8578,12 +8570,12 @@ this.extending = parser;
   var ret = this
     , node;
 
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     node = this.nodes[i];
     if (node.yield) return node;
     else if (node.textOnly) continue;
     else if (node.includeBlock) ret = node.includeBlock();
-    else if (node.block &#x26;&#x26; !node.block.isEmpty()) ret = node.block.includeBlock();
+    else if (node.block &amp;&amp; !node.block.isEmpty()) ret = node.block.includeBlock();
     if (ret.yield) return ret;
   }
 
@@ -8593,12 +8585,12 @@ this.extending = parser;
   var ret = this
     , node;
 
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     node = this.nodes[i];
     if (node.yield) return node;
     else if (node.textOnly) continue;
     else if (node.includeBlock) ret = node.<span class="apidocCodeKeywordSpan">includeBlock</span>();
-    else if (node.block &#x26;&#x26; !node.block.isEmpty()) ret = node.block.includeBlock();
+    else if (node.block &amp;&amp; !node.block.isEmpty()) ret = node.block.includeBlock();
     if (ret.yield) return ret;
   }
 
@@ -8622,12 +8614,12 @@ this.extending = parser;
     <li>example usage<pre class="apidocCodePre">...
     , node;
 
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     node = this.nodes[i];
     if (node.yield) return node;
     else if (node.textOnly) continue;
     else if (node.includeBlock) ret = node.includeBlock();
-    else if (node.block &#x26;&#x26; !node.block.<span class="apidocCodeKeywordSpan">isEmpty</span>()) ret = node.block.includeBlock
+    else if (node.block &amp;&amp; !node.block.<span class="apidocCodeKeywordSpan">isEmpty</span>()) ret = node.block.includeBlock
 ();
     if (ret.yield) return ret;
   }
@@ -8659,14 +8651,14 @@ if (options.globals) {
   globals = options.globals.slice();
 }
 
-globals.<span class="apidocCodeKeywordSpan">push</span>(&#x27;jade&#x27;);
-globals.push(&#x27;jade_mixins&#x27;);
-globals.push(&#x27;jade_interp&#x27;);
-globals.push(&#x27;jade_debug&#x27;);
-globals.push(&#x27;buf&#x27;);
+globals.<span class="apidocCodeKeywordSpan">push</span>('jade');
+globals.push('jade_mixins');
+globals.push('jade_interp');
+globals.push('jade_debug');
+globals.push('buf');
 
-var body = &#x27;&#x27;
-  + &#x27;var buf = [];\n&#x27;
+var body = ''
+  + 'var buf = [];\n'
 ...</pre></li>
     </ul>
 
@@ -8680,7 +8672,7 @@ var body = &#x27;&#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">replace = function (other){
-  var err = new Error(&#x27;block.replace is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('block.replace is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   other.nodes = this.nodes;
@@ -8693,8 +8685,8 @@ var body = &#x27;&#x27;
 
 // Debug compiler
 if (options.debug) {
-  console.error(&#x27;\nCompiled Function:\n\n\u001b[90m%s\u001b[0m&#x27;, js.<span class="apidocCodeKeywordSpan">replace</span>(/^/
-gm, &#x27;  &#x27;));
+  console.error('\nCompiled Function:\n\n\u001b[90m%s\u001b[0m', js.<span class="apidocCodeKeywordSpan">replace</span>(/^/
+gm, '  '));
 }
 
 var globals = [];
@@ -8725,11 +8717,11 @@ if (options.globals) {
 var debug = this.debug;
 
 if (debug) {
-  this.buf.push(&#x27;jade_debug.<span class="apidocCodeKeywordSpan">unshift</span>(new jade.DebugItem( &#x27; + node.line
-    + &#x27;, &#x27; + (node.filename
+  this.buf.push('jade_debug.<span class="apidocCodeKeywordSpan">unshift</span>(new jade.DebugItem( ' + node.line
+    + ', ' + (node.filename
       ? utils.stringify(node.filename)
-      : &#x27;jade_debug[0].filename&#x27;)
-    + &#x27; ));&#x27;);
+      : 'jade_debug[0].filename')
+    + ' ));');
 }
 
 // Massive hack to fix our context
@@ -8760,7 +8752,7 @@ if (debug) {
     <li>example usage<pre class="apidocCodePre">...
 
 parseComment: function(){
-  var tok = this.expect(&#x27;comment&#x27;);
+  var tok = this.expect('comment');
   var node;
 
   var block;
@@ -8796,13 +8788,13 @@ parseComment: function(){
   this.buffer = buffer;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -8840,15 +8832,15 @@ this.extending = parser;
    */
 
   parseCase: function(){
-var val = this.expect(&#x27;case&#x27;).val;
+var val = this.expect('case').val;
 var node = new nodes.<span class="apidocCodeKeywordSpan">Case</span>(val);
 node.line = this.line();
 
 var block = new nodes.Block;
 block.line = this.line();
 block.filename = this.filename;
-this.expect(&#x27;indent&#x27;);
-while (&#x27;outdent&#x27; != this.peek().type) {
+this.expect('indent');
+while ('outdent' != this.peek().type) {
 ...</pre></li>
     </ul>
 
@@ -8872,8 +8864,8 @@ while (&#x27;outdent&#x27; != this.peek().type) {
  */
 
 parseWhen: function(){
-  var val = this.expect(&#x27;when&#x27;).val;
-  if (this.peek().type !== &#x27;newline&#x27;)
+  var val = this.expect('when').val;
+  if (this.peek().type !== 'newline')
     return new nodes.Case.<span class="apidocCodeKeywordSpan">When</span>(val, this.parseBlockExpansion());
   else
     return new nodes.Case.When(val);
@@ -8905,13 +8897,13 @@ parseWhen: function(){
   this.debug = false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -8943,13 +8935,13 @@ this.extending = parser;
   this.block = block;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -8989,14 +8981,14 @@ this.extending = parser;
    */
 
   parseCode: function(afterIf){
-var tok = this.expect(&#x27;code&#x27;);
+var tok = this.expect('code');
 var node = new nodes.<span class="apidocCodeKeywordSpan">Code</span>(tok.val, tok.buffer, tok.escape);
 var block;
 node.line = this.line();
 
 // throw an error if an else does not have an if
-if (tok.isElse &#x26;&#x26; !tok.hasIf) {
-  throw new Error(&#x27;Unexpected else without if&#x27;);
+if (tok.isElse &amp;&amp; !tok.hasIf) {
+  throw new Error('Unexpected else without if');
 }
 ...</pre></li>
     </ul>
@@ -9022,13 +9014,13 @@ if (tok.isElse &#x26;&#x26; !tok.hasIf) {
   if (val.match(/^ *else/)) this.debug = false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9060,7 +9052,7 @@ this.extending = parser;
   this.buffer = buffer;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  var tok = this.expect(&#x27;comment&#x27;);
+  var tok = this.expect('comment');
   var node;
 
   var block;
@@ -9097,13 +9089,13 @@ this.extending = parser;
   this.buffer = buffer;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9140,7 +9132,7 @@ this.extending = parser;
  */
 
 parseDoctype: function(){
-  var tok = this.expect(&#x27;doctype&#x27;);
+  var tok = this.expect('doctype');
   var node = new nodes.<span class="apidocCodeKeywordSpan">Doctype</span>(tok.val);
   node.line = this.line();
   return node;
@@ -9170,13 +9162,13 @@ parseDoctype: function(){
   this.val = val;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9216,11 +9208,11 @@ this.extending = parser;
  */
 
 parseEach: function(){
-  var tok = this.expect(&#x27;each&#x27;);
+  var tok = this.expect('each');
   var node = new nodes.<span class="apidocCodeKeywordSpan">Each</span>(tok.code, tok.val, tok.key);
   node.line = this.line();
   node.block = this.block();
-  if (this.peek().type == &#x27;code&#x27; &#x26;&#x26; this.peek().val == &#x27;else&#x27;) {
+  if (this.peek().type == 'code' &amp;&amp; this.peek().val == 'else') {
     this.advance();
     node.alternative = this.block();
   }
@@ -9249,13 +9241,13 @@ parseEach: function(){
   this.block = block;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9326,13 +9318,13 @@ this.extending = parser;
   this.attrs = attrs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9370,11 +9362,11 @@ this.extending = parser;
   this.extending = parser;
 
   // TODO: null node
-  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>(&#x27;&#x27;);
+  return new nodes.<span class="apidocCodeKeywordSpan">Literal</span>('');
 },
 
 /**
- * &#x27;block&#x27; name block
+ * 'block' name block
  */
 
 parseBlock: function(){
@@ -9399,13 +9391,13 @@ parseBlock: function(){
   this.str = str;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9444,7 +9436,7 @@ this.extending = parser;
    */
 
   parseCall: function(){
-var tok = this.expect(&#x27;call&#x27;);
+var tok = this.expect('call');
 var name = tok.val;
 var args = tok.args;
 var mixin = new nodes.<span class="apidocCodeKeywordSpan">Mixin</span>(name, args, new nodes.Block, true);
@@ -9480,13 +9472,13 @@ if (mixin.block.isEmpty()) mixin.block = null;
   this.call = call;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9518,9 +9510,9 @@ this.extending = parser;
 },
 
 parseMixinBlock: function () {
-  var block = this.expect(&#x27;mixin-block&#x27;);
+  var block = this.expect('mixin-block');
   if (!this.inMixin) {
-    throw new Error(&#x27;Anonymous blocks are not allowed unless they are part of a mixin.&#x27;);
+    throw new Error('Anonymous blocks are not allowed unless they are part of a mixin.');
   }
   return new nodes.<span class="apidocCodeKeywordSpan">MixinBlock</span>();
 },
@@ -9549,13 +9541,13 @@ parseInclude: function(){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function MixinBlock(){}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9601,25 +9593,25 @@ this.extending = parser;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">clone = function (){
-  var err = new Error(&#x27;node.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('node.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 Block.prototype.clone = function(){
-  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('block.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   var clone = new Block;
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
   }
   return clone;
 };
 
-},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./node":20}],10:[function(require,module,exports){
+'use strict';
 ...</pre></li>
     </ul>
 
@@ -9647,7 +9639,7 @@ Block.prototype.clone = function(){
     <li>example usage<pre class="apidocCodePre">...
 
 /**
- * interpolation (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ * interpolation (attrs | class | id)* (text | code | ':')? newline* block?
  */
 
 parseInterpolation: function(){
@@ -9658,7 +9650,7 @@ parseInterpolation: function(){
 },
 
 /**
- * tag (attrs | class | id)* (text | code | &#x27;:&#x27;)? newline* block?
+ * tag (attrs | class | id)* (text | code | ':')? newline* block?
  */
 ...</pre></li>
     </ul>
@@ -9683,7 +9675,7 @@ parseInterpolation: function(){
   function isInline(node){
     // Recurse if the node is a block
     if (node.isBlock) return node.nodes.every(isInline);
-    return node.isText || (node.isInline &#x26;&#x26; node.isInline());
+    return node.isText || (node.isInline &amp;&amp; node.isInline());
   }
 
   // Empty tag
@@ -9694,8 +9686,8 @@ parseInterpolation: function(){
 
   // Multi-line inline-only tag
   if (this.block.nodes.every(isInline)) {
-    for (var i = 1, len = nodes.length; i &#x3c; len; ++i) {
-      if (nodes[i-1].isText &#x26;&#x26; nodes[i].isText)
+    for (var i = 1, len = nodes.length; i &lt; len; ++i) {
+      if (nodes[i-1].isText &amp;&amp; nodes[i].isText)
         return false;
     }
     return true;
@@ -9707,18 +9699,18 @@ parseInterpolation: function(){
     <li>example usage<pre class="apidocCodePre">...
   bufferName();
   this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
-  this.buffer(&#x27;&#x3e;&#x27;);
+  this.buffer('&gt;');
   if (tag.code) this.visitCode(tag.code);
   this.visit(tag.block);
 
   // pretty print
-  if (pp &#x26;&#x26; !tag.isInline() &#x26;&#x26; &#x27;pre&#x27; != tag.name &#x26;&#x26; !tag.<span class="apidocCodeKeywordSpan
+  if (pp &amp;&amp; !tag.isInline() &amp;&amp; 'pre' != tag.name &amp;&amp; !tag.<span class="apidocCodeKeywordSpan
 ">canInline</span>())
     this.prettyIndent(0, true);
 
-  this.buffer(&#x27;&#x3c;/&#x27;);
+  this.buffer('&lt;/');
   bufferName();
-  this.buffer(&#x27;&#x3e;&#x27;);
+  this.buffer('&gt;');
 }
 ...</pre></li>
     </ul>
@@ -9733,7 +9725,7 @@ parseInterpolation: function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">clone = function (){
-  var err = new Error(&#x27;tag.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('tag.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   var clone = new Tag(this.name, this.block.clone());
@@ -9745,18 +9737,18 @@ parseInterpolation: function(){
     <li>example usage<pre class="apidocCodePre">...
 
 Block.prototype.clone = function(){
-  var err = new Error(&#x27;block.clone is deprecated and will be removed in v2.0.0&#x27;);
+  var err = new Error('block.clone is deprecated and will be removed in v2.0.0');
   console.warn(err.stack);
 
   var clone = new Block;
-  for (var i = 0, len = this.nodes.length; i &#x3c; len; ++i) {
+  for (var i = 0, len = this.nodes.length; i &lt; len; ++i) {
     clone.push(this.nodes[i].<span class="apidocCodeKeywordSpan">clone</span>());
   }
   return clone;
 };
 
-},{&#x22;./node&#x22;:20}],10:[function(require,module,exports){
-&#x27;use strict&#x27;;
+},{"./node":20}],10:[function(require,module,exports){
+'use strict';
 ...</pre></li>
     </ul>
 
@@ -9775,13 +9767,13 @@ Block.prototype.clone = function(){
   this.block = block || new Block;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9805,18 +9797,18 @@ this.extending = parser;
   return ~inlineTags.indexOf(this.name);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  if (!this.hasCompiledDoctype &#x26;&#x26; &#x27;html&#x27; == name) {
+  if (!this.hasCompiledDoctype &amp;&amp; 'html' == name) {
     this.visitDoctype();
   }
   this.hasCompiledTag = true;
 }
 
 // pretty print
-if (pp &#x26;&#x26; !tag.<span class="apidocCodeKeywordSpan">isInline</span>())
+if (pp &amp;&amp; !tag.<span class="apidocCodeKeywordSpan">isInline</span>())
   this.prettyIndent(0, true);
 
-if (tag.selfClosing || (!this.xml &#x26;&#x26; selfClosing[tag.name])) {
-  this.buffer(&#x27;&#x3c;&#x27;);
+if (tag.selfClosing || (!this.xml &amp;&amp; selfClosing[tag.name])) {
+  this.buffer('&lt;');
   bufferName();
   this.visitAttributes(tag.attrs, tag.attributeBlocks.slice());
   this.terse
@@ -9850,10 +9842,10 @@ var line = this.line();
 var match = /(\\)?#\[((?:.|\n)*)$/.exec(str);
 if (match) {
   if (match[1]) { // escape
-    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + &#x27;#[&#x27;);
+    var text = new nodes.<span class="apidocCodeKeywordSpan">Text</span>(str.substr(0, match.index) + '#[');
     text.line = line;
     var rest = this.parseInlineTagsInText(match[2]);
-    if (rest[0].type === &#x27;Text&#x27;) {
+    if (rest[0].type === 'Text') {
       text.val += rest[0].val;
       rest.shift();
     }
@@ -9881,13 +9873,13 @@ if (match) {
   this.val = line;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fs = require(&#x27;fs&#x27;);
+var fs = require('fs');
 
-var path = this.resolvePath(this.expect(&#x27;extends&#x27;).val.trim(), &#x27;extends&#x27;);
-if (&#x27;.jade&#x27; != path.substr(-5)) path += &#x27;.jade&#x27;;
+var path = this.resolvePath(this.expect('extends').val.trim(), 'extends');
+if ('.jade' != path.substr(-5)) path += '.jade';
 
 this.dependencies.push(path);
-var str = fs.readFileSync(path, &#x27;utf8&#x27;);
+var str = fs.readFileSync(path, 'utf8');
 var parser = new this.<span class="apidocCodeKeywordSpan">constructor</span>(str, path, this.options);
 parser.dependencies = this.dependencies;
 
@@ -9926,15 +9918,15 @@ str = String(str);
 var parsed = parse(str, options);
 if (options.compileDebug !== false) {
   fn = [
-      &#x27;var jade_debug = [ new jade.<span class="apidocCodeKeywordSpan">DebugItem</span>( 1, &#x27; + filename + &#x27; ) ];&#
+      'var jade_debug = [ new jade.<span class="apidocCodeKeywordSpan">DebugItem</span>( 1, ' + filename + ' ) ];&amp;#
 x27;
-    , &#x27;try {&#x27;
+    , 'try {'
     , parsed.body
-    , &#x27;} catch (err) {&#x27;
-    , &#x27;  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno&#x27; + (options.compileDebug === true ? &#x27;,&#x27
-; + utils.stringify(str) : &#x27;&#x27;) + &#x27;);&#x27;
-    , &#x27;}&#x27;
-  ].join(&#x27;\n&#x27;);
+    , '} catch (err) {'
+    , '  jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno' + (options.compileDebug === true ? ','
+; + utils.stringify(str) : '') + ');'
+    , '}'
+  ].join('\n');
 } else {
 ...</pre></li>
     </ul>
@@ -9949,41 +9941,41 @@ x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function attr(key, val, escaped, terse) {
-  if (key === &#x27;style&#x27;) {
+  if (key === 'style') {
     val = exports.style(val);
   }
-  if (&#x27;boolean&#x27; == typeof val || null == val) {
+  if ('boolean' == typeof val || null == val) {
     if (val) {
-      return &#x27; &#x27; + (terse ? key : key + &#x27;=&#x22;&#x27; + key + &#x27;&#x22;&#x27;);
+      return ' ' + (terse ? key : key + '="' + key + '"');
     } else {
-      return &#x27;&#x27;;
+      return '';
     }
-  } else if (0 == key.indexOf(&#x27;data&#x27;) &#x26;&#x26; &#x27;string&#x27; != typeof val) {
-    if (JSON.stringify(val).indexOf(&#x27;&#x26;&#x27;) !== -1) {
-      console.warn(&#x27;Since Jade 2.0.0, ampersands (`&#x26;`) in data attributes &#x27; +
-                   &#x27;will be escaped to `&#x26;amp;`&#x27;);
+  } else if (0 == key.indexOf('data') &amp;&amp; 'string' != typeof val) {
+    if (JSON.stringify(val).indexOf('&amp;') !== -1) {
+      console.warn('Since Jade 2.0.0, ampersands (`&amp;`) in data attributes ' +
+                   'will be escaped to `&amp;amp;`');
     };
-    if (val &#x26;&#x26; typeof val.toISOString === &#x27;function&#x27;) {
-      console.warn(&#x27;Jade will eliminate the double quotes around dates in &#x27; +
-                   &#x27;ISO form after 2.0.0&#x27;);
+    if (val &amp;&amp; typeof val.toISOString === 'function') {
+      console.warn('Jade will eliminate the double quotes around dates in ' +
+                   'ISO form after 2.0.0');
     }
-    return &#x27; &#x27; + key + &#x22;=&#x27;&#x22; + JSON.stringify(val).replace(/&#x27;/g, &#x27;&#x26;apos;&#x27;) + &#x22;&#x27;&#x22;;
+    return ' ' + key + "='" + JSON.stringify(val).replace(/'/g, '&amp;apos;') + "'";
   } else if (escaped) {
-    if (val &#x26;&#x26; typeof val.toISOString === &#x27;function&#x27;) {
-      console.warn(&#x27;Jade will stringify dates in ISO form after 2.0.0&#x27;);
+    if (val &amp;&amp; typeof val.toISOString === 'function') {
+      console.warn('Jade will stringify dates in ISO form after 2.0.0');
     }
-    return &#x27; &#x27; + key + &#x27;=&#x22;&#x27; + exports.escape(val) + &#x27;&#x22;&#x27;;
+    return ' ' + key + '="' + exports.escape(val) + '"';
   } else {
-    if (val &#x26;&#x26; typeof val.toISOString === &#x27;function&#x27;) {
-      console.warn(&#x27;Jade will stringify dates in ISO form after 2.0.0&#x27;);
+    if (val &amp;&amp; typeof val.toISOString === 'function') {
+      console.warn('Jade will stringify dates in ISO form after 2.0.0');
     }
-    return &#x27; &#x27; + key + &#x27;=&#x22;&#x27; + val + &#x27;&#x22;&#x27;;
+    return ' ' + key + '="' + val + '"';
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 var escaped = attr.escaped;
 
-if (key === &#x27;class&#x27;) {
+if (key === 'class') {
   classes.push(attr.val);
   classEscaping.push(attr.escaped);
 } else if (isConstant(attr.val)) {
@@ -9991,11 +9983,11 @@ if (key === &#x27;class&#x27;) {
     this.buffer(runtime.<span class="apidocCodeKeywordSpan">attr</span>(key, toConstant(attr.val), escaped, this.terse));
   } else {
     var val = toConstant(attr.val);
-    if (key === &#x27;style&#x27;) val = runtime.style(val);
-    if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0 &#x26;&#x26; typeof val !== &#x27;string&#x27;)) {
+    if (key === 'style') val = runtime.style(val);
+    if (escaped &amp;&amp; !(key.indexOf('data') === 0 &amp;&amp; typeof val !== 'string')) {
       val = runtime.escape(val);
     }
-    buf.push(utils.stringify(key) + &#x27;: &#x27; + utils.stringify(val));
+    buf.push(utils.stringify(key) + ': ' + utils.stringify(val));
 ...</pre></li>
     </ul>
 
@@ -10014,13 +10006,13 @@ if (key === &#x27;class&#x27;) {
   var keys = Object.keys(obj);
 
   if (keys.length) {
-    for (var i = 0; i &#x3c; keys.length; ++i) {
+    for (var i = 0; i &lt; keys.length; ++i) {
       var key = keys[i]
         , val = obj[key];
 
-      if (&#x27;class&#x27; == key) {
+      if ('class' == key) {
         if (val = joinClasses(val)) {
-          buf.push(&#x27; &#x27; + key + &#x27;=&#x22;&#x27; + val + &#x27;&#x22;&#x27;);
+          buf.push(' ' + key + '="' + val + '"');
         }
       } else {
         buf.push(exports.attr(key, val, false, terse));
@@ -10028,11 +10020,11 @@ if (key === &#x27;class&#x27;) {
     }
   }
 
-  return buf.join(&#x27;&#x27;);
+  return buf.join('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   } else {
-    this.buf.push(&#x27;}&#x27;);
+    this.buf.push('}');
   }
 }
 
@@ -10041,10 +10033,10 @@ if (attrsBlocks.length) {
     var val = this.<span class="apidocCodeKeywordSpan">attrs</span>(attrs);
     attrsBlocks.unshift(val);
   }
-  this.buf.push(&#x27;attributes: jade.merge([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#x27;])&#x27;);
+  this.buf.push('attributes: jade.merge([' + attrsBlocks.join(',') + '])');
 } else if (attrs.length) {
   var val = this.attrs(attrs);
-  this.buf.push(&#x27;attributes: &#x27; + val);
+  this.buf.push('attributes: ' + val);
 }
 ...</pre></li>
     </ul>
@@ -10060,8 +10052,8 @@ if (attrsBlocks.length) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function cls(classes, escaped) {
   var buf = [];
-  for (var i = 0; i &#x3c; classes.length; i++) {
-    if (escaped &#x26;&#x26; escaped[i]) {
+  for (var i = 0; i &lt; classes.length; i++) {
+    if (escaped &amp;&amp; escaped[i]) {
       buf.push(exports.escape(joinClasses([classes[i]])));
     } else {
       buf.push(joinClasses(classes[i]));
@@ -10069,14 +10061,14 @@ if (attrsBlocks.length) {
   }
   var text = joinClasses(buf);
   if (text.length) {
-    return &#x27; class=&#x22;&#x27; + text + &#x27;&#x22;&#x27;;
+    return ' class="' + text + '"';
   } else {
-    return &#x27;&#x27;;
+    return '';
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       }
-      buf.push(utils.stringify(key) + &#x27;: &#x27; + val);
+      buf.push(utils.stringify(key) + ': ' + val);
     }
   }
 }.bind(this));
@@ -10084,8 +10076,8 @@ if (buffer) {
   if (classes.every(isConstant)) {
     this.buffer(runtime.<span class="apidocCodeKeywordSpan">cls</span>(classes.map(toConstant), classEscaping));
   } else {
-    this.bufferExpression(&#x27;jade.cls([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;], &#x27; + utils.stringify(classEscaping
-) + &#x27;)&#x27;);
+    this.bufferExpression('jade.cls([' + classes.join(',') + '], ' + utils.stringify(classEscaping
+) + ')');
   }
 } else if (classes.length) {
   if (classes.every(isConstant)) {
@@ -10105,7 +10097,7 @@ if (buffer) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function jade_escape(html){
   var result = String(html).replace(jade_match_html, jade_encode_char);
-  if (result === &#x27;&#x27; + html) return html;
+  if (result === '' + html) return html;
   else return result;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -10115,8 +10107,8 @@ if (buffer) {
 // Buffer code
 if (code.buffer) {
   var val = code.val.trim();
-  val = &#x27;null == (jade_interp = &#x27;+val+&#x27;) ? &#x22;&#x22; : jade_interp&#x27;;
-  if (code.escape) val = &#x27;jade.<span class="apidocCodeKeywordSpan">escape</span>(&#x27; + val + &#x27;)&#x27;;
+  val = 'null == (jade_interp = '+val+') ? "" : jade_interp';
+  if (code.escape) val = 'jade.<span class="apidocCodeKeywordSpan">escape</span>(' + val + ')';
   this.bufferExpression(val);
 } else {
   this.buf.push(code.val);
@@ -10138,15 +10130,15 @@ if (code.block) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function joinClasses(val) {
   return (Array.isArray(val) ? val.map(joinClasses) :
-    (val &#x26;&#x26; typeof val === &#x27;object&#x27;) ? Object.keys(val).filter(function (key) { return val[key]; }) :
-    [val]).filter(nulls).join(&#x27; &#x27;);
+    (val &amp;&amp; typeof val === 'object') ? Object.keys(val).filter(function (key) { return val[key]; }) :
+    [val]).filter(nulls).join(' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   if (classes.every(isConstant)) {
     this.buffer(runtime.cls(classes.map(toConstant), classEscaping));
   } else {
-    this.bufferExpression(&#x27;jade.cls([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;], &#x27; + utils.stringify(classEscaping
-) + &#x27;)&#x27;);
+    this.bufferExpression('jade.cls([' + classes.join(',') + '], ' + utils.stringify(classEscaping
+) + ')');
   }
 } else if (classes.length) {
   if (classes.every(isConstant)) {
@@ -10155,11 +10147,11 @@ if (code.block) {
       return classEscaping[i] ? runtime.escape(cls) : cls;
     })));
   } else {
-    classes = &#x27;(jade_interp = &#x27; + utils.stringify(classEscaping) + &#x27;,&#x27; +
-      &#x27; jade.joinClasses([&#x27; + classes.join(&#x27;,&#x27;) + &#x27;].map(jade.joinClasses).map(function (cls, i) {&#x27
+    classes = '(jade_interp = ' + utils.stringify(classEscaping) + ',' +
+      ' jade.joinClasses([' + classes.join(',') + '].map(jade.joinClasses).map(function (cls, i) {'
 ; +
-      &#x27;   return jade_interp[i] ? jade.escape(cls) : cls&#x27; +
-      &#x27; }))&#x27; +
+      '   return jade_interp[i] ? jade.escape(cls) : cls' +
+      ' }))' +
 ...</pre></li>
     </ul>
 
@@ -10175,24 +10167,24 @@ if (code.block) {
     <li>description and source-code<pre class="apidocCodePre">function merge(a, b) {
   if (arguments.length === 1) {
     var attrs = a[0];
-    for (var i = 1; i &#x3c; a.length; i++) {
+    for (var i = 1; i &lt; a.length; i++) {
       attrs = merge(attrs, a[i]);
     }
     return attrs;
   }
-  var ac = a[&#x27;class&#x27;];
-  var bc = b[&#x27;class&#x27;];
+  var ac = a['class'];
+  var bc = b['class'];
 
   if (ac || bc) {
     ac = ac || [];
     bc = bc || [];
     if (!Array.isArray(ac)) ac = [ac];
     if (!Array.isArray(bc)) bc = [bc];
-    a[&#x27;class&#x27;] = ac.concat(bc).filter(nulls);
+    a['class'] = ac.concat(bc).filter(nulls);
   }
 
   for (var key in b) {
-    if (key != &#x27;class&#x27;) {
+    if (key != 'class') {
       a[key] = b[key];
     }
   }
@@ -10207,15 +10199,15 @@ if (attrsBlocks.length) {
     var val = this.attrs(attrs);
     attrsBlocks.unshift(val);
   }
-  this.buf.push(&#x27;attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#
-x27;])&#x27;);
+  this.buf.push('attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([' + attrsBlocks.join(',') + &amp;#
+x27;])');
 } else if (attrs.length) {
   var val = this.attrs(attrs);
-  this.buf.push(&#x27;attributes: &#x27; + val);
+  this.buf.push('attributes: ' + val);
 }
 
 if (args) {
-  this.buf.push(&#x27;}, &#x27; + args + &#x27;);&#x27;);
+  this.buf.push('}, ' + args + ');');
 ...</pre></li>
     </ul>
 
@@ -10230,33 +10222,33 @@ if (args) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function rethrow(err, filename, lineno, str){
   if (!(err instanceof Error)) throw err;
-  if ((typeof window != &#x27;undefined&#x27; || !filename) &#x26;&#x26; !str) {
-    err.message += &#x27; on line &#x27; + lineno;
+  if ((typeof window != 'undefined' || !filename) &amp;&amp; !str) {
+    err.message += ' on line ' + lineno;
     throw err;
   }
   try {
-    str = str || require(&#x27;fs&#x27;).readFileSync(filename, &#x27;utf8&#x27;)
+    str = str || require('fs').readFileSync(filename, 'utf8')
   } catch (ex) {
     rethrow(err, null, lineno)
   }
   var context = 3
-    , lines = str.split(&#x27;\n&#x27;)
+    , lines = str.split('\n')
     , start = Math.max(lineno - context, 0)
     , end = Math.min(lines.length, lineno + context);
 
   // Error context
   var context = lines.slice(start, end).map(function(line, i){
     var curr = i + start + 1;
-    return (curr == lineno ? &#x27;  &#x3e; &#x27; : &#x27;    &#x27;)
+    return (curr == lineno ? '  &gt; ' : '    ')
       + curr
-      + &#x27;| &#x27;
+      + '| '
       + line;
-  }).join(&#x27;\n&#x27;);
+  }).join('\n');
 
   // Alter exception message
   err.path = filename;
-  err.message = (filename || &#x27;Jade&#x27;) + &#x27;:&#x27; + lineno
-    + &#x27;\n&#x27; + context + &#x27;\n\n&#x27; + err.message;
+  err.message = (filename || 'Jade') + ':' + lineno
+    + '\n' + context + '\n\n' + err.message;
   throw err;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -10288,10 +10280,10 @@ try {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">style = function (val) {
-  if (val &#x26;&#x26; typeof val === &#x27;object&#x27;) {
+  if (val &amp;&amp; typeof val === 'object') {
     return Object.keys(val).map(function (style) {
-      return style + &#x27;:&#x27; + val[style];
-    }).join(&#x27;;&#x27;);
+      return style + ':' + val[style];
+    }).join(';');
   } else {
     return val;
   }
@@ -10304,11 +10296,11 @@ try {
     this.buffer(runtime.attr(key, toConstant(attr.val), escaped, this.terse));
   } else {
     var val = toConstant(attr.val);
-    if (key === &#x27;style&#x27;) val = runtime.<span class="apidocCodeKeywordSpan">style</span>(val);
-    if (escaped &#x26;&#x26; !(key.indexOf(&#x27;data&#x27;) === 0 &#x26;&#x26; typeof val !== &#x27;string&#x27;)) {
+    if (key === 'style') val = runtime.<span class="apidocCodeKeywordSpan">style</span>(val);
+    if (escaped &amp;&amp; !(key.indexOf('data') === 0 &amp;&amp; typeof val !== 'string')) {
       val = runtime.escape(val);
     }
-    buf.push(utils.stringify(key) + &#x27;: &#x27; + utils.stringify(val));
+    buf.push(utils.stringify(key) + ': ' + utils.stringify(val));
   }
 } else {
   if (buffer) {
@@ -10341,15 +10333,15 @@ if (attrsBlocks.length) {
     var val = this.attrs(attrs);
     attrsBlocks.unshift(val);
   }
-  this.buf.push(&#x27;attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([&#x27; + attrsBlocks.join(&#x27;,&#x27;) + &#
-x27;])&#x27;);
+  this.buf.push('attributes: jade.<span class="apidocCodeKeywordSpan">merge</span>([' + attrsBlocks.join(',') + &amp;#
+x27;])');
 } else if (attrs.length) {
   var val = this.attrs(attrs);
-  this.buf.push(&#x27;attributes: &#x27; + val);
+  this.buf.push('attributes: ' + val);
 }
 
 if (args) {
-  this.buf.push(&#x27;}, &#x27; + args + &#x27;);&#x27;);
+  this.buf.push('}, ' + args + ');');
 ...</pre></li>
     </ul>
 
@@ -10364,8 +10356,8 @@ if (args) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">stringify = function (str) {
   return JSON.stringify(str)
-             .replace(/\u2028/g, &#x27;\\u2028&#x27;)
-             .replace(/\u2029/g, &#x27;\\u2029&#x27;);
+             .replace(/\u2028/g, '\\u2028')
+             .replace(/\u2029/g, '\\u2029');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * @return {Function}
@@ -10376,7 +10368,7 @@ exports.compile = function(str, options){
 var options = options || {}
   , filename = options.filename
     ? utils.<span class="apidocCodeKeywordSpan">stringify</span>(options.filename)
-    : &#x27;undefined&#x27;
+    : 'undefined'
   , fn;
 
 str = String(str);
@@ -10396,35 +10388,35 @@ if (options.compileDebug !== false) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function walkAST(ast, before, after) {
-  before &#x26;&#x26; before(ast);
+  before &amp;&amp; before(ast);
   switch (ast.type) {
-    case &#x27;Block&#x27;:
+    case 'Block':
       ast.nodes.forEach(function (node) {
         walkAST(node, before, after);
       });
       break;
-    case &#x27;Case&#x27;:
-    case &#x27;Each&#x27;:
-    case &#x27;Mixin&#x27;:
-    case &#x27;Tag&#x27;:
-    case &#x27;When&#x27;:
-    case &#x27;Code&#x27;:
-      ast.block &#x26;&#x26; walkAST(ast.block, before, after);
+    case 'Case':
+    case 'Each':
+    case 'Mixin':
+    case 'Tag':
+    case 'When':
+    case 'Code':
+      ast.block &amp;&amp; walkAST(ast.block, before, after);
       break;
-    case &#x27;Attrs&#x27;:
-    case &#x27;BlockComment&#x27;:
-    case &#x27;Comment&#x27;:
-    case &#x27;Doctype&#x27;:
-    case &#x27;Filter&#x27;:
-    case &#x27;Literal&#x27;:
-    case &#x27;MixinBlock&#x27;:
-    case &#x27;Text&#x27;:
+    case 'Attrs':
+    case 'BlockComment':
+    case 'Comment':
+    case 'Doctype':
+    case 'Filter':
+    case 'Literal':
+    case 'MixinBlock':
+    case 'Text':
       break;
     default:
-      throw new Error(&#x27;Unexpected node type &#x27; + ast.type);
+      throw new Error('Unexpected node type ' + ast.type);
       break;
   }
-  after &#x26;&#x26; after(ast);
+  after &amp;&amp; after(ast);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   for (var name in this.mixins)
@@ -10432,16 +10424,16 @@ if (options.compileDebug !== false) {
   return ast;
 }
 
-if (!this.extending &#x26;&#x26; !this.included &#x26;&#x26; Object.keys(this.blocks).length){
+if (!this.extending &amp;&amp; !this.included &amp;&amp; Object.keys(this.blocks).length){
   var blocks = [];
   utils.<span class="apidocCodeKeywordSpan">walkAST</span>(block, function (node) {
-    if (node.type === &#x27;Block&#x27; &#x26;&#x26; node.name) {
+    if (node.type === 'Block' &amp;&amp; node.name) {
       blocks.push(node.name);
     }
   });
   Object.keys(this.blocks).forEach(function (name) {
-    if (blocks.indexOf(name) === -1 &#x26;&#x26; !this.blocks[name].isSubBlock) {
-      console.warn(&#x27;Warning: Unexpected block &#x22;&#x27;
+    if (blocks.indexOf(name) === -1 &amp;&amp; !this.blocks[name].isSubBlock) {
+      console.warn('Warning: Unexpected block "'
 ...</pre></li>
     </ul>
 
@@ -10454,3 +10446,4 @@ if (!this.extending &#x26;&#x26; !this.included &#x26;&#x26; Object.keys(this.bl
     ]
 </div>
 </div>
+</body></html>
