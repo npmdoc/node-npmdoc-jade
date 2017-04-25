@@ -1,6 +1,6 @@
 # npmdoc-jade
 
-#### api documentation for  [jade (v1.11.0)](http://jade-lang.com)  [![npm package](https://img.shields.io/npm/v/npmdoc-jade.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jade) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jade.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jade)
+#### basic api documentation for  [jade (v1.11.0)](http://jade-lang.com)  [![npm package](https://img.shields.io/npm/v/npmdoc-jade.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jade) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jade.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jade)
 
 #### A clean, whitespace-sensitive template language for writing HTML
 
