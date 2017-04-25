@@ -2526,21 +2526,21 @@
   return res;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+  runtime.rethrow(err, parser.filename, parser.lexer.lineno, parser.input);
+}
 
-For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
-
-```js
-var jade = require('jade');
-
-// compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
-var html = fn(locals);
-
-// render
-var html = jade.render('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.renderFile('filename.jade', merge(options, locals));
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+var js;
+try {
+  js = compiler.<span class="apidocCodeKeywordSpan">compile</span>();
+} catch (err) {
+  if (err.line &amp;&amp; (err.filename || !options.filename)) {
+    runtime.rethrow(err, err.filename, err.line, parser.input);
+  } else {
+    if (err instanceof Error) {
+      err.message += '\n\nPlease report this entire error and stack trace to https://github.com/jadejs/jade/issues';
+    }
 ...</pre></li>
     </ul>
 
@@ -2994,20 +2994,21 @@ exports.compileClient = function (str, options) {
   return handleTemplateCache(options, str)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var jade = require('jade');
+// support callback API
+if ('function' == typeof options) {
+  fn = options, options = undefined;
+}
+if (typeof fn === 'function') {
+  var res
+  try {
+    res = exports.<span class="apidocCodeKeywordSpan">render</span>(str, options);
+  } catch (ex) {
+    return fn(ex);
+  }
+  return fn(null, res);
+}
 
-// compile
-var fn = jade.compile('string of jade', options);
-var html = fn(locals);
-
-// render
-var html = jade.<span class="apidocCodeKeywordSpan">render</span>('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.renderFile('filename.jade', merge(options, locals));
-```
-
-### Options
+options = options || {};
 ...</pre></li>
     </ul>
 
@@ -3041,21 +3042,21 @@ var html = jade.renderFile('filename.jade', merge(options, locals));
   return handleTemplateCache(options)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fn = jade.compile('string of jade', options);
-var html = fn(locals);
+// support callback API
+if ('function' == typeof options) {
+  fn = options, options = undefined;
+}
+if (typeof fn === 'function') {
+  var res
+  try {
+    res = exports.<span class="apidocCodeKeywordSpan">renderFile</span>(path, options);
+  } catch (ex) {
+    return fn(ex);
+  }
+  return fn(null, res);
+}
 
-// render
-var html = jade.render('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>('filename.jade', merge(options, locals));
-```
-
-### Options
-
-- `filename`  Used in exceptions, and required when using includes
-- `compileDebug`  When `false` no debug instrumentation is compiled
-- `pretty`    Add pretty-indentation whitespace to output _(false by default)_
+options = options || {};
 ...</pre></li>
     </ul>
 
@@ -3382,21 +3383,21 @@ str = utils.stringify(str);
   return this.buf.join('\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+  runtime.rethrow(err, parser.filename, parser.lexer.lineno, parser.input);
+}
 
-For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
-
-```js
-var jade = require('jade');
-
-// compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
-var html = fn(locals);
-
-// render
-var html = jade.render('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.renderFile('filename.jade', merge(options, locals));
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+var js;
+try {
+  js = compiler.<span class="apidocCodeKeywordSpan">compile</span>();
+} catch (err) {
+  if (err.line &amp;&amp; (err.filename || !options.filename)) {
+    runtime.rethrow(err, err.filename, err.line, parser.input);
+  } else {
+    if (err instanceof Error) {
+      err.message += '\n\nPlease report this entire error and stack trace to https://github.com/jadejs/jade/issues';
+    }
 ...</pre></li>
     </ul>
 
@@ -7732,21 +7733,21 @@ parser.dependencies = this.dependencies;
   return res;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+  runtime.rethrow(err, parser.filename, parser.lexer.lineno, parser.input);
+}
 
-For full API, see [jade-lang.com/api](http://jade-lang.com/api/)
-
-```js
-var jade = require('jade');
-
-// compile
-var fn = jade.<span class="apidocCodeKeywordSpan">compile</span>('string of jade', options);
-var html = fn(locals);
-
-// render
-var html = jade.render('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.renderFile('filename.jade', merge(options, locals));
+// Compile
+var compiler = new (options.compiler || Compiler)(tokens, options);
+var js;
+try {
+  js = compiler.<span class="apidocCodeKeywordSpan">compile</span>();
+} catch (err) {
+  if (err.line &amp;&amp; (err.filename || !options.filename)) {
+    runtime.rethrow(err, err.filename, err.line, parser.input);
+  } else {
+    if (err instanceof Error) {
+      err.message += '\n\nPlease report this entire error and stack trace to https://github.com/jadejs/jade/issues';
+    }
 ...</pre></li>
     </ul>
 
@@ -7930,20 +7931,21 @@ exports.compileClient = function (str, options) {
   return handleTemplateCache(options, str)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var jade = require('jade');
+// support callback API
+if ('function' == typeof options) {
+  fn = options, options = undefined;
+}
+if (typeof fn === 'function') {
+  var res
+  try {
+    res = exports.<span class="apidocCodeKeywordSpan">render</span>(str, options);
+  } catch (ex) {
+    return fn(ex);
+  }
+  return fn(null, res);
+}
 
-// compile
-var fn = jade.compile('string of jade', options);
-var html = fn(locals);
-
-// render
-var html = jade.<span class="apidocCodeKeywordSpan">render</span>('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.renderFile('filename.jade', merge(options, locals));
-```
-
-### Options
+options = options || {};
 ...</pre></li>
     </ul>
 
@@ -7977,21 +7979,21 @@ var html = jade.renderFile('filename.jade', merge(options, locals));
   return handleTemplateCache(options)(options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var fn = jade.compile('string of jade', options);
-var html = fn(locals);
+// support callback API
+if ('function' == typeof options) {
+  fn = options, options = undefined;
+}
+if (typeof fn === 'function') {
+  var res
+  try {
+    res = exports.<span class="apidocCodeKeywordSpan">renderFile</span>(path, options);
+  } catch (ex) {
+    return fn(ex);
+  }
+  return fn(null, res);
+}
 
-// render
-var html = jade.render('string of jade', merge(options, locals));
-
-// renderFile
-var html = jade.<span class="apidocCodeKeywordSpan">renderFile</span>('filename.jade', merge(options, locals));
-```
-
-### Options
-
-- `filename`  Used in exceptions, and required when using includes
-- `compileDebug`  When `false` no debug instrumentation is compiled
-- `pretty`    Add pretty-indentation whitespace to output _(false by default)_
+options = options || {};
 ...</pre></li>
     </ul>
 
